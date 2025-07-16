@@ -1,0 +1,26 @@
+ [
+  {
+    "title": "Crossword",
+    "description": "Challenge your vocabulary today.",
+    "image": "/images/bongo.webp",
+    "bgColor": "#f2f2f2"
+  },
+  {
+    "title": "Sudoku",
+    "description": "Sharpen your logic skills.",
+    "image": "/images/spelltower.webp",
+    "bgColor": "#e6f7ff"
+  },
+  {
+    "title": "Jumble",
+    "description": "Unscramble words for fun.",
+    "image": "/images/flipkart.webp",
+    "bgColor": "#fff0f5"
+  },
+  {
+    "title": "Jumble",
+    "description": "Unscramble words for fun.",
+    "image": "/images/flipkart.webp",
+    "bgColor": "#fff0f5"
+  }
+]
