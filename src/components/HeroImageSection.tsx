@@ -20,7 +20,7 @@ interface Props {
 const HeroImageSection: React.FC<Props> = ({ data }) => {
   return (
     <div
-      className="container-fluid py-5"
+      className="container py-5"
       style={{
         position: 'relative',
         width: '100%',

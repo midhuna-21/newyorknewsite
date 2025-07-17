@@ -6,7 +6,7 @@ import { FaInstagram, FaTiktok, FaThreads, FaXTwitter, FaFacebookF, FaLinkedinIn
 
 export default function Footer() {
     return (
-        <footer style={{ backgroundColor: '#0d0d0d', color: '#fff', paddingTop: '40px', fontSize: '0.95rem', paddingBottom: '30px', }}>
+        <footer style={{ backgroundColor: '#0d0d0d', color: '#fff', paddingTop: '40px', fontSize: '0.95rem', paddingBottom: '30px', marginTop:"40px" }}>
             <Container>
                 <Row className="gy-4 gx-0">
                     <Col xs={12} md={4}>

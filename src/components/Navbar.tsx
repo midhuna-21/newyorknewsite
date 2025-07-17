@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -12,7 +13,7 @@ const categories = [
     { label: 'Politics', category: 'politics' },
 ];
 
-const CategoryNavbar = () => {
+const Navbar = () => {
     return (
         <nav
             aria-label="Category Navigation"
@@ -22,7 +23,7 @@ const CategoryNavbar = () => {
                 padding: '10px 0',
             }}
         >
-            <Container fluid>
+            <Container>
                 <Row>
                     <Col>
                         <div
@@ -36,10 +37,12 @@ const CategoryNavbar = () => {
                                 fontWeight: 600,
                             }}
                         >
-                            {categories.map((category, index) => (
-                                <a
-                                    key={index}
-                                    href="#"
+
+                            {categories.map((item) => (
+                                <Link
+                                    key={item.category} 
+                                    href={`/${item.category}`}
+                                    title={item.label} 
                                     style={{
                                         fontSize: '12px',
                                         color: '#000000',
@@ -49,9 +52,10 @@ const CategoryNavbar = () => {
                                         whiteSpace: 'nowrap',
                                     }}
                                 >
-                                    {category.label}
-                                </a>
+                                    {item.label}
+                                </Link>
                             ))}
+
                         </div>
                     </Col>
                 </Row>
@@ -60,4 +64,4 @@ const CategoryNavbar = () => {
     );
 };
 
-export default CategoryNavbar;
+export default Navbar;

@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { BiCalendar } from 'react-icons/bi';
 
 interface NewsData {
   category: string;
@@ -19,21 +20,22 @@ export default function DailyNews({ data }: DailyNewsProps) {
   return (
     <div className="container d-flex justify-content-center py-5">
       <div className="col-12 col-md-9 text-center">
-        {/* Dynamic Image */}
+        {/* 🔽 Smaller Image */}
         <Image
           src={data.image}
           alt={data.title}
-          width={1000}
-          height={700}
+          width={500} // ↓ Reduced width
+          height={350} // ↓ Reduced height
           className="img-fluid"
           style={{
             width: '100%',
+            maxWidth: '500px', // ✅ Prevents full-width stretch
             height: 'auto',
             marginBottom: '20px',
           }}
         />
 
-        {/* Dynamic Caption (title as caption) */}
+        {/* Title */}
         <p
           style={{
             fontStyle: 'italic',
@@ -45,15 +47,9 @@ export default function DailyNews({ data }: DailyNewsProps) {
           “{data.title}”
         </p>
 
-        <p
-          style={{
-            fontSize: '0.9rem',
-            color: '#555',
-            fontWeight: '500',
-          }}
-        >
-          From the <strong>{data.category}</strong> section
-        </p>
+        <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
+        <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
+        <span style={{ color: '#aaa', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
       </div>
     </div>
   );

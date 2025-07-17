@@ -39,4 +39,28 @@ a {
   html {
     color-scheme: dark;
   }
+  .custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f7f7f7; /* thumb color, track color */
+}
+
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px; /* horizontal scroll */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f7f7f7; /* light whitish gray */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;       /* medium gray */
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;       /* darker on hover */
+}
+
 }
