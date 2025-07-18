@@ -26,7 +26,7 @@ export default function AllFourCritics({ data }: AllCriticsProps) {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)', // Show 4 in one row
+          gridTemplateColumns: 'repeat(4, 1fr)', 
           gap: '30px',
         }}
       >
@@ -34,7 +34,6 @@ export default function AllFourCritics({ data }: AllCriticsProps) {
           <div key={index} style={{ position: 'relative' }}>
             <CriticWithoutCategory data={item} />
 
-            {/* Add vertical line between items except last one */}
             {index !== displayItems.length - 1 && (
               <div
                 style={{

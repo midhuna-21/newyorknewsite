@@ -1,37 +1,40 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const Signup = () => {
+
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div className="container text-center py-5">
       {/* Heading */}
       <h2
         style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: '36px',
-          fontWeight: 500,
+          color: "#000",
+          fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+
+          fontSize: '38px',
+          fontWeight: 400,
           marginBottom: '20px',
         }}
       >
         Get the News & Politics <br /> newsletter
       </h2>
 
-      {/* Description */}
       <p
         style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: '18px',
+          fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+          fontSize: '17px',
+          fontWeight: 400,
           maxWidth: '700px',
           margin: '0 auto 30px',
           lineHeight: '1.6',
+          color: '#000'
         }}
       >
         The latest from Washington and beyond, covering current events, the economy, and more,
         from our columnists and correspondents.
       </p>
-
-      {/* Signup Form */}
       <div
         className="row justify-content-center"
         style={{ maxWidth: '700px', margin: '0 auto 20px' }}
@@ -40,7 +43,7 @@ const Signup = () => {
           <input
             type="email"
             className="form-control"
-            placeholder="Enter your email"
+            placeholder=""
             style={{
               height: '56px',
               borderRadius: 0,
@@ -55,20 +58,22 @@ const Signup = () => {
             style={{
               width: '100%',
               height: '56px',
-              backgroundColor: 'black',
+              fontFamily:'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+              backgroundColor: isHovered ? '#0787CA' : 'black',
               color: 'white',
-              fontWeight: 'bold',
+              fontWeight: 500,
               border: 'none',
               borderRadius: 0,
-              fontSize: '16px',
+              fontSize: '13px',
+              transition: 'background-color 0.3s ease',
             }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             Sign up
           </button>
         </div>
       </div>
-
-      {/* Legal Text */}
       <p
         style={{
           fontSize: '14px',

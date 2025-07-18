@@ -17,6 +17,7 @@ import ClosingOfferBanner from '@/components/ClosingOfferBanner';
 import FavoritesList from '@/components/FavouritesList';
 import AuthorInfo from '@/components/AuthorInfo';
 import Signup from '@/components/Signup';
+import SectionWrapper from '@/components/SectionWrapper';
 
 interface NewsItem {
     category: string;
@@ -29,10 +30,7 @@ interface NewsItem {
 }
 
 interface DetailPageProps {
-    params: {
-        category: string;
-        slug: string;
-    };
+    params: Promise<{ category: string, slug: string }>;
 }
 
 const allData: Record<string, NewsItem[]> = {
@@ -44,8 +42,8 @@ const allData: Record<string, NewsItem[]> = {
     science: scienceData,
 };
 
-export default function DetailPage({ params }: DetailPageProps) {
-    const { category, slug } = params;
+export default async function DetailPage({ params }: DetailPageProps) {
+    const { category, slug } = await params;
     const data = allData[category?.toLowerCase()];
 
     if (!data) return notFound();
@@ -72,9 +70,11 @@ export default function DetailPage({ params }: DetailPageProps) {
                     <Signup />
                 </div>
             </div>
-            <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
-            <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
-            <CardListCategoryPage data={[data[9], data[10], data[11], data[12]]} />
+            <SectionWrapper title='Read More'>
+                <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
+                <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
+                <CardListCategoryPage data={[data[9], data[10], data[11], data[12]]} />
+            </SectionWrapper>
         </div>
 
 

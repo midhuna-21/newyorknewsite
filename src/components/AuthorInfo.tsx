@@ -7,10 +7,9 @@ const AuthorInfo = () => {
   return (
     <div className="container py-4" style={{ maxWidth: '800px' }}>
       <div className="row align-items-center mb-4">
-        {/* Author Image */}
         <div className="col-auto">
           <Image
-            src="/images/author-dummy.webp" 
+            src="/images/author-dummy.webp"
             alt="Isaac Chotiner"
             width={100}
             height={100}
@@ -20,12 +19,12 @@ const AuthorInfo = () => {
           />
         </div>
 
-        {/* Author Bio */}
         <div className="col">
           <p
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: '18px',
+              fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+              fontWeight: 400,
+              fontSize: '21px',
               fontStyle: 'italic',
               margin: 0,
             }}
@@ -47,7 +46,6 @@ const AuthorInfo = () => {
         </div>
       </div>
 
-      {/* Tags */}
       <div
         className="d-flex flex-wrap align-items-center"
         style={{
@@ -56,11 +54,51 @@ const AuthorInfo = () => {
           fontWeight: 500,
         }}
       >
-        <span style={{ color: '#888', marginRight: '10px' }}>More:</span>
-        <span className="me-4">Trump Administration</span>
-        <span className="me-4">Immigrants, Immigration</span>
-        <span className="me-4">Deportations</span>
-        <span>U.S. Supreme Court</span>
+        <span
+          style={{
+            color: 'rgb(102, 102, 102)',
+            marginRight: '10px',
+            fontWeight: 700,
+            fontSize: "13px",
+            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontStyle: "normal"
+          }}
+        >More:</span>
+        <span className="me-4"  style={{
+            color: '#000',
+            marginRight: '10px',
+            fontWeight: 700,
+            fontSize: "13px",
+            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontStyle: "normal"
+          }}
+          >Trump Administration</span>
+        <span className="me-4"  style={{
+            color: '#000)',
+            marginRight: '10px',
+            fontWeight: 700,
+            fontSize: "13px",
+            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontStyle: "normal"
+          }}
+          >Immigrants, Immigration</span>
+        <span className="me-4"  style={{
+            color: '#000',
+            marginRight: '10px',
+            fontWeight: 700,
+            fontSize: "13px",
+            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontStyle: "normal"
+          }}
+          >Deportations</span>
+        <span  style={{
+            color: '#000',
+            marginRight: '10px',
+            fontWeight: 700,
+            fontSize: "13px",
+            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontStyle: "normal"
+          }}>U.S. Supreme Court</span>
       </div>
     </div>
   );

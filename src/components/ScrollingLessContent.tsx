@@ -42,7 +42,6 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
 
   return (
     <div className="container py-4">
-        
       <div
         ref={containerRef}
         style={{

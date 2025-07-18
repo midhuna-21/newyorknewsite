@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
@@ -37,69 +38,53 @@ const HeroImageSection: React.FC<Props> = ({ data }) => {
         padding: '0 20px',
       }}
     >
-      <Container>
-        <p
-          style={{
-            textTransform: 'uppercase',
-            fontSize: '0.9rem',
-            letterSpacing: '1px',
-          }}
-        >
-          {data.category}
-        </p>
+      <Link
+        title={`${data.slug}`}
+        href={`/${data.category}/${data.slug}`}
+        className='text-decoration-none'
+        style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit', }}
+      >
 
-        <h1
-          style={{
-            fontSize: '2.5rem',
-            fontFamily: '"Georgia", serif',
-            fontWeight: 'bold',
-            lineHeight: '1.3',
-            maxWidth: '800px',
-            margin: '0 auto',
-          }}
-        >
-          {data.title}
-        </h1>
+        <Container>
+          <p
+            style={{
+              fontFamily: '"Georgia", serif',
+              fontSize: '12px',
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              fontWeight: 400,
+            }}
+          >
+            {data.category}
+          </p>
 
-        <p
-          style={{
-            fontSize: '1.25rem',
-            marginTop: '1rem',
-            maxWidth: '700px',
-            margin: '1rem auto 0',
-          }}
-        >
-          {data.shortdescription}
-        </p>
+          <h1
+              style={{
+                    fontFamily: '"Georgia", serif',
+                    fontSize: '36px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    fontWeight: 400,
+                  }}
+          >
+            {data.title}
+          </h1>
 
-        {/* <p
-          style={{
-            marginTop: '1rem',
-            fontWeight: 'bold',
-            fontSize: '1.1rem',
-          }}
-        >
-          By <span style={{ color: '#fff' }}>Unknown Author</span>
-        </p>
-
-        <button
-          style={{
-            marginTop: '20px',
-            border: '1px solid #fff',
-            backgroundColor: 'transparent',
-            color: '#fff',
-            padding: '10px 25px',
-            borderRadius: '999px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginLeft: 'auto',
-            gap: '10px',
-          }}
-        >
-          🎧 Listen
-        </button> */}
-      </Container>
+          <p
+            style={{
+              color: "#fff",
+              fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+              fontSize: '21px',
+              fontWeight: 400,
+              marginTop: '1rem',
+              maxWidth: '700px',
+              margin: '1rem auto 0',
+            }}
+          >
+            {data.shortdescription}
+          </p>
+        </Container>
+      </Link>
     </div>
   );
 };

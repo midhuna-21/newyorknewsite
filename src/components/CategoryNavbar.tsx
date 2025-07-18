@@ -69,8 +69,9 @@ const CategoryNavbar = () => {
                         title={item.label}
                         style={{
                             fontSize: '12px',
-                            color: '#000000',
-                            fontWeight: 500,
+                            color: '#000000', 
+                            fontWeight: 600,
+                            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
                             textDecoration: 'none',
                             whiteSpace: 'nowrap',
                             transition: 'color 0.3s ease',

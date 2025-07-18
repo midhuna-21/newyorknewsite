@@ -6,7 +6,7 @@ import { FaInstagram, FaTiktok, FaThreads, FaXTwitter, FaFacebookF, FaLinkedinIn
 
 export default function Footer() {
     return (
-        <footer style={{ backgroundColor: '#0d0d0d', color: '#fff', paddingTop: '40px', fontSize: '0.95rem', paddingBottom: '30px', marginTop:"40px" }}>
+        <footer style={{ backgroundColor: '#0d0d0d', color: '#fff', paddingTop: '40px', fontSize: '0.95rem', paddingBottom: '30px', marginTop: "40px" }}>
             <Container>
                 <Row className="gy-4 gx-0">
                     <Col xs={12} md={4}>
@@ -21,8 +21,23 @@ export default function Footer() {
                     </Col>
 
                     <Col xs={6} md={4} style={{ padding: '0 10px' }}>
-                        <h6 style={{ fontFamily: 'Georgia, serif', textTransform: 'uppercase', marginBottom: '1rem' }}>Categories</h6>
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, lineHeight: '1.8' }}>
+                        <h6 style={{
+                            fontFamily: '"Georgia", serif',
+                            fontSize: '14px',
+                            textTransform: 'uppercase',
+                            letterSpacing: '1px',
+                            fontWeight: 400,
+                        }}
+                        >Categories</h6>
+                        <ul style={{
+                            fontSize: '14px',
+                            color: '#A2A2A2',
+                            fontWeight: 600,
+                            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                            textDecoration: 'none',
+                            whiteSpace: 'nowrap',
+                            transition: 'color 0.3s ease', listStyle: 'none', padding: 0, margin: 0, lineHeight: '1.8'
+                        }}>
                             <li>Business</li>
                             <li>Science</li>
                             <li>Politics</li>
@@ -33,8 +48,22 @@ export default function Footer() {
                     </Col>
 
                     <Col xs={6} md={4} style={{ padding: '0 10px' }}>
-                        <h6 style={{ fontFamily: 'Georgia, serif', textTransform: 'uppercase', marginBottom: '1rem' }}>About</h6>
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, lineHeight: '1.8' }}>
+                        <h6 style={{
+                            fontFamily: '"Georgia", serif',
+                            fontSize: '14px',
+                            textTransform: 'uppercase',
+                            letterSpacing: '1px',
+                            fontWeight: 400,
+                        }}>About</h6>
+                        <ul style={{
+                            fontSize: '14px',
+                            color: '#A2A2A2',
+                            fontWeight: 600,
+                            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                            textDecoration: 'none',
+                            whiteSpace: 'nowrap',
+                            transition: 'color 0.3s ease', listStyle: 'none', padding: 0, margin: 0, lineHeight: '1.8'
+                        }}>
                             <li>Our Company</li>
                             <li>Our Editorial Approach</li>
                             <li>Our Mission</li>

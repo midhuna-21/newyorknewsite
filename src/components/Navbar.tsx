@@ -46,7 +46,7 @@ const Navbar = () => {
                                     style={{
                                         fontSize: '12px',
                                         color: '#000000',
-                                        fontWeight: 500,
+                                        fontWeight: 600,
                                         fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
                                         textDecoration: 'none',
                                         whiteSpace: 'nowrap',

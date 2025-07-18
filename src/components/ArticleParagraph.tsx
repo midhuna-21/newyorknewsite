@@ -16,10 +16,11 @@ const ArticleParagraphWith = ({ data }: ArticleParagraphProps) => {
                 <div className="col-lg-10 mx-auto">
                     <p
                         style={{
-                            fontFamily: `'Georgia', serif`,
-                            fontSize: '20px',
-                            lineHeight: 1.5,
-                            color: '#111',
+                            fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+
+                            fontSize: '21px',
+                            lineHeight: 1.4,
+                            color: '#000',
                             textAlign: 'justify',
                         }}
                     >

@@ -23,44 +23,58 @@ import AllFourCritics from "@/components/AllFourCritics";
 import HorizontalLessContent from "@/components/HorizontalLessContent";
 import ScrollingLessContent from "@/components/ScrollingLessContent";
 import Navbar from "../components/Navbar";
+import SectionWrapper from "@/components/SectionWrapper";
 
 export default function Home() {
   return (
     <main>
-       <div id="first-section">
+      <div id="first-section">
 
-      <FirstIndexSection data={PoliticalData[0]} />
-       </div>
+        <FirstIndexSection data={PoliticalData[0]} />
+      </div>
       <Navbar />
 
-      <HorizontalNewsCard data={[ScienceData[0], TechnologyData[0], SportsData[0], BusinessData[0]]} />
+      <SectionWrapper title="Today’s News">
+        <HorizontalNewsCard data={[ScienceData[0], TechnologyData[0], SportsData[0], BusinessData[0]]} />
+      </SectionWrapper>
 
       <div className='container py-5'>
         <HeroImageSection data={PoliticalData[21]} />
       </div>
 
-        <HorizontalNewsCard data={[ScienceData[1], TechnologyData[2], SportsData[1], BusinessData[1], PoliticalData[1], HealthData[0],ScienceData[10]]} />
+      <SectionWrapper title="The Lede">
+        <HorizontalNewsCard data={[ScienceData[1], TechnologyData[2], SportsData[1], BusinessData[1], PoliticalData[1], HealthData[0], ScienceData[10]]} />
+      </SectionWrapper>
 
       <div
         className='container py-5'>
         <SecondImageContent data={SportsData[2]} />
       </div>
 
-      <AllCritics data={[ScienceData[2], TechnologyData[3], SportsData[3], BusinessData[2], HealthData[10],PoliticalData[10]]} />
+      <SectionWrapper title="The Critics">
+        <AllCritics data={[ScienceData[2], TechnologyData[3], SportsData[3], BusinessData[2], HealthData[10], PoliticalData[10]]} />
+      </SectionWrapper>
 
       <LeftImageContent data={BusinessData[3]} />
 
-      <HorizontalNewsWithCategory data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[3]]} />
+      <SectionWrapper title="Our Columnists">
+        <HorizontalNewsWithCategory data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[3]]} />
+      </SectionWrapper>
 
       <RigtImageContent data={HealthData[2]} />
 
-      <AllFourCritics data={[ScienceData[22], TechnologyData[13], SportsData[13], BusinessData[22]]} />
 
-      <HeroLeftImage data={ScienceData[4]} />
-
-      <HorizontalLessContent data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[3]]} />
+      <SectionWrapper title="Ideas">
+        <AllFourCritics data={[ScienceData[22], TechnologyData[13], SportsData[13], BusinessData[22]]} />
+      </SectionWrapper>
 
       <HeroImageSection data={PoliticalData[2]} />
+
+      <SectionWrapper title="Persons of Interest">
+        <HorizontalLessContent data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[3]]} />
+      </SectionWrapper>
+
+      <HeroLeftImage data={ScienceData[4]} />
 
       <div className="container py-5">
         <div className="row">
@@ -73,18 +87,22 @@ export default function Home() {
 
       <FeaturedStroy data={HealthData[3]} />
 
-      <TrumpCards data={[TechnologyData[6], SportsData[6], HealthData[4], ScienceData[6]]} />
+      <SectionWrapper title="The Talk of the Town">
+        <TrumpCards data={[TechnologyData[6], SportsData[6], HealthData[4], ScienceData[6]]} />
+      </SectionWrapper>
 
       <div className="container py-5">
         <div className="row">
           <div className="col-12 col-md-9">
-            <DailyNews data={PoliticalData[3]} />
+            <SectionWrapper title="Daily Cartoon">
+              <DailyNews data={PoliticalData[3]} />
+            </SectionWrapper>
           </div>
           <div className="d-none d-md-block col-md-3"></div>
         </div>
       </div>
 
-      <ScrollingLessContent data={[HealthData[4], BusinessData[5], HealthData[5], ScienceData[7],TechnologyData[9],BusinessData[14],HealthData[22]]} />
+      <ScrollingLessContent data={[HealthData[4], BusinessData[5], HealthData[5], ScienceData[7], TechnologyData[9], BusinessData[14], HealthData[22]]} />
     </main>
   );
 }

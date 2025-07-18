@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { BiCalendar } from 'react-icons/bi';
 
 interface FeaturedStoryProps {
@@ -19,19 +20,29 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
     <div className="container py-5" style={{ backgroundColor: '#f8f6f1' }}>
       <div className="container">
         <div className="row">
-
           <div className="col-lg-6 mb-4 mb-lg-0">
             <div style={{ paddingBottom: '20px', paddingRight: "20px", paddingLeft: '20px', textAlign: 'center' }}>
-              <p style={{
-                textTransform: 'uppercase',
-                fontSize: '0.9rem',
-                fontFamily: 'Georgia, serif',
-                marginBottom: '20px',
-              }}>
+              <p 
+             style={{
+                  fontSize: '12px',
+                  fontWeight: 400,
+                  color: '#000',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  marginBottom: '10px',
+                  fontFamily: `'Georgia', serif`
+                }}>
                 {data.category}
               </p>
 
-              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.5rem', fontStyle: 'italic', marginBottom: '15px' }}>
+              <h2    style={{
+                    fontFamily: '"Georgia", serif',
+                    fontSize: '22px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    fontWeight: 400,
+                  }}
+>
                 "{data.title}"
               </h2>
               <Image
@@ -51,16 +62,16 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
               <div style={{ marginTop: '10px' }}>
                 <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
                 <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-                <span style={{ color: '#aaa', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
+                <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
               </div>
             </div>
           </div>
           <div className="col-lg-6">
-            <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', lineHeight: '1.7' }}>
+            <p style={{ fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif', fontSize: '21px', lineHeight: '1.7' }}>
               <span
                 style={{
                   fontSize: '2.5rem',
-                  fontWeight: 'bold',
+                  fontWeight: 400,
                   float: 'left',
                   lineHeight: '1',
                   marginRight: '10px',
@@ -68,10 +79,9 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
               >
                 {data.description.charAt(0)}
               </span>
-              {data.description.slice(1, 750)}...
+              {data.description.slice(1, 550)}...
             </p>
-
-            <a
+            <Link
               href={`/${data.category}/${data.slug}`}
               style={{
                 color: '#0074cc',
@@ -81,7 +91,7 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
               }}
             >
               Continue reading »
-            </a>
+            </Link>
           </div>
         </div>
       </div>

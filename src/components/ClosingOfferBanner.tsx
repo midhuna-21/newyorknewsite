@@ -6,15 +6,16 @@ import Image from 'next/image';
 const ClosingOfferBanner = () => {
   return (
     <div className="container text-center py-5">
-      <p style={{ fontSize: '14px', marginBottom: '10px' }}>
+      <p style={{ fontSize: '13px', marginBottom: '10px', color: 'rgb(102, 102, 102)', fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif', fontStyle: "normal" }}>
         Already a subscriber?{' '}
-        <a href="#" style={{ color: '#0066cc', textDecoration: 'underline' }}>
+        <a href="#" style={{ color: 'rgb(8, 121, 191)', fontSize: '13px', textDecoration: 'underline', fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif', fontStyle: "normal" }}>
           Sign In
         </a>
       </p>
       <h2
         style={{
-          fontFamily: `'Georgia', serif`,
+          fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+          color: "#000",
           fontSize: '28px',
           fontWeight: 400,
           marginBottom: '30px',
@@ -25,7 +26,7 @@ const ClosingOfferBanner = () => {
 
       <div style={{ width: '120px', height: '120px', margin: '0 auto 30px' }}>
         <Image
-          src="/images/tny.png" 
+          src="/images/tny.png"
           alt="Closing Window"
           width={120}
           height={120}
@@ -33,8 +34,10 @@ const ClosingOfferBanner = () => {
       </div>
       <p
         style={{
-          fontSize: '18px',
+          fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif', fontStyle: "normal",
+          fontSize: '16px',
           lineHeight: 1.6,
+          color: "#000",
           maxWidth: '600px',
           margin: '0 auto 30px',
         }}
@@ -49,10 +52,12 @@ const ClosingOfferBanner = () => {
           href="#"
           className="btn"
           style={{
-            backgroundColor: '#0066cc',
+            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif', fontStyle: "normal",
+
+            backgroundColor: '#0879BF',
             color: 'white',
             fontWeight: 'bold',
-            fontSize: '16px',
+            fontSize: '13px',
             padding: '10px 28px',
             borderRadius: '6px',
           }}

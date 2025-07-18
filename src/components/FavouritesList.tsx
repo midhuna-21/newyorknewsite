@@ -40,16 +40,16 @@ const FavoritesList = () => {
     <div className="container py-5">
       <h3
         style={{
-          fontFamily: 'Georgia, serif',
-          fontWeight: 'bold',
-          fontSize: '28px',
+          fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+          fontWeight: 400,
+          fontSize: '31px',
           marginBottom: '15px',
         }}
       >
         New Yorker Favorites
       </h3>
       <hr />
-      <ul style={{ listStyle: 'disc', paddingLeft: '20px', fontFamily: 'Georgia, serif', fontSize: '18px' }}>
+      <ul style={{ listStyle: 'disc', paddingLeft: '20px', fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif', fontSize: '21px', color: "#000" }}>
         {items.map((item, index) => (
           <li key={index} style={{ marginBottom: '15px' }}>
             {item.text}

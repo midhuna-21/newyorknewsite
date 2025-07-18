@@ -40,7 +40,7 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
   }, [data.length]);
 
   return (
-    <div className="container py-4">
+    <div>
       <div
         ref={containerRef}
         style={{
@@ -60,6 +60,7 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
               paddingRight: index !== data.length - 1 ? '20px' : 0,
             }}
           >
+            
             <NewsCard
               data={{
                 category: item.category,

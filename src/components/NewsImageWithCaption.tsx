@@ -35,15 +35,16 @@ const NewsImageWithCaption = ({ data }: NewsImageWithCaptionProps) => {
           </div>
           <p
             style={{
-              fontSize: '14px',
-              color: '#333',
+              fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+              fontSize: '13px',
+              color: '#000',
               marginTop: '10px',
               lineHeight: 1.6,
             }}
           >
             {shortdescription}{' '}
             <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-            <span style={{ color: '#aaa', marginLeft: '4px', fontSize: '8px' }}>{date}</span>
+            <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{date}</span>
           </p>
         </div>
       </div>

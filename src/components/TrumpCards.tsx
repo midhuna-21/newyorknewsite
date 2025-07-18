@@ -16,7 +16,6 @@ interface TrumpCardsProps {
 }
 
 export default function TrumpCards({ data }: TrumpCardsProps) {
-  // Limit to first 4 cards only
   const fixedFourCards = data.slice(0, 4);
 
   return (
@@ -24,20 +23,18 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
       <div className="row">
         {fixedFourCards.map((item, index) => (
           <div key={index} className="col-3 position-relative d-flex justify-content-center">
-            <TrumpCardComponent  data={{
-                category: item.category,
-                title: item.title,
-                image: item.image,
-                slug: item.slug,
-                date: item.date,
-              }} />
-
-            {/* Vertical divider between cards (except after the last card) */}
+            <TrumpCardComponent data={{
+              category: item.category,
+              title: item.title,
+              image: item.image,
+              slug: item.slug,
+              date: item.date,
+            }} />
             {index < fixedFourCards.length - 1 && (
-             <div
+              <div
                 style={{
                   position: 'absolute',
-                  top: '30px', 
+                  top: '30px',
                   right: '0',
                   height: '260px',
                   width: '0.5px',

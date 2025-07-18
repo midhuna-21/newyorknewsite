@@ -3,26 +3,27 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const Header = () => {
   const pathname = usePathname();
-  const isHomePage = pathname === '/'; // only homepage gets black in first section
+  const isHomePage = pathname === '/';
 
   const [isFirstSectionVisible, setIsFirstSectionVisible] = useState(true);
 
   useEffect(() => {
-    if (!isHomePage) return; // skip scroll check for other pages
+    if (!isHomePage) return;
 
     const handleScroll = () => {
       const firstSection = document.getElementById('first-section');
       if (!firstSection) return;
 
       const rect = firstSection.getBoundingClientRect();
-      const isVisible = rect.bottom > 70; // header height
+      const isVisible = rect.bottom > 70;
       setIsFirstSectionVisible(isVisible);
     };
 
-    handleScroll(); // initial check
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -62,19 +63,27 @@ const Header = () => {
         <Row className="align-items-center">
           <Col xs={4}></Col>
           <Col xs={4} className="text-center">
-            <h1
-              style={{
-                fontFamily: 'serif',
-                fontWeight: 'normal',
-                margin: 0,
-                fontSize: '1.8rem',
-                letterSpacing: '0.05em',
-                whiteSpace: 'nowrap',
-                color: textColor,
-              }}
+            <Link
+              title='index'
+              href='/'
+              className='text-decoration-none'
+              style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit', }}
             >
-              THE NEW YORKER <span style={{ opacity: 0.5 }}>100</span>
-            </h1>
+
+              <h1
+                style={{
+                  fontFamily: 'serif',
+                  fontWeight: 'normal',
+                  margin: 0,
+                  fontSize: '1.8rem',
+                  letterSpacing: '0.05em',
+                  whiteSpace: 'nowrap',
+                  color: textColor,
+                }}
+              >
+                THE NEW YORKER <span style={{ opacity: 0.5 }}>100</span>
+              </h1>
+            </Link>
           </Col>
           <Col xs={4}></Col>
         </Row>

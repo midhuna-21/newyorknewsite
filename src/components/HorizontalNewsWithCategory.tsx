@@ -16,8 +16,7 @@ interface NewsCardProps {
 }
 
 const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
-  const displayItems = data.slice(0, 4); // show only up to 4
-
+  const displayItems = data.slice(0, 4); 
   return (
   <div
   className='container py-5'
@@ -33,13 +32,12 @@ const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
         <NewsCardWithCategory data={item} />
       </div>
 
-      {/* Show vertical line between cards */}
       {index < displayItems.length - 1 && (
         <div
           style={{
             width: '1px',
             backgroundColor: '#ccc',
-            height: '180px', // match this to your image height
+            height: '180px', 
             alignSelf: 'flex-start',
           }}
         ></div>

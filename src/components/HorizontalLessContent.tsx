@@ -17,7 +17,7 @@ interface NewsCardProps {
 }
 
 const HorizontalLessContent = ({ data }: NewsCardProps) => {
-    const displayItems = data.slice(0, 4); // show only up to 4
+    const displayItems = data.slice(0, 4); 
 
     return (
         <div

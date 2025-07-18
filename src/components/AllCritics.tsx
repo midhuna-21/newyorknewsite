@@ -21,7 +21,7 @@ export default function AllCritics({ data }: AllCriticsProps) {
   const displayItems = data.slice(0, 6); 
 
   return (
-    <div className="container py-5">
+    <div>
       <div
         style={{
           display: 'grid',
