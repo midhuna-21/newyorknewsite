@@ -29,7 +29,6 @@ export default function Home() {
   return (
     <main>
       <div id="first-section">
-
         <FirstIndexSection data={PoliticalData[0]} />
       </div>
       <Navbar />
