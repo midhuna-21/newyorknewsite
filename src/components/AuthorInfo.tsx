@@ -1,104 +1,88 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const AuthorInfo = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="container py-4" style={{ maxWidth: '800px' }}>
-      <div className="row align-items-center mb-4">
-        <div className="col-auto">
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'center' : 'flex-start',
+          textAlign: isMobile ? 'center' : 'left',
+          gap: '20px',
+          marginBottom: '30px',
+        }}
+      >
+        <div>
           <Image
             src="/images/author-dummy.webp"
-            alt="Isaac Chotiner"
+            alt="Benjamin Wallace-Wells"
             width={100}
             height={100}
-            style={{
-              borderRadius: '50%',
-            }}
+            style={{ borderRadius: '50%' }}
           />
         </div>
 
-        <div className="col">
-          <p
+        <p
+          style={{
+            fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+            fontWeight: 400,
+            fontStyle: 'italic',
+            margin: 0,
+            maxWidth: '700px',
+            fontSize: isMobile ? '17px' : '21px',
+            lineHeight: isMobile ? '1.5' : '1.7',
+          }}
+        >
+          <a
+            href="#"
             style={{
-              fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-              fontWeight: 400,
-              fontSize: '21px',
+              color: 'black',
+              textDecoration: 'underline',
               fontStyle: 'italic',
-              margin: 0,
+              fontSize: isMobile ? '17px' : '21px',
             }}
           >
-            <a
-              href="#"
-              style={{
-                color: 'black',
-                textDecoration: 'underline',
-                fontStyle: 'italic',
-              }}
-            >
-              Isaac Chotiner
-            </a>{' '}
-            is a staff writer at <em>The New Yorker</em>, where he is the principal contributor to{' '}
-            <strong>Q. &amp; A.</strong>, a series of interviews with public figures in politics, media,
-            books, business, technology, and more.
-          </p>
-        </div>
+            Benjamin Wallace-Wells
+          </a>{' '}
+          began contributing to <em>The New Yorker</em> in 2006 and joined the magazine as a staff
+          writer in 2015. He writes about American politics and society.
+        </p>
       </div>
-
       <div
-        className="d-flex flex-wrap align-items-center"
         style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: '16px',
-          fontWeight: 500,
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: isMobile ? 'center' : 'flex-start',
+          fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+          fontSize: isMobile ? '12px' : '13px',
+          fontWeight: 700,
+          rowGap: '10px',
+          columnGap: '15px',
+          textAlign: isMobile ? 'center' : 'left',
         }}
       >
-        <span
-          style={{
-            color: 'rgb(102, 102, 102)',
-            marginRight: '10px',
-            fontWeight: 700,
-            fontSize: "13px",
-            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-            fontStyle: "normal"
-          }}
-        >More:</span>
-        <span className="me-4"  style={{
-            color: '#000',
-            marginRight: '10px',
-            fontWeight: 700,
-            fontSize: "13px",
-            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-            fontStyle: "normal"
-          }}
-          >Trump Administration</span>
-        <span className="me-4"  style={{
-            color: '#000)',
-            marginRight: '10px',
-            fontWeight: 700,
-            fontSize: "13px",
-            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-            fontStyle: "normal"
-          }}
-          >Immigrants, Immigration</span>
-        <span className="me-4"  style={{
-            color: '#000',
-            marginRight: '10px',
-            fontWeight: 700,
-            fontSize: "13px",
-            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-            fontStyle: "normal"
-          }}
-          >Deportations</span>
-        <span  style={{
-            color: '#000',
-            marginRight: '10px',
-            fontWeight: 700,
-            fontSize: "13px",
-            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-            fontStyle: "normal"
-          }}>U.S. Supreme Court</span>
+        <span style={{ color: 'rgb(102, 102, 102)' }}>More:</span>
+        <span style={{ color: '#000' }}>Trump Administration</span>
+        <span style={{ color: '#000' }}>Immigrants, Immigration</span>
+        <span style={{ color: '#000' }}>Deportations</span>
+        <span style={{ color: '#000' }}>U.S. Supreme Court</span>
       </div>
     </div>
   );

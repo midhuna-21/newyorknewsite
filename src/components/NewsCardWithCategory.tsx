@@ -1,88 +1,216 @@
 'use client';
 
 import Link from 'next/link';
-import React from 'react';
-import { Card } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
 import { BiCalendar } from 'react-icons/bi';
 
 interface NewsCardProps {
-    data: {
-        category: string;
-        title: string;
-        shortdescription?: string;
-        description?: string;
-        image: string;
-        slug: string;
-        date: string;
-    };
+  data: {
+    category: string;
+    title: string;
+    shortdescription?: string;
+    description?: string;
+    image: string;
+    slug: string;
+    date: string;
+  };
 }
 
+const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
-const NewsCardWithCategory = ({ data }: NewsCardProps) => {
-    return (
-        <div>
-            <Link
-                title={`${data.slug}`}
-                href={`/${data.category}/${data.slug}`}
-                className='text-decoration-none'
-                style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit', }}
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 992); 
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <div style={{ display: 'block' }}>
+      <Link
+        title={data.slug}
+        href={`/${data.category}/${data.slug}`}
+        style={{
+          textDecoration: 'none',
+          color: 'inherit',
+          display: 'block',
+        }}
+      >
+        <div style={{ display: 'block' }}>
+          {!isMobile && (
+            <div style={{ display: 'block' }}>
+              <img
+                src={data.image}
+                alt={data.title}
+                style={{
+                  aspectRatio: '4 / 3',
+                  objectFit: 'cover',
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: 0,
+                  display: 'block',
+                }}
+              />
+            </div>
+          )}
+
+          <div style={{ display: 'block' }}>
+            <p
+              style={{
+                fontSize: '12px',
+                fontWeight: 400,
+                color: 'rgb(219, 51, 52)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+                marginTop: '20px',
+                marginBottom: '10px',
+                fontFamily: 'Georgia, serif',
+              }}
             >
+              {data.category}
+            </p>
 
-                <Card
+            <h2
+              style={{
+                color: '#000',
+                fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
+                fontSize: '22px',
+                fontWeight: 400,
+                marginBottom: '10px',
+              }}
+            >
+              {data.title}
+            </h2>
+
+            {isMobile ? (
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '12px',
+                  alignItems: 'flex-start',
+                }}
+              >
+                <div style={{ flex: 1 }}>
+                  <p
                     style={{
-                        border: 'none',
-                        maxWidth: '300px',
-                        margin: '0 auto',
-                        fontFamily: '"Georgia", serif',
+                      color: 'rgb(51, 51, 51)',
+                      fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
+                      fontSize: '16px',
+                      fontWeight: 400,
+                      marginBottom: '10px',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
                     }}
-                >
-                    <Card.Img
-                        src={data.image}
-                        alt={data.title}
-                        style={{
-                            aspectRatio: '4 / 3',
-                            objectFit: 'cover',
-                            width: '100%',
-                            height: 'auto',
-                            borderRadius: '0',
-                        }}
-                    />
-                    <Card.Body style={{ padding: '20px 0 0 0' }}>
-                        <p
-                            style={{
-                                fontSize: '12px',
-                                fontWeight: 400,
-                                color: 'rgb(219, 51, 52)',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.5px',
-                                marginTop: '20px',
-                                marginBottom: '10px',
-                                fontFamily: `'Georgia', serif`
-                            }}
-                        >
-                            {data.category}
-                        </p>
-                        <Card.Title
-                            style={
-                                {
-                                    color: "#000",
-                                    fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                                    fontSize: '22px',
-                                    fontWeight: 400,
-                                }
-                            }
-                        >
-                            {data.title}
-                        </Card.Title>
-                        <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-                        <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-                        <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
-                    </Card.Body>
+                  >
+                    {data.shortdescription}
+                  </p>
 
-                </Card>
-            </Link>
+                  <p
+                    style={{
+                      fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
+                      fontSize: '0.8rem',
+                      fontWeight: 'bold',
+                      marginBottom: 0,
+                    }}
+                  >
+                    <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
+                    <span
+                      style={{
+                        color: '#000',
+                        opacity: 0.6,
+                        fontSize: '8px',
+                      }}
+                    >
+                      Published on
+                    </span>
+                    <span
+                      style={{
+                        color: '#555',
+                        marginLeft: '4px',
+                        fontSize: '8px',
+                      }}
+                    >
+                      {data.date}
+                    </span>
+                  </p>
+                </div>
+
+                {/* Image on the right */}
+                <div style={{ flexShrink: 0 }}>
+                  <img
+                    src={data.image}
+                    alt={data.title}
+                    style={{
+                      width: '100px',
+                      height: '100px',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  />
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Description on Desktop */}
+                <p
+                  style={{
+                    color: 'rgb(51, 51, 51)',
+                    fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
+                    fontSize: '16px',
+                    fontWeight: 400,
+                    marginBottom: '10px',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {data.shortdescription}
+                </p>
+
+
+                {/* Date on Desktop */}
+                <p
+                  style={{
+                    fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
+                  <span
+                    style={{
+                      color: '#000',
+                      opacity: 0.6,
+                      fontSize: '8px',
+                    }}
+                  >
+                    Published on
+                  </span>
+                  <span
+                    style={{
+                      color: '#555',
+                      marginLeft: '4px',
+                      fontSize: '8px',
+                    }}
+                  >
+                    {data.date}
+                  </span>
+                </p>
+              </>
+            )}
+          </div>
         </div>
-    );
+      </Link>
+    </div>
+  );
 };
 
 export default NewsCardWithCategory;

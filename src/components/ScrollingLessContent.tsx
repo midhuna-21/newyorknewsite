@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import NewsCard from './NewsCard';
 import NewsCenteredText from './NewsCenteredText';
 
 interface NewsCardListProps {
@@ -19,8 +18,19 @@ interface NewsCardListProps {
 const NewsCardList = ({ data }: NewsCardListProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(4); 
 
-  const itemsPerPage = 4;
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      const isMobile = window.innerWidth < 576;
+      setItemsPerPage(isMobile ? 1 : 4);
+    };
+
+    updateItemsPerPage();
+    window.addEventListener('resize', updateItemsPerPage);
+    return () => window.removeEventListener('resize', updateItemsPerPage);
+  }, []);
+
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
   const handleScroll = () => {
@@ -38,10 +48,10 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
       container.addEventListener('scroll', handleScroll);
       return () => container.removeEventListener('scroll', handleScroll);
     }
-  }, [data.length]);
+  }, [data.length, itemsPerPage]);
 
   return (
-    <div className="container py-4">
+    <div>
       <div
         ref={containerRef}
         style={{
@@ -54,15 +64,21 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
       >
         {data.map((item, index) => (
           <div
-            key={index}
-            style={{
-              flex: `0 0 ${100 / itemsPerPage}%`,
-              scrollSnapAlign: 'start',
-              paddingRight: index !== data.length - 1 ? '20px' : 0,
-              marginBottom:"20px"
-            }}
-          >
-            <NewsCenteredText   
+  key={index}
+  style={{
+    flex: `0 0 ${100 / itemsPerPage}%`,
+    scrollSnapAlign: 'start',
+    paddingRight:
+      itemsPerPage === 1
+        ? '0px'
+        : index !== data.length - 1
+          ? '20px'
+          : '0px',
+    marginBottom: '16px',
+  }}
+>
+
+            <NewsCenteredText
               data={{
                 category: item.category,
                 title: item.title,
@@ -73,6 +89,7 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
             />
           </div>
         ))}
+
       </div>
 
       {data.length > itemsPerPage && (

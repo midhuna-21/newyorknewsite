@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import TheCritics from './CriticsCard';
+import React, { useEffect, useState } from 'react';
 import CriticWithoutCategory from './CriticWithoutCategory';
 
 interface NewsData {
@@ -19,22 +18,37 @@ interface AllCriticsProps {
 }
 
 export default function AllFourCritics({ data }: AllCriticsProps) {
-  const displayItems = data.slice(0, 4); 
+  const displayItems = data.slice(0, 4);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 992);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
-    <div className="container py-5">
+    <div
+      style={{
+        width: '100%',
+        maxWidth: '1200px',
+        margin: '0 auto',
+      }}
+    >
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)', 
-          gap: '30px',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
+          gap: isMobile ? '20px' : '30px',
         }}
       >
         {displayItems.map((item, index) => (
           <div key={index} style={{ position: 'relative' }}>
             <CriticWithoutCategory data={item} />
 
-            {index !== displayItems.length - 1 && (
+            {/* Vertical Divider for desktop only */}
+            {/* {!isMobile && index !== displayItems.length - 1 && (
               <div
                 style={{
                   position: 'absolute',
@@ -45,7 +59,7 @@ export default function AllFourCritics({ data }: AllCriticsProps) {
                   backgroundColor: '#eee',
                 }}
               />
-            )}
+            )} */}
           </div>
         ))}
       </div>

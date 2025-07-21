@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
@@ -30,10 +30,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = expanded ? 'hidden' : 'auto';
-  }, [expanded]);
-
+ 
   useEffect(() => {
     if (!isHomePage) return;
 
@@ -83,9 +80,11 @@ const Header = () => {
   ) : (
     <span
       style={{
-        backgroundImage:
-          "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E\")",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='${encodeURIComponent(
+          textColor
+        )}' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")`,
         filter: isHovered ? 'brightness(70%)' : 'brightness(100%)',
+
         width: '18px',
         height: '18px',
         backgroundRepeat: 'no-repeat',
@@ -117,56 +116,105 @@ const Header = () => {
         }}
       >
         <Container fluid>
-          <Row className="align-items-center">
-            <Col xs={2} className="d-lg-none d-flex align-items-center ps-3">
-              <button
-                onClick={() => setExpanded(!expanded)}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  padding: 0,
-                  width: '32px',
-                  height: '32px',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-                aria-label="Toggle navigation"
-                aria-expanded={expanded}
-              >
-                {toggleIcon}
-              </button>
-            </Col>
-            <Col xs={10} lg={12} className="text-center px-2">
-              <Link
-                title="index"
-                href="/"
-                className="text-decoration-none"
-                style={{
-                  display: 'inline-block',
-                  textDecoration: 'none',
-                  color: 'inherit',
-                }}
-              >
-                <h1
-                  style={{
-                    fontFamily: 'serif',
-                    fontWeight: 'normal',
-                    margin: 0,
-                    fontSize: 'clamp(1.2rem, 4vw, 2rem)',
-                    letterSpacing: '0.05em',
-                    whiteSpace: 'nowrap',
-                    color: textColor,
-                  }}
-                >
-                  THE NEW YORKER <span style={{ opacity: 0.5 }}>100</span>
-                </h1>
-              </Link>
-            </Col>
-          </Row>
-        </Container>
+<div style={{ position: 'relative', height: '70px', width: '100%' }}>
+  {/* Left - Hamburger (mobile only) */}
+  <div className="d-lg-none" style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)' }}>
+    <button
+      onClick={() => setExpanded(!expanded)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        background: 'none',
+        border: 'none',
+        padding: 0,
+        width: '32px',
+        height: '32px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+      aria-label="Toggle navigation"
+      aria-expanded={expanded}
+    >
+      {toggleIcon}
+    </button>
+  </div>
+
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+    <Link
+      title="index"
+      href="/"
+      className="text-decoration-none"
+      style={{
+        display: 'inline-block',
+        textDecoration: 'none',
+        color: 'inherit',
+      }}
+    >
+      <h1
+        style={{
+          fontFamily: 'serif',
+          fontWeight: 'normal',
+          margin: 0,
+          fontSize: 'clamp(1.2rem, 4vw, 2rem)',
+          letterSpacing: '0.05em',
+          whiteSpace: 'nowrap',
+          color: textColor,
+        }}
+      >
+        THE NEW YORKER <span style={{ opacity: 0.5 }}>100</span>
+      </h1>
+    </Link>
+  </div>
+
+  {/* Right - Desktop only */}
+  <div className="d-none d-lg-flex align-items-center gap-3" style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}>
+    <a
+      href="#"
+      style={{
+        fontSize: '12px',
+        color: textColor,
+        fontWeight: 500,
+        fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+        textDecoration: 'none',
+      }}
+    >
+      Newsletter
+    </a>
+    <a
+      href="#"
+      style={{
+        fontSize: '12px',
+        color: textColor,
+        fontWeight: 500,
+        fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+        textDecoration: 'none',
+      }}
+    >
+      Sign In
+    </a>
+    <Button
+      style={{
+        fontSize: '12px',
+        backgroundColor: '#0787CA',
+        color: 'white',
+        fontWeight: 500,
+        fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
+        padding: '4px 14px',
+        borderRadius: '2px',
+        border: 'none',
+      }}
+    >
+      Subscribe
+    </Button>
+    <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: textColor }}>
+      🔍
+    </span>
+  </div>
+</div>
+
+</Container>
+
       </div>
 
       {/* Mobile Specific */}

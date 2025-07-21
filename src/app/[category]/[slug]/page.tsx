@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { notFound } from 'next/navigation';
 import businessData from '../../../../public/data/business.json';
@@ -8,9 +6,6 @@ import sportsData from '../../../../public/data/sports.json';
 import healthData from '../../../../public/data/health.json';
 import politicsData from '../../../../public/data/politics.json';
 import scienceData from '../../../../public/data/science.json';
-import Image from 'next/image';
-import NewsArticleHeading from '@/components/NewsArticleHeading';
-import NewsImageWithCaption from '@/components/NewsImageWithCaption';
 import ArticleParagraphWith from '@/components/ArticleParagraph';
 import CardListCategoryPage from '@/components/CardListCategoryPage';
 import ClosingOfferBanner from '@/components/ClosingOfferBanner';
@@ -18,6 +13,8 @@ import FavoritesList from '@/components/FavouritesList';
 import AuthorInfo from '@/components/AuthorInfo';
 import Signup from '@/components/Signup';
 import SectionWrapper from '@/components/SectionWrapper';
+import DetailFirst from '@/components/DetailFirst';
+import CategoryNavbar from '@/components/CategoryNavbar';
 
 interface NewsItem {
     category: string;
@@ -52,29 +49,32 @@ export default async function DetailPage({ params }: DetailPageProps) {
     if (!article) return notFound();
 
     return (
-        <div className="container py-5">
-            <div className="row">
-                <div className="col-md-7">
-                    <NewsArticleHeading data={article} />
+        <div >
+             <div className="d-none d-md-block">
 
+            <CategoryNavbar />
+             </div>
+
+            {/* <NewsArticleHeading data={article} /> */}
+            <DetailFirst data={article} />
+            <div className="container py-5">
+
+                <div className="row">
+                    <div className="col-12 col-lg-6 mz-autho">
+                        {/* <NewsImageWithCaption data={article} /> */}
+                        <ArticleParagraphWith data={article} />
+                        <ClosingOfferBanner />
+                        <FavoritesList />
+                        <AuthorInfo />
+                        <Signup />
+                    </div>
                 </div>
-                <hr style={{ borderTop: '1px solid #ccc', marginTop: '20px' }} />
+                <SectionWrapper title='Read More'>
+                    <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
+                    <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
+                    <CardListCategoryPage data={[data[9], data[10], data[11], data[12]]} />
+                </SectionWrapper>
             </div>
-            <div className="row">
-                <div className="col-md-6">
-                    <NewsImageWithCaption data={article} />
-                    <ArticleParagraphWith data={article} />
-                    <ClosingOfferBanner />
-                    <FavoritesList />
-                    <AuthorInfo />
-                    <Signup />
-                </div>
-            </div>
-            <SectionWrapper title='Read More'>
-                <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
-                <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
-                <CardListCategoryPage data={[data[9], data[10], data[11], data[12]]} />
-            </SectionWrapper>
         </div>
 
 

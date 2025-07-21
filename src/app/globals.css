@@ -66,4 +66,302 @@ a {
 }
 
 
+
+/* RigtImageContent */
+#right-image-content .title {
+  font-size: 36px;
+}
+#right-image-content .shortdesc {
+  font-size: 17px;
+}
+#right-image-content .content-column {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+#right-image-content .content-image-column {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Media Queries */
+@media (min-width: 992px) {
+  #right-image-content .title {
+    font-size: 36px;
+  }
+
+  #right-image-content .shortdesc {
+    font-size: 17px;
+  }
+
+  
+  #right-image-content .content-image-column {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  #right-image-content .title {
+    font-size: 22px !important;
+  }
+
+  #right-image-content .shortdesc {
+    font-size: 15px !important;
+  }
+
+  #right-image-content .content-column {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+}
+
+
+
+
+
+/* allminicards */
+#all-mini-cards .mini-card-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 576px) {
+  #all-mini-cards .mini-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  #all-mini-cards .mini-card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* detailfirst */
+
+#detail-first .detail-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+#detail-first .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#detail-first .text-side {
+  width: 100%;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#detail-first .category {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(219, 51, 52);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Georgia', serif;
+  margin-bottom: 16px;
+  margin-top: 20px;
+}
+
+#detail-first .title {
+  font-family: 'Georgia', serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+#detail-first .shortdesc {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+#detail-first .date {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#detail-first .published-label {
+  color: #000;
+  opacity: 0.6;
+  font-size: 8px;
+  margin-left: 4px;
+}
+
+#detail-first .published-date {
+  color: #555;
+  margin-left: 4px;
+  font-size: 8px;
+}
+
+#detail-first .image-side {
+  width: 100%;
+  position: relative;
+}
+
+#detail-first .image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+
+#detail-first .detail-image {
+  object-fit: cover;
+  object-position: right bottom;
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  #detail-first .detail-link {
+    flex-direction: row !important;
+    height: 100vh !important;
+  }
+
+  #detail-first .content-wrapper {
+    flex-direction: row !important;
+    height: 100% !important;
+  }
+
+  #detail-first .text-side {
+    width: 50% !important;
+    padding: 60px 60px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  #detail-first .title {
+    font-size: 36px !important;
+  }
+
+  #detail-first .shortdesc {
+    font-size: 16px !important;
+  }
+
+  #detail-first .image-side {
+    width: 50% !important;
+    height: 100vh !important;
+  }
+}
+
+
+/* leftImageContent */
+
+#left-image-content .responsive-title {
+  font-size: 24px !important;
+}
+
+#left-image-content .responsive-description {
+  font-size: 16px !important;
+}
+
+#left-image-content .text-col {
+  margin-bottom: 5px !important;
+}
+
+#left-image-content .image-col {
+  margin-bottom: 0px !important;
+}
+
+@media (min-width: 993px) {
+  #left-image-content .responsive-title {
+    font-size: 36px !important;
+  }
+
+  #left-image-content .responsive-description {
+    font-size: 22px !important;
+  }
+
+  #left-image-content .text-col {
+    margin-bottom: 0px !important;
+  }
+
+  #left-image-content .image-col {
+    margin-bottom: 0px !important;
+  }
+}
+
+
+
+/* sectionwrapper */
+
+#section-wrapper .section-title {
+  font-size: 28px;
+}
+
+@media (max-width: 576px) {
+  #section-wrapper .section-title {
+    font-size: 20px !important;
+  }
+
+  #section-wrapper .section-children {
+    margin-top: 0.75rem !important;
+  }
+}
+
+
+
+/* TrumpCardComponent */
+#trump-card.trump-card {
+  font-family: Georgia, serif;
+  width: 100%;
+  max-width: 220px;
+}
+
+@media (max-width: 767px) {
+  #trump-card.trump-card {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* FirstIndexSection */
+
+#first-index-section .first-section-row {
+  min-height: 70vh;
+}
+
+@media (min-width: 992px) {
+  #first-index-section .first-section-row {
+    min-height: 90vh !important;
+  }
+}
+@media (max-width: 576px) {
+  #first-section-text-col {
+    justify-content: flex-start !important;
+  }
+
+  #first-section-text-col h2 {
+    margin-top: 30px !important; 
+  }
+}
+
+
 }

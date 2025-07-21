@@ -22,9 +22,9 @@ interface NewsItem {
 }
 
 interface CategoryPageProps {
-    params: {
+    params: Promise<{
         category: string;
-    };
+    }>;
 }
 
 const allData: Record<string, NewsItem[]> = {
@@ -37,7 +37,7 @@ const allData: Record<string, NewsItem[]> = {
 };
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-    const { category } = params;
+    const { category } = await params;
     const data = allData[category];
 
     if (!data) {
@@ -50,18 +50,25 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
     return (
         <div>
-            <CategoryNavbar />
-            <div className="container py-5">
+            <div className="d-none d-md-block">
+
+                <CategoryNavbar />
+            </div>
+            <div className="container py-5 " >
+                {/* <h1 className="responsive-title">{category}</h1>
+                */}
                 <h1
                     style={{
-                        fontFamily: 'Georgia, serif',
-                        textTransform: 'capitalize',
                         marginTop: '50px',
                         textAlign: 'center',
+                        textTransform: 'capitalize',
+                        fontFamily: 'Georgia, serif',
                     }}
                 >
                     {category}
                 </h1>
+
+
 
                 <CatNewsFeatureCard data={data[0]} />
 
@@ -74,8 +81,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 </SectionWrapper>
 
                 <SectionWrapper title="Conversations">
-                    <div className="row mt-5">
-                        <div className="col-md-7">
+                    <div className="row">
+                        <div className="col-12 col-lg-7">
+
                             {data.slice(9, 13).map((item, index, arr) => (
                                 <div
                                     key={index}
@@ -96,16 +104,17 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     <CardListCategoryPage data={[data[14], data[15], data[16], data[17]]} />
                 </SectionWrapper>
 
-                 <SectionWrapper title="More News">
+                <SectionWrapper title="More News">
                     <div className="row mt-5">
-                        <div className="col-md-7">
+                        <div className="col-12 col-lg-7 ">
+
                             {data.slice(18).map((item, index, arr) => (
                                 <div
                                     key={index}
                                     style={{
                                         borderBottom: index < arr.length - 1 ? '1px solid #ddd' : 'none',
-                                        paddingBottom: '24px',
-                                        marginBottom: '24px',
+                                            paddingBottom: '24px',
+                                            marginBottom: '24px',
                                     }}
                                 >
                                     <NewsMiniFeatureCard data={item} />
@@ -115,6 +124,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     </div>
                 </SectionWrapper>
             </div>
+
+
         </div>
     );
 }

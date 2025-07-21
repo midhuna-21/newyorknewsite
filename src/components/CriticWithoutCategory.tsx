@@ -1,76 +1,159 @@
 'use client';
 
 import Link from 'next/link';
-import React from 'react';
-import { Card } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
 import { BiCalendar } from 'react-icons/bi';
 
 interface CriticsCardProps {
-    data: {
-        title: string;
-        shortdescription: string;
-        image: string;
-        author?: string;
-        category?: string;
-        date: string;
-        slug: string;
-    };
+  data: {
+    title: string;
+    shortdescription: string;
+    image: string;
+    author?: string;
+    category?: string;
+    date: string;
+    slug: string;
+  };
 }
 
 const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
-    return (
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 992);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <div
+      style={{
+        fontFamily: 'Georgia, serif',
+        textAlign: isMobile ? 'left' : 'center',
+      }}
+    >
+      <Link
+        title={data.slug}
+        href={`/${data.category}/${data.slug}`}
+        style={{
+          textDecoration: 'none',
+          color: 'inherit',
+          display: 'block',
+        }}
+      >
         <div>
-            <Link
-                title={`${data.slug}`}
-                href={`/${data.category}/${data.slug}`}
-                className='text-decoration-none'
-                style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit', }}
+          {/* Desktop View - Image Top */}
+          {!isMobile && (
+            <div style={{ width: '200px', height: '270px', margin: '0 auto', overflow: 'hidden' }}>
+              <img
+                src={data.image}
+                alt={data.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+          )}
+
+          {/* Title */}
+          <h2
+            style={{
+              color: '#000',
+              fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
+              fontSize: '22px',
+              fontWeight: 400,
+              margin: isMobile ? '0 0 6px 0' : '12px auto 12px',
+              maxWidth: isMobile ? '100%' : '600px',
+            }}
+          >
+            {data.title}
+          </h2>
+
+          {/* Mobile: Side-by-side text + image */}
+          {isMobile ? (
+            <div
+              style={{
+                display: 'flex',
+                gap: '12px',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: '8px',
+              }}
             >
+              <p
+                style={{
+                  color: 'rgb(51, 51, 51)',
+                  fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
+                  fontSize: '16px',
+                  fontWeight: 400,
+                  flex: 1,
+                  margin: 0,
+                }}
+              >
+                {data.shortdescription}
+              </p>
+              <div style={{ flexShrink: 0 }}>
+                <img
+                  src={data.image}
+                  alt={data.title}
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              </div>
+            </div>
+          ) : (
+            // Desktop Description
+            <p
+              style={{
+                color: 'rgb(51, 51, 51)',
+                fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
+                fontSize: '16px',
+                fontWeight: 400,
+                margin: '0 auto 8px',
+                maxWidth: '600px',
+              }}
+            >
+              {data.shortdescription}
+            </p>
+          )}
 
-                <div className="text-center py-4" style={{ fontFamily: 'Georgia, serif' }}>
-                    <div style={{ width: '200px', height: '270px', margin: '0 auto', overflow: 'hidden' }}>
-                        <img
-                            src={data.image}
-                            alt={data.title}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                    </div>
-
-                    <h2
-                        style={
-                            {
-                                color: "#000",
-                                fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                                fontSize: '22px',
-                                fontWeight: 400,
-                            }
-                        }
-                    >
-                        {data.title}
-                    </h2>
-                    <p
-
-                        style={
-                            {
-                                color: 'rgb(51, 51, 51)',
-                                fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                                fontSize: '17px',
-                                fontWeight: 400,
-                                marginTop: '12px',
-                            }
-                        }
-                    >
-                        {data.shortdescription}
-                    </p>
-
-                        <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-                        <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-                        <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
-                 
-                </div>
-            </Link>
+          {/* Date */}
+          <p
+            style={{
+              fontWeight: 'bold',
+              fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
+              fontSize: '0.9rem',
+              margin: isMobile ? '0' : '0 auto',
+              maxWidth: isMobile ? '100%' : '600px',
+            }}
+          >
+            <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
+            <span
+              style={{
+                color: '#000',
+                opacity: 0.6,
+                fontSize: '8px',
+              }}
+            >
+              Published on
+            </span>
+            <span
+              style={{
+                color: '#555',
+                marginLeft: '4px',
+                fontSize: '8px',
+              }}
+            >
+              {data.date}
+            </span>
+          </p>
         </div>
-    );
+      </Link>
+    </div>
+  );
 };
 
 export default CriticWithoutCategory;

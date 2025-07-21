@@ -1,8 +1,20 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const FavoritesList = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); 
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const items = [
     {
       text: 'How to die in ',
@@ -38,18 +50,30 @@ const FavoritesList = () => {
 
   return (
     <div className="container py-5">
+      {/* Heading */}
       <h3
         style={{
           fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
           fontWeight: 400,
-          fontSize: '31px',
+          fontSize: isMobile ? '24px' : '31px',
           marginBottom: '15px',
         }}
       >
         New Yorker Favorites
       </h3>
+
       <hr />
-      <ul style={{ listStyle: 'disc', paddingLeft: '20px', fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif', fontSize: '21px', color: "#000" }}>
+
+      {/* List */}
+      <ul
+        style={{
+          listStyle: 'disc',
+          paddingLeft: '20px',
+          fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+          fontSize: isMobile ? '16px' : '21px',
+          color: '#000',
+        }}
+      >
         {items.map((item, index) => (
           <li key={index} style={{ marginBottom: '15px' }}>
             {item.text}
@@ -60,8 +84,13 @@ const FavoritesList = () => {
         ))}
       </ul>
 
-      {/* Newsletter */}
-      <p style={{ fontFamily: 'Georgia, serif', fontSize: '18px' }}>
+      {/* Newsletter Signup */}
+      <p
+        style={{
+          fontFamily: 'Georgia, serif',
+          fontSize: isMobile ? '15px' : '18px',
+        }}
+      >
         <a href="#" style={{ color: 'black', textDecoration: 'underline' }}>
           Sign up for our daily newsletter
         </a>{' '}

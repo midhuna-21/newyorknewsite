@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -23,30 +21,31 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
   if (!data) return null;
 
   return (
-    <div style={{ backgroundColor: '#000', color: '#fff' }}>
+    <div style={{ backgroundColor: '#000', color: '#fff' }} id="first-index-section">
       <Container fluid style={{ padding: 0 }}>
         <Row
-          className="align-items-stretch"
+          className="align-items-stretch first-section-row"
           style={{
-            minHeight: '600px',
-            flexDirection: 'row',
+            minHeight: '70vh', 
           }}
         >
-          {/* Left */}
-          <Col
-            md={6}
-            xs={12}
-            style={{
-              padding: '60px 40px',
-              textAlign: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              backgroundColor: '#000',
-            }}
-          >
+       <Col
+  md={6}
+  xs={12}
+  id="first-section-text-col"
+  style={{
+    padding: 'clamp(40px, 5vw, 80px) clamp(20px, 5vw, 60px)',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center', 
+    backgroundColor: '#000',
+  }}
+>
+
+
             <Link
-              title={`${data.slug}`}
+              title={data.slug}
               href={`/${data.category}/${data.slug}`}
               className="text-decoration-none"
               style={{
@@ -57,26 +56,30 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
               }}
             >
               <div>
-                <h2
-                  style={{
-                    fontFamily: '"Georgia", serif',
-                    fontSize: 'clamp(16px, 3vw, 36px)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    fontWeight: 400,
-                    marginBottom: '1rem',
-                  }}
-                >
-                  {data.category}
-                </h2>
+              <h2
+  className="category-heading"
+  style={{
+    fontFamily: '"Georgia", serif',
+    fontSize: 'clamp(14px, 4vw, 28px)',
+    textTransform: 'uppercase',
+    letterSpacing: '1px',
+    fontWeight: 400,
+    marginBottom: '0.3rem',
+    marginTop: '0.5rem',
+  }}
+>
+  {data.category}
+</h2>
+
+
                 <p
                   style={{
                     color: '#fff',
                     fontFamily:
                       'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                    fontSize: 'clamp(12px, 2.5vw, 21px)',
+                    fontSize: 'clamp(14px, 2vw, 22px)',
                     fontWeight: 400,
-                    maxWidth: '500px',
+                    maxWidth: '700px',
                     margin: '0 auto 1rem',
                   }}
                 >
@@ -97,14 +100,15 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
             </Link>
           </Col>
 
-          {/* Right Image */}
           <Col
             md={6}
             xs={12}
             style={{
               padding: 0,
               overflow: 'hidden',
-              height: '100%',
+              display: 'flex',
+              alignItems: 'stretch',
+              justifyContent: 'center',
             }}
           >
             <img
@@ -114,7 +118,6 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                display: 'block',
               }}
             />
           </Col>

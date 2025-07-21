@@ -1,4 +1,3 @@
-'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiCalendar } from 'react-icons/bi';
@@ -16,7 +15,7 @@ interface HeroMiniCardProps {
 
 export default function HeroMiniCards({ data }: HeroMiniCardProps) {
   return (
-    <div className="container py-3">
+    <div>
       <Link
         title={`${data.slug}`}
         href={`/${data.category}/${data.slug}`}
@@ -26,7 +25,6 @@ export default function HeroMiniCards({ data }: HeroMiniCardProps) {
 
         <div className="row">
           <div className="col-12 d-flex">
-            {/* Left Content */}
             <div style={{ flex: 1 }}>
               <p
                 style={{
@@ -49,6 +47,7 @@ export default function HeroMiniCards({ data }: HeroMiniCardProps) {
                     fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
                     fontSize: '17px',
                     fontWeight: 400,
+                      marginBottom: '0'
                   }
                 }
               >
@@ -75,7 +74,6 @@ export default function HeroMiniCards({ data }: HeroMiniCardProps) {
                 width={60}
                 height={60}
                 style={{
-                  borderRadius: '2px',
                   objectFit: 'cover',
                   width: '60px',
                   height: '60px',

@@ -5,6 +5,7 @@ import NewsCard from './NewsCard';
 
 interface NewsCardListProps {
   data: Array<{
+
     category: string;
     title: string;
     shortdescription: string;
@@ -18,8 +19,29 @@ interface NewsCardListProps {
 const NewsCardList = ({ data }: NewsCardListProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  const itemsPerPage = 4;
+  const calculateItemsPerPage = () => {
+    const width = window.innerWidth;
+    if (width < 576) return 1;
+    if (width < 768) return 2;
+    if (width < 992) return 3;
+    return 4;
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setItemsPerPage(calculateItemsPerPage());
+      setIsSmallScreen(width < 576);
+    };
+
+    handleResize(); 
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
   const handleScroll = () => {
@@ -37,7 +59,7 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
       container.addEventListener('scroll', handleScroll);
       return () => container.removeEventListener('scroll', handleScroll);
     }
-  }, [data.length]);
+  }, [data.length, itemsPerPage]);
 
   return (
     <div>
@@ -48,31 +70,53 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
           overflowX: data.length > itemsPerPage ? 'scroll' : 'hidden',
           scrollSnapType: data.length > itemsPerPage ? 'x mandatory' : 'none',
           scrollbarWidth: 'auto',
+          paddingBottom: '4px',
         }}
         className="custom-scrollbar"
       >
-        {data.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              flex: `0 0 ${100 / itemsPerPage}%`,
-              scrollSnapAlign: 'start',
-              paddingRight: index !== data.length - 1 ? '20px' : 0,
-            }}
-          >
-            
-            <NewsCard
-              data={{
-                category: item.category,
-                title: item.title,
-                image: item.image,
-                slug: item.slug,
-                date: item.date,
-                shortdescription: item.shortdescription
+
+        {data.map((item, index) => {
+          const isLastItem = index === data.length - 1;
+
+          return (
+            <div
+              key={index}
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flex: `0 0 ${100 / itemsPerPage}%`,
+                scrollSnapAlign: 'start',
+
+                minWidth: 0,
               }}
-            />
-          </div>
-        ))}
+            >
+              <div style={{ flex: 1 }}>
+                <NewsCard
+                  data={{
+                    category: item.category,
+                    title: item.title,
+                    image: item.image,
+                    slug: item.slug,
+                    date: item.date,
+                    shortdescription: item.shortdescription,
+                  }}
+                />
+              </div>
+
+              {!isLastItem && (
+                <div
+                  style={{
+                    width: '0.5px',
+                    backgroundColor: '#eee',
+                    margin: '16px',
+                    height: '40%',
+                  }}
+                />
+              )}
+
+            </div>
+          );
+        })}
       </div>
 
       {data.length > itemsPerPage && (

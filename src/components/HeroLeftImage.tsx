@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiCalendar } from 'react-icons/bi';
+import { useEffect, useState } from 'react';
 
 interface HeroLeftImageProps {
   data: {
@@ -11,98 +12,127 @@ interface HeroLeftImageProps {
     author?: string;
     image: string;
     date: string;
-    slug:string;
+    slug: string;
   };
 }
 
 export default function HeroLeftImage({ data }: HeroLeftImageProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const sharedTextStyle = {
+    fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+    color: '#fff',
+    fontWeight: 400,
+    margin: '10px 0',
+  };
+
+  const rowStyle = {
+    width: '100%',
+    display: 'flex',
+    flexWrap: 'wrap' as const,
+    height: isMobile ? 'auto' : '600px',
+  };
+
+  const textColumnStyle = {
+    backgroundColor: '#000',
+    color: '#fff',
+    padding: isMobile ? '20px' : '40px',
+    height: isMobile ? 'auto' : '100%',
+    display: 'flex',
+    flexDirection: 'column' as const,
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center' as const,
+    width: isMobile ? '100%' : '50%',
+  };
+
+  const imageColumnStyle = {
+    width: isMobile ? '100%' : '50%',
+    height: isMobile ? '300px' : '100%',
+  };
+
   return (
- <div className="container py-5">
-   <Link
-                title={`${data.slug}`}
-                href={`/${data.category}/${data.slug}`}
-                className='text-decoration-none'
-                style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit', }}
-            >
-
-  <div className="row align-items-stretch" style={{ minHeight: '500px' }}>
-    <div className="col-md-6 p-0">
-      <div style={{ height: '100%', width: '100%' }}>
-        <Image
-          src={data.image}
-          alt={data.title}
-          width={500}
-          height={600}
-          className="img-fluid"
-          style={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-          }}
-          priority
-        />
-      </div>
-    </div>
-
-    {/* Right - Content */}
-    <div
-      className="col-md-6 d-flex justify-content-center align-items-center text-center"
-      style={{
-        backgroundColor: '#000',
-        color: '#fff',
-        padding: '40px',
-        borderRadius: '0',
-        height: '700px', 
-      }}
+    <div className="py-5" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+      <Link
+        title={data.slug}
+        href={`/${data.category}/${data.slug}`}
+        className="text-decoration-none"
+        style={{
+          display: 'flex',
+          width: '100%',
+          textDecoration: 'none',
+          color: 'inherit',
+        }}
       >
-      <div>
-        <div
-          style={{
+        <div className="row align-items-stretch" style={rowStyle}>
+          {/* TEXT COLUMN */}
+          <div className="col-12 col-md-6 order-1 order-md-2" style={textColumnStyle}>
+            <div style={{ width: '100%' }}>
+              <div
+                style={{
                   fontFamily: '"Georgia", serif',
-                  fontSize: '36px',
+                  fontSize: isMobile ? '20px' : '28px',
                   textTransform: 'uppercase',
                   letterSpacing: '1px',
                   fontWeight: 400,
                 }}
-          >
-          {data.category}
-        </div>
+              >
+                {data.category}
+              </div>
 
-        <h1
-          style={{
-                  color: "#fff",
-                  fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                  fontSize: '21px',
-                  fontWeight: 400,
-                  maxWidth: '500px',
-                  margin: '0 auto',
+              <h1
+                style={{
+                  ...sharedTextStyle,
+                  fontSize: isMobile ? '16px' : '21px',
                 }}
-          >
-          {data.title}
-        </h1>
-        <p
-          style={{
-            color: "#fff",
-                  fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                  fontSize: '17px',
-                  fontWeight: 400,
-                  maxWidth: '500px',
-                  margin: '0 auto',
-          }}
-          >
-          {data.shortdescription}
-        </p>
+              >
+                {data.title}
+              </h1>
 
-        <div>
-          <BiCalendar size={10} style={{ marginRight: '4px', color: '#fff' }} />
-          <span style={{ color: '#fff', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-          <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
+              <p
+                style={{
+                  ...sharedTextStyle,
+                  fontSize: isMobile ? '14px' : '17px',
+                }}
+              >
+                {data.shortdescription}
+              </p>
+
+              <div style={{ marginTop: '10px' }}>
+                <BiCalendar size={10} style={{ marginRight: '4px', color: '#fff' }} />
+                <span style={{ fontSize: '8px', color: '#fff', opacity: 0.6 }}>Published on</span>
+                <span style={{ fontSize: '8px', color: '#ccc', marginLeft: '4px' }}>{data.date}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* IMAGE COLUMN */}
+          <div className="col-12 col-md-6 order-2 order-md-1 p-0" style={imageColumnStyle}>
+            <div style={{ height: '100%', width: '100%' }}>
+              <Image
+                src={data.image}
+                alt={data.title}
+                width={700}
+                height={600}
+                className="img-fluid"
+                style={{
+                  height: '100%',
+                  width: '100%',
+                  objectFit: 'cover',
+                }}
+                priority
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
-  </div>
-          </Link>
-</div>
-
   );
 }

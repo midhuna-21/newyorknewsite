@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { BiCalendar } from 'react-icons/bi';
 
 interface HeroImageData {
   category: string;
@@ -19,71 +19,104 @@ interface Props {
 }
 
 const HeroImageSection: React.FC<Props> = ({ data }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div
-      className="container py-5"
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '90vh',
-        backgroundImage: `url(${data.image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        color: '#fff',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        padding: '0 20px',
-      }}
-    >
+    <div style={{ width: '100%', paddingTop: '3rem', paddingBottom: '2rem' }}>
       <Link
-        title={`${data.slug}`}
         href={`/${data.category}/${data.slug}`}
-        className='text-decoration-none'
-        style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit', }}
+        title={data.slug}
+        className="text-decoration-none"
+        style={{
+          textDecoration: 'none',
+          color: 'inherit',
+          display: 'block',
+        }}
       >
-
-        <Container>
-          <p
+        <div
+          style={{
+            position: 'relative',
+            width: '100%',
+            minHeight: isMobile ? '60vh' : '90vh', 
+            backgroundImage: `url(${data.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            display: 'flex',
+            justifyContent: isMobile ? 'center' : 'flex-end',
+            alignItems: 'center',
+            padding: '0 1.5rem',
+            textAlign: 'center',
+          }}
+        >
+          <div
             style={{
-              fontFamily: '"Georgia", serif',
-              fontSize: '12px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              fontWeight: 400,
+              maxWidth: '550px',
+              padding: '1.5rem',
+              color: '#fff',
+              width: '100%',
+              textAlign: 'center',
             }}
           >
-            {data.category}
-          </p>
-
-          <h1
+            <p
               style={{
-                    fontFamily: '"Georgia", serif',
-                    fontSize: '36px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    fontWeight: 400,
-                  }}
-          >
-            {data.title}
-          </h1>
+                fontFamily: 'Georgia, serif',
+                fontSize: isMobile ? '0.55rem' : '0.75rem',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontWeight: 400,
+                marginBottom: '0.5rem',
+              }}
+            >
+              {data.category}
+            </p>
 
-          <p
-            style={{
-              color: "#fff",
-              fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-              fontSize: '21px',
-              fontWeight: 400,
-              marginTop: '1rem',
-              maxWidth: '700px',
-              margin: '1rem auto 0',
-            }}
-          >
-            {data.shortdescription}
-          </p>
-        </Container>
+            <h1
+              style={{
+                fontFamily: 'Georgia, serif',
+                fontSize: isMobile ? '0.95rem' : '1.5rem',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontWeight: 400,
+                marginBottom: '0.75rem',
+              }}
+            >
+              {data.title}
+            </h1>
+
+            <p
+              style={{
+                fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+                fontSize: isMobile ? '0.85rem' : '1rem',
+                fontWeight: 400,
+                marginBottom: '1rem',
+              }}
+            >
+              {data.shortdescription}
+            </p>
+
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: isMobile ? '0.6rem' : '0.7rem',
+                opacity: 0.8,
+              }}
+            >
+              <BiCalendar size={10} style={{ marginRight: '4px' }} />
+              <span>Published on</span>
+              <span style={{ marginLeft: '4px' }}>{data.date}</span>
+            </div>
+          </div>
+        </div>
       </Link>
     </div>
   );

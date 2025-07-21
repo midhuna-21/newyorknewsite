@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NewsCardWithCategory from './NewsCardWithCategory';
 
 interface NewsCardProps {
@@ -16,36 +16,48 @@ interface NewsCardProps {
 }
 
 const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
-  const displayItems = data.slice(0, 4); 
+  const displayItems = data.slice(0, 4);
+
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 993);
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+
+  if (isDesktop === null) return null;
+
   return (
-  <div
-  className='container py-5'
-  style={{
-    display: 'flex',
-    gap: '20px',
-    alignItems: 'flex-start',
-  }}
->
-  {displayItems.map((item, index) => (
-    <React.Fragment key={index}>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <NewsCardWithCategory data={item} />
-      </div>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: isDesktop ? 'repeat(4, 1fr)' : '1fr',
+        gap: 0,
+        position: 'relative',
+      }}
+    >
+      {displayItems.map((item, index) => {
+        const isLast = index === displayItems.length - 1;
 
-      {index < displayItems.length - 1 && (
-        <div
-          style={{
-            width: '1px',
-            backgroundColor: '#ccc',
-            height: '180px', 
-            alignSelf: 'flex-start',
-          }}
-        ></div>
-      )}
-    </React.Fragment>
-  ))}
-</div>
+        const borderStyle = isDesktop
+          ? {
+              borderRight: isLast ? 'none' : '1px solid #ccc',
+              padding: '0 10px',
+            }
+          : {
+              borderBottom: isLast ? 'none' : '1px solid #ddd',
+              padding: '0 10px',
+            };
 
+        return (
+          <div key={index} style={{ position: 'relative', ...borderStyle }}>
+            <NewsCardWithCategory data={item} />
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

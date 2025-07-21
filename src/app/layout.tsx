@@ -29,7 +29,7 @@ const elsie = Elsie({
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;a
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">

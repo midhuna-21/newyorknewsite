@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -14,36 +12,28 @@ interface NewsData {
 
 const LeftImageContent = ({ data }: { data: NewsData }) => {
   return (
-    <div className="py-5" style={{ backgroundColor: '#fff' }}>
+    <div className="py-5" style={{ backgroundColor: '#fff' }} id="left-image-content">
       <Link
         title={`${data.slug}`}
         href={`/${data.category}/${data.slug}`}
-        className='text-decoration-none'
-        style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit', }}
+        className="text-decoration-none"
+        style={{
+          display: 'flex',
+          width: '100%',
+          textDecoration: 'none',
+          color: 'inherit',
+        }}
       >
-
         <Container>
           <Row className="align-items-center">
-            {/* Left Content */}
             <Col
               xs={12}
               md={6}
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                marginBottom: '30px',
-              }}
+              className="order-1 order-md-2 text-col"
+              style={{ textAlign: 'center' }}
             >
-              <img
-                src={data.image}
-                alt={data.title}
-                style={{ maxWidth: '100%', height: 'auto' }}
-              />
-            </Col>
-
-            {/* Right Content */}
-            <Col xs={12} md={6} style={{ textAlign: 'center' }}>
               <h2
+                className="responsive-title"
                 style={{
                   fontFamily: '"Georgia", serif',
                   fontSize: '36px',
@@ -54,17 +44,33 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
                 {data.title}
               </h2>
               <p
-                style={
-                  {
-                    color: 'rgb(51, 51, 51)',
-                    fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                    fontSize: '22px',
-                    fontWeight: 400,
-                  }
-                }
+                className="responsive-description"
+                style={{
+                  color: 'rgb(51, 51, 51)',
+                  fontFamily:
+                    'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+                  fontSize: '22px',
+                  fontWeight: 400,
+                }}
               >
                 {data.shortdescription}
               </p>
+            </Col>
+
+            <Col
+              xs={12}
+              md={6}
+              className="order-2 order-md-1 image-col"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <img
+                src={data.image}
+                alt={data.title}
+                style={{ maxWidth: '100%', height: 'auto' }}
+              />
             </Col>
           </Row>
         </Container>

@@ -7,12 +7,13 @@ interface SectionWrapperProps {
 
 export default function SectionWrapper({ title, children }: SectionWrapperProps) {
   return (
-    <div className="container my-5">
+    <div id="section-wrapper">
       <hr style={{ borderTop: '1px solid #ccc' }} />
+      
       <h2
-        className="text-center mt-4"
+        className="section-title text-center"
         style={{
-          color:"#000",
+          color: "#000",
           fontFamily: '"Cinzel", serif',
           fontWeight: 400,
           fontSize: '28px',
@@ -22,7 +23,10 @@ export default function SectionWrapper({ title, children }: SectionWrapperProps)
         {title}
       </h2>
 
-      <div className="mt-5">
+      <div
+        className="section-children"
+        style={{ marginTop: '1.5rem' /* ~mt-4 */ }}
+      >
         {children}
       </div>
     </div>

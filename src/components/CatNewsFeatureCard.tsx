@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,12 +17,11 @@ interface NewsCardProps {
 
 const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
     return (
-        <div className="container py-5">
+        <div className='py-4'>
             <div className="row align-items-center">
 
-                <div className="col-md-6">
+                <div className="col-md-6 order-1 order-md-1 mb-4 mb-md-0">
                     <div style={{ position: 'relative', width: '100%', height: '100%', aspectRatio: '17/12' }}>
-
                         <Image
                             src={data.image}
                             alt={data.title}
@@ -34,20 +31,16 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                     </div>
                 </div>
 
-
-                {/* Right Text */}
-                <div className="col-md-6 mt-4 mt-md-0">
+                <div className="col-md-6 order-2 order-md-2">
                     <Link
                         title={`${data.slug}`}
                         href={`/${data.category}/${data.slug}`}
                         className='text-decoration-none'
                         style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit' }}
                     >
-
                         <div style={{ textAlign: 'center', maxWidth: '600px' }}>
-
                             <p style={{
-                                fontSize: '12px',
+                                fontSize: 'clamp(10px, 1vw, 14px)',
                                 fontWeight: 400,
                                 color: 'rgb(219, 51, 52)',
                                 textTransform: 'uppercase',
@@ -57,38 +50,32 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                                 fontFamily: `'Georgia', serif`
                             }}>
                                 {data.category}
-
                             </p>
-                            <h2
-                                style={{
-                                    fontFamily: '"Georgia", serif',
-                                    fontSize: '36px',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '1px',
-                                    fontWeight: 400,
-                                }}
-                            >
+                            <h2 style={{
+                                fontFamily: '"Georgia", serif',
+                                fontSize: 'clamp(20px, 4vw, 36px)',
+                                textTransform: 'uppercase',
+                                letterSpacing: '1px',
+                                fontWeight: 400,
+                                marginBottom: '10px'
+                            }}>
                                 {data.title.toUpperCase()}
                             </h2>
 
-                            <p
-                                style={
-                                    {
-                                        color: 'rgb(51, 51, 51)',
-                                        fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                                        fontSize: '17px',
-                                        fontWeight: 400,
-                                        marginTop: '12px',
-                                    }
-                                }
-                            >
+                            <p style={{
+                                color: 'rgb(51, 51, 51)',
+                                fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+                                fontSize: 'clamp(14px, 2vw, 17px)',
+                                fontWeight: 400,
+                                marginBottom: '2px'
+                            }}>
                                 {data.shortdescription}
                             </p>
-
-                            <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-                            <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-                            <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
-
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                                <BiCalendar size={10} style={{ color: '#000' }} />
+                                <span style={{ color: '#000', opacity: 0.6, fontSize: 'clamp(7px, 1vw, 10px)' }}>Published on</span>
+                                <span style={{ color: '#555', fontSize: 'clamp(7px, 1vw, 10px)' }}>{data.date}</span>
+                            </div>
                         </div>
                     </Link>
                 </div>
