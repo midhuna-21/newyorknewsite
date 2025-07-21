@@ -53,7 +53,7 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                             </p>
                             <h2 style={{
                                 fontFamily: '"Georgia", serif',
-                                fontSize: 'clamp(20px, 4vw, 36px)',
+                            fontSize: 'clamp(22px, 3vw, 30px)',
                                 textTransform: 'uppercase',
                                 letterSpacing: '1px',
                                 fontWeight: 400,
@@ -65,7 +65,7 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                             <p style={{
                                 color: 'rgb(51, 51, 51)',
                                 fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                                fontSize: 'clamp(14px, 2vw, 17px)',
+                                fontSize: 'clamp(16px, 2vw, 17px)',
                                 fontWeight: 400,
                                 marginBottom: '2px'
                             }}>
