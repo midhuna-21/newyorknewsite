@@ -36,7 +36,11 @@ const allData: Record<string, NewsItem[]> = {
     science: scienceData,
 };
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
+ export default async function CategoryPage({
+        params,
+    }: {
+        params: Promise<{ category: string }>;
+    }) {
     const { category } = await params;
     const data = allData[category];
 
