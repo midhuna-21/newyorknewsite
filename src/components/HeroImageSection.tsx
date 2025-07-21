@@ -29,97 +29,98 @@ const HeroImageSection: React.FC<Props> = ({ data }) => {
   }, []);
 
   return (
-    <div style={{ width: '100%', paddingTop: '3rem', paddingBottom: '2rem' }}>
-      <Link
-        href={`/${data.category}/${data.slug}`}
-        title={data.slug}
-        className="text-decoration-none"
+  <div style={{ width: '100%', paddingTop: '3rem', paddingBottom: '2rem' }}>
+    <Link
+      href={`/${data.category}/${data.slug}`}
+      title={data.slug}
+      className="text-decoration-none"
+      style={{
+        textDecoration: 'none',
+        color: 'inherit',
+        display: 'block',
+      }}
+    >
+      <div
         style={{
-          textDecoration: 'none',
-          color: 'inherit',
-          display: 'block',
+          position: 'relative',
+          width: '100%',
+          minHeight: isMobile ? '60vh' : '90vh',
+          backgroundImage: `url(${data.image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          display: 'flex',
+          justifyContent: isMobile ? 'center' : 'flex-end',
+          alignItems: 'center',
+          padding: '0 1.5rem',
+          textAlign: 'center',
         }}
       >
         <div
           style={{
-            position: 'relative',
+            maxWidth: '550px',
+            padding: '1.5rem',
+            color: '#fff',
             width: '100%',
-            minHeight: isMobile ? '60vh' : '90vh', 
-            backgroundImage: `url(${data.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            display: 'flex',
-            justifyContent: isMobile ? 'center' : 'flex-end',
-            alignItems: 'center',
-            padding: '0 1.5rem',
             textAlign: 'center',
           }}
         >
-          <div
+          <p
             style={{
-              maxWidth: '550px',
-              padding: '1.5rem',
-              color: '#fff',
-              width: '100%',
-              textAlign: 'center',
+              fontFamily: 'Georgia, serif',
+              fontSize: isMobile ? '0.75rem' : '1rem',
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              fontWeight: 400,
+              marginBottom: '0.5rem',
             }}
           >
-            <p
-              style={{
-                fontFamily: 'Georgia, serif',
-                fontSize: isMobile ? '0.55rem' : '0.75rem',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                fontWeight: 400,
-                marginBottom: '0.5rem',
-              }}
-            >
-              {data.category}
-            </p>
+            {data.category}
+          </p>
 
-            <h1
-              style={{
-                fontFamily: 'Georgia, serif',
-                fontSize: isMobile ? '0.95rem' : '1.5rem',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                fontWeight: 400,
-                marginBottom: '0.75rem',
-              }}
-            >
-              {data.title}
-            </h1>
+          <h1
+            style={{
+              fontFamily: 'Georgia, serif',
+              fontSize: isMobile ? '1.2rem' : '2rem',
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              fontWeight: 400,
+              marginBottom: '0.75rem',
+            }}
+          >
+            {data.title}
+          </h1>
 
-            <p
-              style={{
-                fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                fontSize: isMobile ? '0.85rem' : '1rem',
-                fontWeight: 400,
-                marginBottom: '1rem',
-              }}
-            >
-              {data.shortdescription}
-            </p>
+          <p
+            style={{
+              fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+              fontSize: isMobile ? '1rem' : '1.25rem',
+              fontWeight: 400,
+              marginBottom: '1rem',
+            }}
+          >
+            {data.shortdescription}
+          </p>
 
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                fontSize: isMobile ? '0.6rem' : '0.7rem',
-                opacity: 0.8,
-              }}
-            >
-              <BiCalendar size={10} style={{ marginRight: '4px' }} />
-              <span>Published on</span>
-              <span style={{ marginLeft: '4px' }}>{data.date}</span>
-            </div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: isMobile ? '0.75rem' : '0.9rem',
+              opacity: 0.8,
+            }}
+          >
+            <BiCalendar size={12} style={{ marginRight: '4px' }} />
+            <span>Published on</span>
+            <span style={{ marginLeft: '4px' }}>{data.date}</span>
           </div>
         </div>
-      </Link>
-    </div>
-  );
+      </div>
+    </Link>
+  </div>
+);
+
 };
 
 export default HeroImageSection;

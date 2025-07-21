@@ -48,19 +48,19 @@ export default function Home() {
         </SectionWrapper>
 
 
-        <SecondImageContent data={SportsData[2]} />
+        <SecondImageContent data={ScienceData[2]} />
 
         <SectionWrapper title="The Critics">
           <AllCritics data={[ScienceData[2], TechnologyData[3], SportsData[3], BusinessData[2], HealthData[10], PoliticalData[10]]} />
         </SectionWrapper>
 
-        <LeftImageContent data={BusinessData[3]} />
+        <LeftImageContent data={BusinessData[10]} />
 
         <SectionWrapper title="Our Columnists">
           <HorizontalNewsWithCategory data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[3]]} />
         </SectionWrapper>
 
-        <RigtImageContent data={HealthData[2]} />
+        <RigtImageContent data={HealthData[11]} />
 
         <SectionWrapper title="Ideas">
           <AllFourCritics data={[ScienceData[22], TechnologyData[13], SportsData[13], BusinessData[22]]} />
@@ -72,7 +72,7 @@ export default function Home() {
           <HorizontalLessContent data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[4]]} />
         </SectionWrapper>
 
-        <HeroLeftImage data={ScienceData[4]} />
+        <HeroLeftImage data={TechnologyData[11]} />
 
         <AllMiniCards data={[TechnologyData[6], SportsData[6], HealthData[4], ScienceData[6]]} />
 
@@ -85,8 +85,8 @@ export default function Home() {
         <div >
           <div className="row">
             <div className="col-12 col-md-9">
-              <SectionWrapper title="Daily Cartoon">
-                <DailyNews data={PoliticalData[3]} />
+              <SectionWrapper title="Daily News">
+                <DailyNews data={PoliticalData[8]} />
               </SectionWrapper>
             </div>
             <div className="d-none d-md-block col-md-3"></div>

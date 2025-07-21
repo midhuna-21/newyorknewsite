@@ -59,80 +59,109 @@ export default function HeroLeftImage({ data }: HeroLeftImageProps) {
   };
 
   return (
-    <div className="py-5" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
-      <Link
-        title={data.slug}
-        href={`/${data.category}/${data.slug}`}
-        className="text-decoration-none"
+  <div className="py-5" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+    <Link
+      title={data.slug}
+      href={`/${data.category}/${data.slug}`}
+      className="text-decoration-none"
+      style={{
+        display: 'block',
+        width: '100%',
+        textDecoration: 'none',
+        color: 'inherit',
+      }}
+    >
+      <div
+        className="row align-items-stretch m-0"
         style={{
           display: 'flex',
-          width: '100%',
-          textDecoration: 'none',
-          color: 'inherit',
+          flexWrap: 'wrap',
+          height: isMobile ? 'auto' : '600px',
         }}
       >
-        <div className="row align-items-stretch" style={rowStyle}>
-          {/* TEXT COLUMN */}
-          <div className="col-12 col-md-6 order-1 order-md-2" style={textColumnStyle}>
-            <div style={{ width: '100%' }}>
-              <div
-                style={{
-                  fontFamily: '"Georgia", serif',
-                  fontSize: isMobile ? '20px' : '28px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  fontWeight: 400,
-                }}
-              >
-                {data.category}
-              </div>
-
-              <h1
-                style={{
-                  ...sharedTextStyle,
-                  fontSize: isMobile ? '16px' : '21px',
-                }}
-              >
-                {data.title}
-              </h1>
-
-              <p
-                style={{
-                  ...sharedTextStyle,
-                  fontSize: isMobile ? '14px' : '17px',
-                }}
-              >
-                {data.shortdescription}
-              </p>
-
-              <div style={{ marginTop: '10px' }}>
-                <BiCalendar size={10} style={{ marginRight: '4px', color: '#fff' }} />
-                <span style={{ fontSize: '8px', color: '#fff', opacity: 0.6 }}>Published on</span>
-                <span style={{ fontSize: '8px', color: '#ccc', marginLeft: '4px' }}>{data.date}</span>
-              </div>
+        <div
+          className="col-12 col-md-6 order-1 order-md-2"
+          style={{
+            backgroundColor: '#000',
+            color: '#fff',
+            padding: isMobile ? '20px' : '40px',
+            height: isMobile ? 'auto' : '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+          }}
+        >
+          <div style={{ width: '100%' }}>
+            <div
+              style={{
+                fontFamily: '"Georgia", serif',
+                fontSize: isMobile ? '20px' : '28px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontWeight: 400,
+              }}
+            >
+              {data.category}
             </div>
-          </div>
 
-          {/* IMAGE COLUMN */}
-          <div className="col-12 col-md-6 order-2 order-md-1 p-0" style={imageColumnStyle}>
-            <div style={{ height: '100%', width: '100%' }}>
-              <Image
-                src={data.image}
-                alt={data.title}
-                width={700}
-                height={600}
-                className="img-fluid"
-                style={{
-                  height: '100%',
-                  width: '100%',
-                  objectFit: 'cover',
-                }}
-                priority
-              />
+            <h1
+              style={{
+                fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+                color: '#fff',
+                fontWeight: 400,
+                margin: '10px 0',
+                fontSize: isMobile ? '16px' : '21px',
+              }}
+            >
+              {data.title}
+            </h1>
+
+            <p
+              style={{
+                fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+                color: '#fff',
+                fontWeight: 400,
+                margin: '10px 0',
+                fontSize: isMobile ? '14px' : '17px',
+              }}
+            >
+              {data.shortdescription}
+            </p>
+
+            <div style={{ marginTop: '10px' }}>
+              <BiCalendar size={10} style={{ marginRight: '4px', color: '#fff' }} />
+              <span style={{ fontSize: '8px', color: '#fff', opacity: 0.6 }}>Published on</span>
+              <span style={{ fontSize: '8px', color: '#ccc', marginLeft: '4px' }}>{data.date}</span>
             </div>
           </div>
         </div>
-      </Link>
-    </div>
-  );
+        <div
+          className="col-12 col-md-6 order-2 order-md-1 p-0"
+          style={{
+            height: isMobile ? '300px' : '100%',
+          }}
+        >
+          <div style={{ height: '100%', width: '100%' }}>
+            <Image
+              src={data.image}
+              alt={data.title}
+              width={700}
+              height={600}
+              className="img-fluid"
+              style={{
+                height: '100%',
+                width: '100%',
+                objectFit: 'cover',
+              }}
+              priority
+            />
+          </div>
+        </div>
+      </div>
+    </Link>
+  </div>
+);
+
 }
