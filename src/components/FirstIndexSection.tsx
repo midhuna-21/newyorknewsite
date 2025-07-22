@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { BiCalendar } from 'react-icons/bi';
+import Image from 'next/image';
 
 interface NewsData {
   category: string;
@@ -21,78 +22,75 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
   if (!data) return null;
 
   return (
-    <div style={{ backgroundColor: '#000', color: '#fff' }} id="first-index-section">
-      <Container fluid style={{ padding: 0 }}>
+    <div id="first-index-section" style={{ backgroundColor: '#fff', color: '#000', }}>
+      <Container fluid style={{ paddingTop:'0px' }}>
         <Row
-          className="align-items-stretch first-section-row"
-          style={{
-            minHeight: '70vh', 
-          }}
+          className="first-section-row align-items-stretch"
+          style={{ margin: 0, gap: 0 }}
         >
-       <Col
-  md={6}
-  xs={12}
-  id="first-section-text-col"
-  style={{
-    padding: 'clamp(40px, 5vw, 80px) clamp(20px, 5vw, 60px)',
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center', 
-    backgroundColor: '#000',
-  }}
->
-
-
+          {/* Text Section */}
+          <Col
+            md={6}
+            xs={12}
+            id="first-section-text-col"
+            style={{
+             
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              backgroundColor: '#fff',
+              color: '#000',
+            }}
+          >
             <Link
               title={data.slug}
               href={`/${data.category}/${data.slug}`}
               className="text-decoration-none"
               style={{
-                display: 'flex',
                 width: '100%',
                 textDecoration: 'none',
                 color: 'inherit',
               }}
             >
               <div>
-              <h2
-  className="category-heading"
-  style={{
-    fontFamily: '"Georgia", serif',
-    fontSize: 'clamp(14px, 4vw, 28px)',
-    textTransform: 'uppercase',
-    letterSpacing: '1px',
-    fontWeight: 400,
-    marginBottom: '0.3rem',
-    marginTop: '0.5rem',
-  }}
->
-  {data.category}
-</h2>
-
+                <h2
+                  style={{
+                    fontFamily: '"Georgia", serif',
+                    fontSize: 'clamp(14px, 4vw, 28px)',
+                    // paddingTop:'50px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    fontWeight: 400,
+                    marginBottom: '0.3rem',
+                    marginTop: '0.5rem',
+                    color: '#000',
+                  }}
+                >
+                  {data.category}
+                </h2>
 
                 <p
                   style={{
-                    color: '#fff',
+                    color: '#000',
                     fontFamily:
                       'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
                     fontSize: 'clamp(14px, 2vw, 22px)',
                     fontWeight: 400,
                     maxWidth: '700px',
-                    margin: '0 auto 1rem',
+                    margin: '0 auto 0.5rem',
                   }}
                 >
                   {data.shortdescription}
                 </p>
 
-                <div style={{ fontSize: '10px', color: '#aaa' }}>
+                <div style={{ fontSize: '10px', color: '#555', marginTop: '10px' }}>
                   <BiCalendar
                     size={10}
-                    style={{ marginRight: '4px', color: '#fff' }}
+                    style={{ marginRight: '4px', color: '#000' }}
                   />
-                  <span style={{ color: '#fff', opacity: 0.6 }}>Published on</span>
-                  <span style={{ color: '#ccc', marginLeft: '4px' }}>
+                  <span style={{ color: '#555', opacity: 0.6 }}>Published on</span>
+                  <span style={{ color: '#222', marginLeft: '4px' }}>
                     {data.date}
                   </span>
                 </div>
@@ -100,29 +98,46 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
             </Link>
           </Col>
 
+          {/* Image Section */}
           <Col
             md={6}
             xs={12}
             style={{
-              padding: 0,
-              overflow: 'hidden',
+              padding: '20px',
               display: 'flex',
-              alignItems: 'stretch',
+              alignItems: 'center',
               justifyContent: 'center',
+              backgroundColor: '#fff',
             }}
           >
-            <img
-              src={data.image}
-              alt={data.title}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
-            />
+            <div className="first-image-wrapper">
+              <Image
+                src={data.image}
+                alt={data.title}
+                width={800}
+                height={500}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
           </Col>
         </Row>
       </Container>
+
+      {/* <div
+        style={{
+          width: '100%',
+          height: '1px',
+          backgroundColor: '#ddd',
+          marginTop: '0',
+        }}
+      /> */}
     </div>
   );
 };

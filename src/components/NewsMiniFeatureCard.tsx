@@ -107,16 +107,17 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
                         {/* Image beside description */}
                         <div className="news-image-wrapper">
                             {isMobile ? (
-                                <img
-                                    src={data.image}
-                                    alt={data.title}
-                                    style={{
-                                        width: '100px',
-                                        height: '100px',
-                                        objectFit: 'cover',
-                                        display: 'block',
-                                    }}
-                                />
+                               <Image
+  src={data.image}
+  alt={data.title ?? 'Image'}
+  width={100}
+  height={100}
+  style={{
+    objectFit: 'cover',
+    display: 'block',
+  }}
+/>
+
                             ) : (
                                 <Image
                                     src={data.image}

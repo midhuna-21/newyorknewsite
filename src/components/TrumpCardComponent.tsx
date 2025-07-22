@@ -45,16 +45,21 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
             marginBottom: '16px',
           }}
         >
-          <img
+          <Image
             src={data.image}
-            alt={data.title}
+            alt={data.title ?? 'Image'}
+            width={400}
+            height={300}
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'cover',
               display: 'block',
             }}
+            sizes="(max-width: 768px) 100vw, 400px"
+            priority
           />
+
         </div>
 
         {/* Category */}

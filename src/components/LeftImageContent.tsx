@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import Image from 'next/image';
 
 interface NewsData {
   title: string;
@@ -57,21 +58,28 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
               </p>
             </Col>
 
-            <Col
-              xs={12}
-              md={6}
-              className="order-2 order-md-1 image-col"
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <img
-                src={data.image}
-                alt={data.title}
-                style={{ maxWidth: '100%', height: 'auto' }}
-              />
-            </Col>
+           <Col
+  xs={12}
+  md={6}
+  className="order-2 order-md-1 image-col"
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+  }}
+>
+  <div style={{ position: 'relative', width: '100%', maxWidth: '500px', height: 'auto' }}>
+    <Image
+      src={data.image}
+      alt={data.title}
+      width={500} 
+      height={300} 
+      style={{
+        width: '100%',
+        height: 'auto',
+      }}
+    />
+  </div>
+</Col>
           </Row>
         </Container>
       </Link>

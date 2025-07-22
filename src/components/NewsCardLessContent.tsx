@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BiCalendar } from 'react-icons/bi';
+import Image from 'next/image';
 
 interface NewsCardProps {
   data: {
     category: string;
-    title?: string;
+    title: string;
     shortdescription?: string;
     description?: string;
     image: string;
@@ -72,38 +73,47 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
               </p>
             </div>
 
-            {/* Image Right */}
-            <div
-              style={{
-                width: '100px',
-                flexShrink: 0,
-              }}
-            >
-              <img
-                src={data.image}
-                alt={data.title}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  objectFit: 'cover',
-                  display: 'block',
-                }}
-              />
-            </div>
+            {/* Right Content */}
+
+<div
+  style={{
+    width: '100px',
+    flexShrink: 0,
+    position: 'relative',
+  }}
+>
+  <Image
+    src={data.image}
+    alt={data.title}
+    width={100}
+    height={100} // required, will be overridden for auto height
+    style={{
+      width: '100%',
+      height: 'auto',
+      objectFit: 'cover',
+      display: 'block',
+    }}
+  />
+</div>
+
           </div>
         ) : (
           <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-            <img
-              src={data.image}
-              alt={data.title}
-              style={{
-                aspectRatio: '4 / 3',
-                objectFit: 'cover',
-                width: '100%',
-                height: 'auto',
-                borderRadius: 0,
-              }}
-            />
+          <Image
+  src={data.image}
+  alt={data.title ?? 'News image'}
+  width={400} 
+  height={300} 
+  style={{
+    aspectRatio: '4 / 3',
+    objectFit: 'cover',
+    width: '100%',
+    height: 'auto',
+    borderRadius: 0,
+  }}
+  sizes="(max-width: 768px) 100vw, 33vw"
+  priority
+/>
 
             <div style={{ padding: '20px 0 0 0' }}>
               <h2

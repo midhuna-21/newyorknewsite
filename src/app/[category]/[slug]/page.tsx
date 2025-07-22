@@ -15,6 +15,8 @@ import Signup from '@/components/Signup';
 import SectionWrapper from '@/components/SectionWrapper';
 import DetailFirst from '@/components/DetailFirst';
 import CategoryNavbar from '@/components/CategoryNavbar';
+import Header from '@/components/Header';
+import SecondHeader from '@/components/Second Header';
 
 interface NewsItem {
     category: string;
@@ -49,18 +51,20 @@ export default async function DetailPage({ params }: DetailPageProps) {
     if (!article) return notFound();
 
     return (
-        <div >
-             <div className="d-none d-md-block">
+        <div>
+            <SecondHeader />
 
-            <CategoryNavbar />
-             </div>
+            <div className="d-none d-md-block">
+
+                <CategoryNavbar />
+            </div>
 
             {/* <NewsArticleHeading data={article} /> */}
             <DetailFirst data={article} />
             <div className="container py-5">
 
-                <div className="row">
-                    <div className="col-12 col-lg-6 mz-autho">
+                <div className="row justify-content-center">
+                    <div className="col-12 col-lg-7 mz-autho">
                         {/* <NewsImageWithCaption data={article} /> */}
                         <ArticleParagraphWith data={article} />
                         <ClosingOfferBanner />
@@ -69,6 +73,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
                         <Signup />
                     </div>
                 </div>
+
                 <SectionWrapper title='Read More'>
                     <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
                     <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />

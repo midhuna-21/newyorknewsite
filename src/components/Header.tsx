@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { usePathname } from 'next/navigation';
+import React, { useEffect, useRef, useState } from 'react';
+import { Container, Button } from 'react-bootstrap';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const NavItems = [
   { label: 'Business', slug: 'business' },
@@ -18,62 +18,38 @@ const Header = () => {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
+  const [isFixed, setIsFixed] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [isFixed, setIsFixed] = useState(false);
-  const [isFirstSectionVisible, setIsFirstSectionVisible] = useState(true);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const placeholderRef = useRef<HTMLDivElement>(null);
 
+  const backgroundColor = '#fff';
+  const textColor = '#000';
 
   useEffect(() => {
-    const handleScroll = () => setIsFixed(window.scrollY > 0);
+    const handleScroll = () => {
+      const header = headerRef.current;
+      const placeholder = placeholderRef.current;
+
+      if (!header || !placeholder) return;
+
+      const rect = placeholder.getBoundingClientRect();
+      setIsFixed(rect.top <= 0);
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
- 
-  useEffect(() => {
-    if (!isHomePage) return;
-
-    const handleScroll = () => {
-      const firstSection = document.getElementById('first-section');
-      if (!firstSection) return;
-
-      const rect = firstSection.getBoundingClientRect();
-      const isVisible = rect.bottom > 70;
-      setIsFirstSectionVisible(isVisible);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHomePage]);
-
-
+  // Handle screen size
   const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 992);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const backgroundColor = expanded && isMobile
-    ? '#fff'
-    : isHomePage
-      ? isFirstSectionVisible
-        ? '#000'
-        : '#fff'
-      : '#fff';
-
-  const textColor = expanded && isMobile
-    ? '#000'
-    : isHomePage
-      ? isFirstSectionVisible
-        ? '#fff'
-        : '#000'
-      : '#000';
-
 
   const toggleIcon = expanded ? (
     <span style={{ fontSize: '24px', color: textColor, fontWeight: 'bold' }}>×</span>
@@ -84,7 +60,6 @@ const Header = () => {
           textColor
         )}' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")`,
         filter: isHovered ? 'brightness(70%)' : 'brightness(100%)',
-
         width: '18px',
         height: '18px',
         backgroundRepeat: 'no-repeat',
@@ -98,9 +73,14 @@ const Header = () => {
 
   return (
     <>
+      {/* Spacer div to trigger sticky logic and avoid layout shift */}
+      <div ref={placeholderRef} style={{ height: '2cm' }} />
+
+      {/* Header */}
       <div
+        ref={headerRef}
         style={{
-          position: 'fixed',
+          position: isFixed ? 'fixed' : 'static',
           top: 0,
           left: 0,
           width: '100%',
@@ -112,112 +92,173 @@ const Header = () => {
           display: 'flex',
           alignItems: 'center',
           transition: 'all 0.3s ease',
-          borderBottom: backgroundColor === '#fff' ? '1px solid #ddd' : 'none',
         }}
       >
         <Container fluid>
-<div style={{ position: 'relative', height: '70px', width: '100%' }}>
-  {/* Left - Hamburger (mobile only) */}
-  <div className="d-lg-none" style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)' }}>
-    <button
-      onClick={() => setExpanded(!expanded)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{
-        background: 'none',
-        border: 'none',
-        padding: 0,
-        width: '32px',
-        height: '32px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-      aria-label="Toggle navigation"
-      aria-expanded={expanded}
-    >
-      {toggleIcon}
-    </button>
-  </div>
+          <div style={{ position: 'relative', height: '70px', width: '100%' }}>
+            {isMobile ? (
+              // Mobile View: Toggle, Logo, Subscribe
+              <div
+                className="d-flex d-lg-none align-items-center justify-content-between px-3"
+                style={{ height: '100%' }}
+              >
+                {/* Toggle */}
+                <button
+                  onClick={() => setExpanded(!expanded)}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    width: '32px',
+                    height: '32px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                  aria-label="Toggle navigation"
+                  aria-expanded={expanded}
+                >
+                  {toggleIcon}
+                </button>
 
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-    <Link
-      title="index"
-      href="/"
-      className="text-decoration-none"
-      style={{
-        display: 'inline-block',
-        textDecoration: 'none',
-        color: 'inherit',
-      }}
-    >
-      <h1
-        style={{
-          fontFamily: 'serif',
-          fontWeight: 'normal',
-          margin: 0,
-          fontSize: 'clamp(1.2rem, 4vw, 2rem)',
-          letterSpacing: '0.05em',
-          whiteSpace: 'nowrap',
-          color: textColor,
-        }}
-      >
-        THE NEW YORKER <span style={{ opacity: 0.5 }}>100</span>
-      </h1>
-    </Link>
-  </div>
+                {/* Logo */}
+                <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
+                  <h1
+                    style={{
+                      fontFamily: 'serif',
+                      fontWeight: 'normal',
+                      margin: 0,
+                      fontSize: 'clamp(1.2rem, 4vw, 2rem)',
+                      letterSpacing: '0.05em',
+                      whiteSpace: 'nowrap',
+                      color: textColor,
+                    }}
+                  >
+                    THE NEW YORKER <span style={{ opacity: 0.5 }}>100</span>
+                  </h1>
+                </Link>
 
-  {/* Right - Desktop only */}
-  <div className="d-none d-lg-flex align-items-center gap-3" style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}>
-    <a
-      href="#"
-      style={{
-        fontSize: '12px',
-        color: textColor,
-        fontWeight: 500,
-        fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-        textDecoration: 'none',
-      }}
-    >
-      Newsletter
-    </a>
-    <a
-      href="#"
-      style={{
-        fontSize: '12px',
-        color: textColor,
-        fontWeight: 500,
-        fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-        textDecoration: 'none',
-      }}
-    >
-      Sign In
-    </a>
-    <Button
-      style={{
-        fontSize: '12px',
-        backgroundColor: '#0787CA',
-        color: 'white',
-        fontWeight: 500,
-        fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-        padding: '4px 14px',
-        borderRadius: '2px',
-        border: 'none',
-      }}
-    >
-      Subscribe
-    </Button>
-    <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: textColor }}>
-      🔍
-    </span>
-  </div>
-</div>
+                {/* Subscribe Button */}
+                <Button
+                  style={{
+                    fontSize: '12px',
+                    backgroundColor: '#0787CA',
+                    color: 'white',
+                    fontWeight: 500,
+                    padding: '4px 10px',
+                    borderRadius: '2px',
+                    border: 'none',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  Subscribe
+                </Button>
+              </div>
+            ) : (
+              <>
+                {/* Desktop Only - Toggle Left, Logo Center, Buttons Right */}
+                <div
+                  className="d-lg-none"
+                  style={{
+                    position: 'absolute',
+                    left: '20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                  }}
+                >
+                  <button
+                    onClick={() => setExpanded(!expanded)}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      padding: 0,
+                      width: '32px',
+                      height: '32px',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                    aria-label="Toggle navigation"
+                    aria-expanded={expanded}
+                  >
+                    {toggleIcon}
+                  </button>
+                </div>
 
-</Container>
+                {/* Logo Center */}
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                  <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
+                    <h1
+                      style={{
+                        fontFamily: 'serif',
+                        fontWeight: 'normal',
+                        margin: 0,
+                        fontSize: 'clamp(1.2rem, 4vw, 2rem)',
+                        letterSpacing: '0.05em',
+                        whiteSpace: 'nowrap',
+                        color: textColor,
+                      }}
+                    >
+                      THE NEW YORKER <span style={{ opacity: 0.5 }}>100</span>
+                    </h1>
+                  </Link>
+                </div>
 
+                {/* Desktop Buttons Right */}
+                <div
+                  className="d-none d-lg-flex align-items-center gap-3"
+                  style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}
+                >
+                  <a
+                    href="#"
+                    style={{
+                      fontSize: '12px',
+                      color: textColor,
+                      fontWeight: 500,
+                      textDecoration: 'none',
+                    }}
+                  >
+                    Newsletter
+                  </a>
+                  <a
+                    href="#"
+                    style={{
+                      fontSize: '12px',
+                      color: textColor,
+                      fontWeight: 500,
+                      textDecoration: 'none',
+                    }}
+                  >
+                    Sign In
+                  </a>
+                  <Button
+                    style={{
+                      fontSize: '12px',
+                      backgroundColor: '#0787CA',
+                      color: 'white',
+                      fontWeight: 500,
+                      padding: '4px 14px',
+                      borderRadius: '2px',
+                      border: 'none',
+                    }}
+                  >
+                    Subscribe
+                  </Button>
+                  <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: textColor }}>
+                    🔍
+                  </span>
+                </div>
+              </>
+            )}
+          </div>
+        </Container>
       </div>
 
-      {/* Mobile Specific */}
+      {/* Mobile menu */}
       {expanded && (
         <div
           className="position-fixed top-0 start-0 h-100 w-100 d-lg-none"
@@ -229,7 +270,6 @@ const Header = () => {
           }}
         >
           <div className="p-4 text-black">
-
             <ul className="list-unstyled m-0 p-0">
               {NavItems.map((item) => (
                 <li

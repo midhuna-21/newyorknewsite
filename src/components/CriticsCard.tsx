@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BiCalendar } from 'react-icons/bi';
+import Image from 'next/image';
+
 
 interface CriticsCardProps {
   data: {
@@ -47,25 +49,28 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
         <div style={{ display: 'block' }}>
           {/* Desktop Image */}
           {!isMobile && (
+
+
             <div
               style={{
                 width: '200px',
                 height: '270px',
                 margin: '0 auto',
                 overflow: 'hidden',
+                position: 'relative', // Required for layout positioning
               }}
             >
-              <img
+              <Image
                 src={data.image}
                 alt={data.title}
+                width={200}
+                height={270}
                 style={{
-                  width: '100%',
-                  height: '100%',
                   objectFit: 'cover',
-                  display: 'block',
                 }}
               />
             </div>
+
           )}
 
           {/* Category */}
@@ -123,13 +128,13 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
               >
                 {data.shortdescription}
               </p>
-              <div style={{ flexShrink: 0 }}>
-                <img
+              <div style={{ flexShrink: 0, width: '100px', height: '100px', position: 'relative' }}>
+                <Image
                   src={data.image}
                   alt={data.title}
+                  width={100}
+                  height={100}
                   style={{
-                    width: '100px',
-                    height: '100px',
                     objectFit: 'cover',
                     display: 'block',
                   }}

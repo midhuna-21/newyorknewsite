@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -45,13 +46,28 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
         <div>
           {/* Desktop View - Image Top */}
           {!isMobile && (
-            <div style={{ width: '200px', height: '270px', margin: '0 auto', overflow: 'hidden' }}>
-              <img
-                src={data.image}
-                alt={data.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-            </div>
+
+<div
+  style={{
+    width: '200px',
+    height: '270px',
+    margin: '0 auto',
+    overflow: 'hidden',
+    position: 'relative',
+  }}
+>
+  <Image
+    src={data.image}
+    alt={data.title}
+    width={200}
+    height={270}
+    style={{
+      objectFit: 'cover',
+      display: 'block',
+    }}
+  />
+</div>
+
           )}
 
           {/* Title */}
@@ -91,18 +107,18 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
               >
                 {data.shortdescription}
               </p>
-              <div style={{ flexShrink: 0 }}>
-                <img
-                  src={data.image}
-                  alt={data.title}
-                  style={{
-                    width: '100px',
-                    height: '100px',
-                    objectFit: 'cover',
-                    display: 'block',
-                  }}
-                />
-              </div>
+             <div style={{ flexShrink: 0, width: '100px', height: '100px', position: 'relative' }}>
+  <Image
+    src={data.image}
+    alt={data.title}
+    width={100}
+    height={100}
+    style={{
+      objectFit: 'cover',
+      display: 'block',
+    }}
+  />
+</div>
             </div>
           ) : (
             // Desktop Description

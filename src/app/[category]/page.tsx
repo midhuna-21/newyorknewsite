@@ -10,6 +10,8 @@ import CatNewsFeatureCard from '@/components/CatNewsFeatureCard';
 import CardListCategoryPage from '@/components/CardListCategoryPage';
 import NewsMiniFeatureCard from '@/components/NewsMiniFeatureCard';
 import SectionWrapper from '@/components/SectionWrapper';
+import Header from '@/components/Header';
+import SecondHeader from '@/components/Second Header';
 
 interface NewsItem {
     category: string;
@@ -54,6 +56,7 @@ const allData: Record<string, NewsItem[]> = {
 
     return (
         <div>
+            <SecondHeader />
             <div className="d-none d-md-block">
 
                 <CategoryNavbar />
@@ -108,7 +111,7 @@ const allData: Record<string, NewsItem[]> = {
                     <CardListCategoryPage data={[data[14], data[15], data[16], data[17]]} />
                 </SectionWrapper>
 
-                <SectionWrapper title="More News">
+                {/* <SectionWrapper title="More News">
                     <div className="row mt-5">
                         <div className="col-12 col-lg-7 ">
 
@@ -126,7 +129,7 @@ const allData: Record<string, NewsItem[]> = {
                             ))}
                         </div>
                     </div>
-                </SectionWrapper>
+                </SectionWrapper> */}
             </div>
 
 

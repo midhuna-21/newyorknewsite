@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { BiCalendar } from 'react-icons/bi';
@@ -153,15 +154,21 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
                 alignItems: 'stretch',
               }}
             >
-              <img
-                src={data.image}
-                alt={data.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-              />
+
+<Image
+  src={data.image}
+  alt={data.title ?? 'Image'}
+  width={300}         // replace with your exact width in pixels
+  height={200}        // replace with your exact height in pixels
+  style={{
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+  }}
+  sizes="(max-width: 768px) 100vw, 300px"  // optional: for responsive hints
+  priority            // optional: preload if above the fold
+/>
+
             </Col>
           </Row>
         </Container>

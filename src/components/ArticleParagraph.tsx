@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 interface ArticleParagraphProps {
   data: {
@@ -10,42 +8,30 @@ interface ArticleParagraphProps {
 
 const ArticleParagraphWith = ({ data }: ArticleParagraphProps) => {
   const description = data.description ?? '';
-  const [isMobile, setIsMobile] = useState(false);
+  if (!description) return null;
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+  const sentences = description.split('. ');
+  const paragraphs: string[] = [];
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  for (let i = 0; i < sentences.length; i += 3) {
+    const chunk = sentences.slice(i, i + 3).join('. ') + '.';
+    paragraphs.push(chunk);
+  }
 
   return (
-    <div>
-      <p
-        style={{
-          fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-          fontSize: isMobile ? '17px' : '21px',
-          lineHeight: 1.4,
-          color: '#000',
-          textAlign: 'justify',
-        }}
-      >
-        <span
-          style={{
-            float: 'left',
-            fontSize: isMobile ? '40px' : '56px',
-            paddingRight: '6px',
-            fontWeight: 600,
-            lineHeight: 1,
-          }}
-        >
-          {description.charAt(0)}
-        </span>
-        {description.slice(1)}
-      </p>
+    <div className="article-paragraph-container">
+      {paragraphs.map((text, index) => (
+        <p key={index} className="article-paragraph">
+          {index === 0 ? (
+            <>
+              <span className="article-dropcap">{text.charAt(0)}</span>
+              {text.slice(1)}
+            </>
+          ) : (
+            text
+          )}
+        </p>
+      ))}
     </div>
   );
 };

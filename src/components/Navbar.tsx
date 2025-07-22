@@ -18,6 +18,7 @@ const Navbar = () => {
             style={{
                 backgroundColor: '#fff',
                 borderBottom: '1px solid #ddd',
+                 borderTop: '1px solid #ddd',
                 padding: '10px 0',
             }}
         >
@@ -33,6 +34,7 @@ const Navbar = () => {
                                 fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
                                 fontSize: '0.95rem',
                                 fontWeight: 600,
+                                padding:'4px'
                             }}
                         >
 

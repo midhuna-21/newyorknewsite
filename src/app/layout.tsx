@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${elsie.variable}`} style={{ paddingTop: '20px' }}>
-        <Header />
+    
         {children}
         <Footer />
       </body>

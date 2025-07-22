@@ -346,24 +346,88 @@ a {
 
 /* FirstIndexSection */
 
-#first-index-section .first-section-row {
-  min-height: 70vh;
+/* Image wrapper for responsive layout */
+.first-image-wrapper {
+  width: 100%;
+  height: auto;
+  max-width: 480px;
+  position: relative;
+  margin: 0;
 }
 
+/* Larger image on desktop */
 @media (min-width: 992px) {
-  #first-index-section .first-section-row {
-    min-height: 90vh !important;
+  .first-image-wrapper {
+    width: 70%;
+    height: 500px;
+    max-width: none;
   }
 }
-@media (max-width: 576px) {
-  #first-section-text-col {
-    justify-content: flex-start !important;
+
+/* article paragraph */
+
+.article-paragraph-container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.article-paragraph {
+  font-family: TNYAdobeCaslonPro, "Times New Roman", Times, serif;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #111;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.article-dropcap {
+  float: left;
+  font-size: 58px;
+  line-height: 1;
+  font-weight: bold;
+  padding-right: 8px;
+}
+
+.article-paragraph {
+  font-family: TNYAdobeCaslonPro, "Times New Roman", Times, serif;
+  font-size: 21px;
+  line-height: 1.4;
+  color: #000;
+  text-align: justify;
+}
+
+.article-dropcap {
+  float: left;
+  font-size: 56px;
+  padding-right: 6px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Mobile-specific override */
+@media (max-width: 767px) {
+  .article-paragraph {
+    font-size: 17px;
   }
 
-  #first-section-text-col h2 {
-    margin-top: 30px !important; 
+  .article-dropcap {
+    font-size: 40px;
   }
 }
+
+
+/* You must include this */
+.sticky-navbar {
+  position: fixed;
+  top: 90px; /* Adjust based on your Header height */
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+
 
 
 }
