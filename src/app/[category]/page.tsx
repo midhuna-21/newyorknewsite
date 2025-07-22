@@ -11,7 +11,7 @@ import CardListCategoryPage from '@/components/CardListCategoryPage';
 import NewsMiniFeatureCard from '@/components/NewsMiniFeatureCard';
 import SectionWrapper from '@/components/SectionWrapper';
 import Header from '@/components/Header';
-import SecondHeader from '@/components/Second Header';
+import SecondHeader from '@/components/SecondHeader';
 
 interface NewsItem {
     category: string;

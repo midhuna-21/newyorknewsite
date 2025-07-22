@@ -25,7 +25,7 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
           color: 'inherit',
         }}
       >
-        <Container>
+        <div>
           <Row className="align-items-center">
             <Col
               xs={12}
@@ -58,30 +58,30 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
               </p>
             </Col>
 
-           <Col
-  xs={12}
-  md={6}
-  className="order-2 order-md-1 image-col"
-  style={{
-    display: 'flex',
-    justifyContent: 'center',
-  }}
->
-  <div style={{ position: 'relative', width: '100%', maxWidth: '500px', height: 'auto' }}>
-    <Image
-      src={data.image}
-      alt={data.title}
-      width={500} 
-      height={300} 
-      style={{
-        width: '100%',
-        height: 'auto',
-      }}
-    />
-  </div>
-</Col>
+            <Col
+              xs={12}
+              md={6}
+              className="order-2 order-md-1 image-col"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <div style={{ position: 'relative', width: '100%', maxWidth: '500px', height: 'auto' }}>
+                <Image
+                  src={data.image}
+                  alt={data.title}
+                  width={500}
+                  height={300}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                  }}
+                />
+              </div>
+            </Col>
           </Row>
-        </Container>
+        </div>
       </Link>
     </div>
   );

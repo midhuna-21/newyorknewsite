@@ -17,14 +17,13 @@ interface NewsCardProps {
 
 const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
   const displayItems = data.slice(0, 4);
-
   const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 993);
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
+    const handleResize = () => setIsDesktop(window.innerWidth >= 993);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   if (isDesktop === null) return null;
@@ -35,24 +34,31 @@ const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
         display: 'grid',
         gridTemplateColumns: isDesktop ? 'repeat(4, 1fr)' : '1fr',
         gap: 0,
-        position: 'relative',
       }}
     >
       {displayItems.map((item, index) => {
         const isLast = index === displayItems.length - 1;
 
-        const borderStyle = isDesktop
-          ? {
-              borderRight: isLast ? 'none' : '1px solid #ccc',
-              padding: '0 10px',
-            }
-          : {
-              borderBottom: isLast ? 'none' : '1px solid #ddd',
-              padding: '0 10px',
-            };
-
         return (
-          <div key={index} style={{ position: 'relative', ...borderStyle }}>
+          <div
+            key={index}
+            style={{
+              position: 'relative',
+              padding: isDesktop ? '0 10px' : '10px 0',
+            }}
+          >
+            {isDesktop && !isLast && (
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 10,
+                  right: 0,
+                  height: '170px',
+                  width: '1px',
+                  backgroundColor: '#ccc',
+                }}
+              />
+            )}
             <NewsCardWithCategory data={item} />
           </div>
         );

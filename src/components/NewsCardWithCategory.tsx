@@ -22,7 +22,7 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 992); 
+      setIsMobile(window.innerWidth <= 992);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -42,24 +42,24 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
       >
         <div style={{ display: 'block' }}>
           {!isMobile && (
-           <div style={{ display: 'block' }}>
-  <Image
-    src={data.image}
-    alt={data.title ?? 'News image'}
-    width={400} // or any static width that fits your layout
-    height={300} // to maintain 4:3 aspect ratio
-    style={{
-      aspectRatio: '4 / 3',
-      objectFit: 'cover',
-      width: '100%',
-      height: 'auto',
-      borderRadius: 0,
-      display: 'block',
-    }}
-    sizes="(max-width: 768px) 100vw, 33vw"
-    priority
-  />
-</div>
+            <div style={{ display: 'block' }}>
+              <Image
+                src={data.image}
+                alt={data.title}
+                width={400}
+                height={300}
+                style={{
+                  aspectRatio: '4 / 3',
+                  objectFit: 'cover',
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: 0,
+                  display: 'block',
+                }}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority
+              />
+            </div>
           )}
 
           <div style={{ display: 'block' }}>
@@ -146,18 +146,31 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
                   </p>
                 </div>
 
-              <div style={{ flexShrink: 0 }}>
-  <Image
-    src={data.image}
-    alt={data.title ?? 'Thumbnail'}
-    width={100}
-    height={100}
-    style={{
-      objectFit: 'cover',
-      display: 'block',
-    }}
-  />
-</div>
+                <div style={{ flexShrink: 0 }}>
+                  {/* <Image
+                    src={data.image}
+                    alt={data.title ?? 'Thumbnail'}
+                    width={100}
+                    height={100}
+                    style={{
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  /> */}
+                   <Image
+  src={data.image}
+  alt={data.title}
+  width={100}
+  height={100}
+  style={{
+    width: '100px',
+    height: '100px',
+    objectFit: 'cover',
+    borderRadius: '4px',
+    display: 'block',
+  }}
+/>
+                </div>
               </div>
             ) : (
               <>

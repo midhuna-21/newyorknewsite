@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { Container, Button } from 'react-bootstrap';
-import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const NavItems = [
   { label: 'Business', slug: 'business' },
@@ -14,39 +14,66 @@ const NavItems = [
   { label: 'Politics', slug: 'politics' },
 ];
 
-const Header = () => {
+const SecondHeader = () => {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
-  const [isFixed, setIsFixed] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const placeholderRef = useRef<HTMLDivElement>(null);
+  const [isFixed, setIsFixed] = useState(false);
+  const [isFirstSectionVisible, setIsFirstSectionVisible] = useState(true);
 
-  const backgroundColor = '#fff';
-  const textColor = '#000';
 
   useEffect(() => {
-    const handleScroll = () => {
-      const header = headerRef.current;
-      const placeholder = placeholderRef.current;
-      if (!header || !placeholder) return;
-      const rect = placeholder.getBoundingClientRect();
-      setIsFixed(rect.top <= 0);
-    };
-
+    const handleScroll = () => setIsFixed(window.scrollY > 0);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+ 
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const handleScroll = () => {
+      const firstSection = document.getElementById('first-section');
+      if (!firstSection) return;
+
+      const rect = firstSection.getBoundingClientRect();
+      const isVisible = rect.bottom > 70;
+      setIsFirstSectionVisible(isVisible);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHomePage]);
+
+
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 992);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const backgroundColor = expanded && isMobile
+    ? '#fff'
+    : isHomePage
+      ? isFirstSectionVisible
+        ? '#000'
+        : '#fff'
+      : '#fff';
+
+  const textColor = expanded && isMobile
+    ? '#000'
+    : isHomePage
+      ? isFirstSectionVisible
+        ? '#fff'
+        : '#000'
+      : '#000';
+
 
   const toggleIcon = expanded ? (
     <span style={{ fontSize: '24px', color: textColor, fontWeight: 'bold' }}>×</span>
@@ -57,6 +84,7 @@ const Header = () => {
           textColor
         )}' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")`,
         filter: isHovered ? 'brightness(70%)' : 'brightness(100%)',
+
         width: '18px',
         height: '18px',
         backgroundRepeat: 'no-repeat',
@@ -70,12 +98,9 @@ const Header = () => {
 
   return (
     <>
-      <div ref={placeholderRef} style={{ height: '2cm' }} />
-
       <div
-        ref={headerRef}
         style={{
-          position: isFixed ? 'fixed' : 'static',
+          position: 'fixed',
           top: 0,
           left: 0,
           width: '100%',
@@ -87,9 +112,10 @@ const Header = () => {
           display: 'flex',
           alignItems: 'center',
           transition: 'all 0.3s ease',
+          borderBottom: backgroundColor === '#fff' ? '1px solid #ddd' : 'none',
         }}
       >
-        <Container fluid>
+         <Container fluid>
           <div style={{ position: 'relative', height: '70px', width: '100%' }}>
             {isMobile ? (
               <div className="d-flex d-lg-none align-items-center justify-content-between px-3" style={{ height: '100%' }}>
@@ -246,9 +272,10 @@ const Header = () => {
             )}
           </div>
         </Container>
+
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Specific */}
       {expanded && (
         <div
           className="position-fixed top-0 start-0 h-100 w-100 d-lg-none"
@@ -260,6 +287,7 @@ const Header = () => {
           }}
         >
           <div className="p-4 text-black">
+
             <ul className="list-unstyled m-0 p-0">
               {NavItems.map((item) => (
                 <li
@@ -285,4 +313,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SecondHeader;

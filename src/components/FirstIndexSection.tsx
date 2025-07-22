@@ -53,7 +53,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                 color: 'inherit',
               }}
             >
-              <div>
+           <div className="first-text-wrapper">
                 <h2
                   style={{
                     fontFamily: '"Georgia", serif',
@@ -69,6 +69,8 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                 >
                   {data.category}
                 </h2>
+           
+
 
                 <p
                   style={{
