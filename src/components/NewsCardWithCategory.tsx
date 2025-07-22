@@ -157,19 +157,18 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
                       display: 'block',
                     }}
                   /> */}
-                   <Image
-  src={data.image}
-  alt={data.title}
-  width={100}
-  height={100}
-  style={{
-    width: '100px',
-    height: '100px',
-    objectFit: 'cover',
-    borderRadius: '4px',
-    display: 'block',
-  }}
-/>
+                  <Image
+                    src={data.image}
+                    alt={data.title}
+                    width={100}
+                    height={100}
+                    style={{
+                      width: '100px',
+                      height: '100px',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  />
                 </div>
               </div>
             ) : (

@@ -17,7 +17,7 @@ interface NewsCardProps {
 
 const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
   const displayItems = data.slice(0, 4);
-  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth >= 993);
@@ -26,41 +26,34 @@ const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  if (isDesktop === null) return null;
-
   return (
     <div
       style={{
-        display: 'grid',
-        gridTemplateColumns: isDesktop ? 'repeat(4, 1fr)' : '1fr',
-        gap: 0,
+        display: 'flex',
+        flexDirection: isDesktop ? 'row' : 'column',
+        gap: isDesktop ? '20px' : '10px',
+        alignItems: 'flex-start',
       }}
     >
       {displayItems.map((item, index) => {
         const isLast = index === displayItems.length - 1;
-
         return (
-          <div
-            key={index}
-            style={{
-              position: 'relative',
-              padding: isDesktop ? '0 10px' : '10px 0',
-            }}
-          >
-            {isDesktop && !isLast && (
+          <React.Fragment key={index}>
+            <div style={{ flex: '1 1 0' }}>
+              <NewsCardWithCategory data={item} />
+            </div>
+
+            {!isLast && (
               <div
                 style={{
-                  position: 'absolute',
-                  top: 10,
-                  right: 0,
-                  height: '170px',
-                  width: '1px',
+                  width: isDesktop ? '1px' : '100%',
+                  height: isDesktop ? '180px' : '1px',
                   backgroundColor: '#ccc',
+                  alignSelf: isDesktop ? 'flex-start' : 'stretch',
                 }}
               />
             )}
-            <NewsCardWithCategory data={item} />
-          </div>
+          </React.Fragment>
         );
       })}
     </div>
