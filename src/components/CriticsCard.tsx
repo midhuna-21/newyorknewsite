@@ -56,7 +56,7 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
                 height: '270px',
                 margin: '0 auto',
                 overflow: 'hidden',
-                position: 'relative', 
+                position: 'relative',
               }}
             >
               <Image
@@ -120,10 +120,16 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
                   fontWeight: 400,
                   flex: 1,
                   margin: 0,
+                  display: '-webkit-box',
+                  WebkitLineClamp: 4,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
                 }}
               >
                 {data.shortdescription}
               </p>
+
               <div style={{ flexShrink: 0, width: '100px', height: '100px', position: 'relative' }}>
                 <Image
                   src={data.image}
@@ -145,12 +151,18 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
                 fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
                 fontSize: '16px',
                 fontWeight: 400,
-                margin: '0 auto 8px',
-                maxWidth: '600px',
+                flex: 1,
+                margin: 0,
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
               }}
             >
               {data.shortdescription}
             </p>
+
           )}
 
           <p

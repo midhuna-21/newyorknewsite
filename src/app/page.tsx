@@ -54,25 +54,25 @@ export default function Home() {
           <SecondImageContent data={ScienceData[2]} />
 
           <SectionWrapper title="The Critics">
-            <AllCritics data={[ScienceData[2], TechnologyData[3], SportsData[3], BusinessData[2], HealthData[10], PoliticalData[10]]} />
+            <AllCritics data={[BusinessData[24], TechnologyData[3], SportsData[3], ScienceData[17], HealthData[10], PoliticalData[10]]} />
           </SectionWrapper>
 
           <LeftImageContent data={PoliticalData[0]} />
 
           <SectionWrapper title="Our Columnists">
-            <HorizontalNewsWithCategory data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[3]]} />
+            <HorizontalNewsWithCategory data={[TechnologyData[23], SportsData[23], HealthData[23], ScienceData[23]]} />
           </SectionWrapper>
 
           <RigtImageContent data={HealthData[11]} />
 
           <SectionWrapper title="Ideas">
-            <AllFourCritics data={[ScienceData[22], TechnologyData[13], SportsData[13], BusinessData[22]]} />
+            <AllFourCritics data={[ScienceData[21], TechnologyData[21], SportsData[18], BusinessData[21]]} />
           </SectionWrapper>
 
           <HeroImageSection data={ScienceData[26]} />
 
           <SectionWrapper title="Persons of Interest">
-            <HorizontalLessContent data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[4]]} />
+            <HorizontalLessContent data={[TechnologyData[20], SportsData[20], HealthData[20], ScienceData[20]]} />
           </SectionWrapper>
 
           <HeroLeftImage data={TechnologyData[11]} />

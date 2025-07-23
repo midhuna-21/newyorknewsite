@@ -77,6 +77,7 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
               fontWeight: 400,
               margin: isMobile ? '0 0 6px 0' : '12px auto 12px',
               maxWidth: isMobile ? '100%' : '600px',
+                 lineHeight: 1.2,
             }}
           >
             {data.title}
@@ -92,18 +93,24 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
                 marginBottom: '8px',
               }}
             >
-              <p
-                style={{
-                  color: 'rgb(51, 51, 51)',
-                  fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
-                  fontSize: '16px',
-                  fontWeight: 400,
-                  flex: 1,
-                  margin: 0,
-                }}
-              >
-                {data.shortdescription}
-              </p>
+             <p
+  style={{
+    color: 'rgb(51, 51, 51)',
+    fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
+    fontSize: '16px',
+    fontWeight: 400,
+    margin: isMobile ? '0' : '0 auto 8px',
+    maxWidth: isMobile ? '100%' : '600px',
+    display: '-webkit-box',
+    WebkitLineClamp: 4,
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  }}
+>
+  {data.shortdescription}
+</p>
+
               <div style={{ flexShrink: 0, width: '100px', height: '100px', position: 'relative' }}>
                 <Image
                   src={data.image}
@@ -119,17 +126,23 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
             </div>
           ) : (
             <p
-              style={{
-                color: 'rgb(51, 51, 51)',
-                fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
-                fontSize: '16px',
-                fontWeight: 400,
-                margin: '0 auto 8px',
-                maxWidth: '600px',
-              }}
-            >
-              {data.shortdescription}
-            </p>
+  style={{
+    color: 'rgb(51, 51, 51)',
+    fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
+    fontSize: '16px',
+    fontWeight: 400,
+    margin: isMobile ? '0' : '0 auto 8px',
+    maxWidth: isMobile ? '100%' : '600px',
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  }}
+>
+  {data.shortdescription}
+</p>
+
           )}
 
           <p
