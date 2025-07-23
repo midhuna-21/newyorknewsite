@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image'
 
 const NavItems = [
   { label: 'Business', slug: 'business' },
@@ -113,24 +114,16 @@ const Header = () => {
                   {toggleIcon}
                 </button>
 
-                {/* LOGO */}
                 <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-                  <h1
-                    style={{
-                      fontFamily: 'serif',
-                      fontWeight: 'normal',
-                      margin: 0,
-                      fontSize: 'clamp(1rem, 3.5vw, 1.5rem)',
-                      letterSpacing: '0.05em',
-                      whiteSpace: 'nowrap',
-                      color: textColor,
-                    }}
-                  >
-                    THE NEW YORKER <span style={{ color: '#B00000', letterSpacing: '-0.15em' }}>100</span>
-                  </h1>
+                  <Image
+                    src="/images/nystatenews-logo.webp"
+                    alt="nystatenews logo"
+                    width={200}
+                    height={0}
+                    style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
+                  />
                 </Link>
 
-                {/* Subscribe */}
                 <Button
                   style={{
                     fontSize: '10px',
@@ -141,7 +134,7 @@ const Header = () => {
                     borderRadius: '2px',
                     border: 'none',
                     whiteSpace: 'nowrap',
-                    
+
                   }}
                 >
                   Subscribe
@@ -149,7 +142,6 @@ const Header = () => {
               </div>
             ) : (
               <>
-                {/* Desktop Toggle */}
                 <div
                   className="d-lg-none"
                   style={{
@@ -180,26 +172,18 @@ const Header = () => {
                   </button>
                 </div>
 
-                {/* Desktop Logo */}
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                   <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-                    <h1
-                      style={{
-                        fontFamily: 'serif',
-                        fontWeight: 'normal',
-                        margin: 0,
-                        fontSize: 'clamp(1.2rem, 4vw, 2rem)',
-                        letterSpacing: '0.05em',
-                        whiteSpace: 'nowrap',
-                        color: textColor,
-                      }}
-                    >
-                      THE NEW YORKER <span style={{ color: 'red', letterSpacing: '-0.15em' }}>100</span>
-                    </h1>
+                    <Image
+                      src="/images/nystatenews-logo.webp"
+                      alt="nystatenews logo"
+                      width={200}
+                      height={50}
+                      style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
+                    />
                   </Link>
                 </div>
 
-                {/* Desktop Right Buttons */}
                 <div
                   className="d-none d-lg-flex align-items-center gap-3"
                   style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}
@@ -235,7 +219,7 @@ const Header = () => {
                       padding: '4px 14px',
                       borderRadius: '2px',
                       border: 'none',
-                          textTransform: 'none',
+                      textTransform: 'none',
                     }}
                   >
                     Subscribe
@@ -250,7 +234,6 @@ const Header = () => {
         </Container>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {expanded && (
         <div
           className="position-fixed top-0 start-0 h-100 w-100 d-lg-none"
