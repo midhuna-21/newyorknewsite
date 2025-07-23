@@ -200,17 +200,7 @@ const Header = () => {
                   >
                     Newsletter
                   </a>
-                  <a
-                    href="#"
-                    style={{
-                      fontSize: '12px',
-                      color: textColor,
-                      fontWeight: 500,
-                      textDecoration: 'none',
-                    }}
-                  >
-                    Sign In
-                  </a>
+                 
                   <Button
                     style={{
                       fontSize: '12px',
