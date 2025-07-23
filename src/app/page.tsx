@@ -32,7 +32,7 @@ export default function Home() {
 
         <Header />
         <div id="first-section">
-          <FirstIndexSection data={TechnologyData[16]} />
+          <FirstIndexSection data={PoliticalData[0]} />
         </div>
         <NavbarWrapper/>
        <div className="container py-lg-5 py-3">

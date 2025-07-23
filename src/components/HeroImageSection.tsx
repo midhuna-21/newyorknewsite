@@ -7,7 +7,7 @@ import { BiCalendar } from 'react-icons/bi';
 interface HeroImageData {
   category: string;
   title: string;
-  shortdescription: string;
+  shortdescription?: string;
   description?: string;
   image: string;
   slug: string;

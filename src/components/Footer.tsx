@@ -44,26 +44,27 @@ export default function Footer() {
         <Row className="gy-4 gx-0">
           <Col xs={12} md={4}>
             <div style={{ textAlign: isMobile ? 'center' : 'left' }}>
-              {/* <Image
-                src="/images/logo-anniversary.png"
-                alt="The New Yorker 100th Anniversary"
-                width={isMobile ? 100 : 180}
-                height={isMobile ? 100 : 180}
-              /> */}
-              <h2>THE NEW YORKER</h2>
+             
+              <Image
+                src="/images/nystatenews-white-logo.webp"
+                alt="nystatenews logo"
+                width={200}
+                height={50}
+                style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
+              />
             </div>
           </Col>
 
           <Col xs={6} md={4} style={{ padding: '0 10px' }}>
             <h3
-             style={{
-              fontFamily: '"Georgia", serif',
-              fontSize: isMobile ? '12px' : '14px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              fontWeight: 400,
-              marginBottom: '10px',
-            }}>
+              style={{
+                fontFamily: '"Georgia", serif',
+                fontSize: isMobile ? '12px' : '14px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontWeight: 400,
+                marginBottom: '10px',
+              }}>
               Categories
             </h3>
             <ul style={listStyle}>
@@ -78,14 +79,14 @@ export default function Footer() {
 
           <Col xs={6} md={4} style={{ padding: '0 10px' }}>
             <h3
-             style={{
-              fontFamily: '"Georgia", serif',
-              fontSize: isMobile ? '12px' : '14px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              fontWeight: 400,
-              marginBottom: '10px',
-            }}>
+              style={{
+                fontFamily: '"Georgia", serif',
+                fontSize: isMobile ? '12px' : '14px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontWeight: 400,
+                marginBottom: '10px',
+              }}>
               About
             </h3>
             <ul style={listStyle}>

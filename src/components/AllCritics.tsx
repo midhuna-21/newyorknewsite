@@ -5,7 +5,7 @@ import TheCritics from './CriticsCard';
 
 interface NewsData {
   title: string;
-  shortdescription: string;
+  shortdescription?: string;
   image: string;
   slug: string;
   category: string;

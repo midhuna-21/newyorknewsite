@@ -9,7 +9,7 @@ import Image from 'next/image';
 interface CriticsCardProps {
   data: {
     title: string;
-    shortdescription: string;
+    shortdescription?: string;
     image: string;
     author?: string;
     category?: string;

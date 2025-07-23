@@ -10,7 +10,7 @@ interface NewsData {
   slug: string;
   date: string;
   image: string;
-  shortdescription: string;
+  shortdescription?: string;
   description?: string;
 }
 

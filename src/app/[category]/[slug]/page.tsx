@@ -44,7 +44,7 @@ export async function generateStaticParams() {
 interface NewsItem {
     category: string;
     title: string;
-    shortdescription: string;
+    shortdescription?: string;
     description?: string;
     image: string;
     slug: string;
@@ -192,7 +192,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
     return <div className="p-4">No article found for slug: {slug}</div>;
   }
 
-  if (slug === 'wanda-vazquez-charges-dropped') {
+  if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {
     return (
       <main>
         <StaticDetailPage />

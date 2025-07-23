@@ -8,7 +8,7 @@ interface NewsCardListProps {
 
     category: string;
     title: string;
-    shortdescription: string;
+    shortdescription?: string;
     description?: string;
     image: string;
     slug: string;

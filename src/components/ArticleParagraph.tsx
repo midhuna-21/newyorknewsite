@@ -6,7 +6,9 @@ interface ArticleParagraphProps {
   };
 }
 
+
 const ArticleParagraphWith = ({ data }: ArticleParagraphProps) => {
+  console.log(data,'dataa')
   const description = data.description ?? '';
   if (!description) return null;
 

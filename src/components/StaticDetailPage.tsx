@@ -11,6 +11,7 @@ import DetailFirst from '@/components/DetailFirst';
 import CategoryNavbar from '@/components/CategoryNavbar';
 import Header from '@/components/Header';
 import SecondHeader from '@/components/SecondHeader';
+import StaticContent from './StaticContent';
 
 
 export default async function StaticDetailPage() {
@@ -18,7 +19,9 @@ export default async function StaticDetailPage() {
      title: "Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting",
      category: "politics",
      date :"05/07/2025",
-    image : '/images/wanda-vazquez-political-targeting.webp',
+         "shortdescription": "All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.",
+    
+    image : '/images/wanda-vazquez-political-targeting01.webp',
     slug:'charges-dropped-wanda-vazquez-political-targeting',
 
      sub : [
@@ -56,12 +59,35 @@ export default async function StaticDetailPage() {
 
             {/* <NewsArticleHeading data={article} /> */}
             <DetailFirst data={article} />
-            <div className="container py-5">
+            <div className="container py-4">
 
                 <div className="row justify-content-center">
                     <div className="col-12 col-lg-7 mz-autho">
-                        {/* <NewsImageWithCaption data={article} /> */}
-                        {/* <ArticleParagraphWith data={article} /> */}
+                  <StaticContent
+  title={article.sub[0].subheading.replace(/_/g, ' ')}
+  description={article.sub[0].description}
+/>
+
+ <StaticContent
+  title={article.sub[1].subheading.replace(/_/g, ' ')}
+  description={article.sub[1].description}
+/>
+
+ <StaticContent
+  title={article.sub[2].subheading.replace(/_/g, ' ')}
+  description={article.sub[2].description}
+/>
+
+ <StaticContent
+  title={article.sub[3].subheading.replace(/_/g, ' ')}
+  description={article.sub[3].description}
+/>
+
+ <StaticContent
+  title={article.sub[4].subheading.replace(/_/g, ' ')}
+  description={article.sub[4].description}
+/>
+
                         {/* <ClosingOfferBanner /> */}
                         {/* <FavoritesList /> */}
                         <AuthorInfo />
