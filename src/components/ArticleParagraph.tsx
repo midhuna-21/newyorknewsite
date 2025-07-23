@@ -24,7 +24,7 @@ const ArticleParagraphWith = ({ data }: ArticleParagraphProps) => {
         <p key={index} className="article-paragraph">
           {index === 0 ? (
             <>
-              <span className="article-dropcap">{text.charAt(0)}</span>
+              <p className="article-dropcap">{text.charAt(0)}</p>
               {text.slice(1)}
             </>
           ) : (

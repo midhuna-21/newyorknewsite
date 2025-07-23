@@ -59,7 +59,6 @@ export default function HeroMiniCards({ data }: HeroMiniCardProps) {
               <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
             </div>
 
-            {/* Right Content */}
             <div
               style={{
                 marginLeft: '10px',

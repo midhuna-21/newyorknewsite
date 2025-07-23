@@ -49,7 +49,6 @@ const HorizontalLessContent = ({ data }: NewsCardProps) => {
             />
           </div>
 
-          {/* Only show divider on desktop */}
           {!isMobile && index < displayItems.length - 1 && (
             <div
               style={{

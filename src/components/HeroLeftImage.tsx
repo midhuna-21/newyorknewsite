@@ -106,7 +106,7 @@ export default function HeroLeftImage({ data }: HeroLeftImageProps) {
               {data.category}
             </div>
 
-            <h1
+            <h2
               style={{
                 fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
                 color: '#fff',
@@ -116,7 +116,7 @@ export default function HeroLeftImage({ data }: HeroLeftImageProps) {
               }}
             >
               {data.title}
-            </h1>
+            </h2>
 
             <p
               style={{

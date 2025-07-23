@@ -47,7 +47,6 @@ export default function AllFourCritics({ data }: AllCriticsProps) {
           <div key={index} style={{ position: 'relative' }}>
             <CriticWithoutCategory data={item} />
 
-            {/* Vertical Divider for desktop only */}
             {/* {!isMobile && index !== displayItems.length - 1 && (
               <div
                 style={{

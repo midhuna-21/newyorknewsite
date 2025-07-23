@@ -55,7 +55,8 @@ export default function Footer() {
           </Col>
 
           <Col xs={6} md={4} style={{ padding: '0 10px' }}>
-            <h6 style={{
+            <h3
+             style={{
               fontFamily: '"Georgia", serif',
               fontSize: isMobile ? '12px' : '14px',
               textTransform: 'uppercase',
@@ -64,7 +65,7 @@ export default function Footer() {
               marginBottom: '10px',
             }}>
               Categories
-            </h6>
+            </h3>
             <ul style={listStyle}>
               <li>Business</li>
               <li>Science</li>
@@ -76,7 +77,8 @@ export default function Footer() {
           </Col>
 
           <Col xs={6} md={4} style={{ padding: '0 10px' }}>
-            <h6 style={{
+            <h3
+             style={{
               fontFamily: '"Georgia", serif',
               fontSize: isMobile ? '12px' : '14px',
               textTransform: 'uppercase',
@@ -85,7 +87,7 @@ export default function Footer() {
               marginBottom: '10px',
             }}>
               About
-            </h6>
+            </h3>
             <ul style={listStyle}>
               <li>Our Company</li>
               <li>Our Editorial Approach</li>

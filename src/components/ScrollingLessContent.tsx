@@ -18,7 +18,7 @@ interface NewsCardListProps {
 const NewsCardList = ({ data }: NewsCardListProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(4); 
+  const [itemsPerPage, setItemsPerPage] = useState(4);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -64,19 +64,19 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
       >
         {data.map((item, index) => (
           <div
-  key={index}
-  style={{
-    flex: `0 0 ${100 / itemsPerPage}%`,
-    scrollSnapAlign: 'start',
-    paddingRight:
-      itemsPerPage === 1
-        ? '0px'
-        : index !== data.length - 1
-          ? '20px'
-          : '0px',
-    marginBottom: '16px',
-  }}
->
+            key={index}
+            style={{
+              flex: `0 0 ${100 / itemsPerPage}%`,
+              scrollSnapAlign: 'start',
+              paddingRight:
+                itemsPerPage === 1
+                  ? '0px'
+                  : index !== data.length - 1
+                    ? '20px'
+                    : '0px',
+              marginBottom: '16px',
+            }}
+          >
 
             <NewsCenteredText
               data={{

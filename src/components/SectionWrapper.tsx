@@ -10,7 +10,7 @@ export default function SectionWrapper({ title, children }: SectionWrapperProps)
     <div id="section-wrapper">
       <hr style={{ borderTop: '1px solid #ccc' }} />
       
-      <h2
+      <p
         className="section-title text-center"
         style={{
           color: "#000",
@@ -21,11 +21,11 @@ export default function SectionWrapper({ title, children }: SectionWrapperProps)
         }}
       >
         {title}
-      </h2>
+      </p>
 
       <div
         className="section-children"
-        style={{ marginTop: '1.5rem' /* ~mt-4 */ }}
+        style={{ marginTop: '1.5rem' }}
       >
         {children}
       </div>

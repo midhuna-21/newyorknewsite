@@ -139,9 +139,8 @@ const SecondHeader = () => {
                   {toggleIcon}
                 </button>
 
-                {/* LOGO */}
                 <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-                  <h1
+                  <span
                     style={{
                       fontFamily: 'serif',
                       fontWeight: 'normal',
@@ -153,10 +152,9 @@ const SecondHeader = () => {
                     }}
                   >
                     THE NEW YORKER <span style={{ color: 'red', letterSpacing: '-0.15em' }}>100</span>
-                  </h1>
+                  </span>
                 </Link>
 
-                {/* Subscribe */}
                 <Button
                   style={{
                     fontSize: '10px',
@@ -175,7 +173,6 @@ const SecondHeader = () => {
               </div>
             ) : (
               <>
-                {/* Desktop Toggle */}
                 <div
                   className="d-lg-none"
                   style={{
@@ -206,7 +203,6 @@ const SecondHeader = () => {
                   </button>
                 </div>
 
-                {/* Desktop Logo */}
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                   <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
                     <h1
@@ -225,7 +221,6 @@ const SecondHeader = () => {
                   </Link>
                 </div>
 
-                {/* Desktop Right Buttons */}
                 <div
                   className="d-none d-lg-flex align-items-center gap-3"
                   style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}
@@ -277,7 +272,6 @@ const SecondHeader = () => {
 
       </div>
 
-      {/* Mobile Specific */}
       {expanded && (
         <div
           className="position-fixed top-0 start-0 h-100 w-100 d-lg-none"

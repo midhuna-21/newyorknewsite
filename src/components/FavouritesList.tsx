@@ -50,8 +50,7 @@ const FavoritesList = () => {
 
   return (
     <div className="container py-5">
-      {/* Heading */}
-      <h3
+      <h2
         style={{
           fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
           fontWeight: 400,
@@ -60,11 +59,10 @@ const FavoritesList = () => {
         }}
       >
         New Yorker Favorites
-      </h3>
+      </h2>
 
       <hr />
 
-      {/* List */}
       <ul
         style={{
           listStyle: 'disc',
@@ -84,7 +82,6 @@ const FavoritesList = () => {
         ))}
       </ul>
 
-      {/* Newsletter Signup */}
       <p
         style={{
           fontFamily: 'Georgia, serif',

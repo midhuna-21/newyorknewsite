@@ -47,7 +47,6 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
         }}
       >
         <div style={{ display: 'block' }}>
-          {/* Desktop Image */}
           {!isMobile && (
 
 
@@ -57,7 +56,7 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
                 height: '270px',
                 margin: '0 auto',
                 overflow: 'hidden',
-                position: 'relative', // Required for layout positioning
+                position: 'relative', 
               }}
             >
               <Image
@@ -73,7 +72,6 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
 
           )}
 
-          {/* Category */}
           <p
             style={{
               fontSize: '12px',
@@ -91,8 +89,7 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
             {data.category}
           </p>
 
-          {/* Title */}
-          <h2
+          <p
             style={{
               color: '#000',
               fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
@@ -103,9 +100,8 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
             }}
           >
             {data.title}
-          </h2>
+          </p>
 
-          {/* Mobile View: Description + Image side-by-side */}
           {isMobile && (
             <div
               style={{
@@ -142,8 +138,6 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
               </div>
             </div>
           )}
-
-          {/* Description for Desktop */}
           {!isMobile && (
             <p
               style={{
@@ -159,7 +153,6 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
             </p>
           )}
 
-          {/* Date */}
           <p
             style={{
               fontWeight: 'bold',

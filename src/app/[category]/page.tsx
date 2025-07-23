@@ -64,7 +64,7 @@ const allData: Record<string, NewsItem[]> = {
             <div className="container py-5 " >
                 {/* <h1 className="responsive-title">{category}</h1>
                 */}
-                <h1
+                {/* <h1
                     style={{
                         marginTop: '50px',
                         textAlign: 'center',
@@ -73,7 +73,7 @@ const allData: Record<string, NewsItem[]> = {
                     }}
                 >
                     {category}
-                </h1>
+                </h1> */}
 
 
 

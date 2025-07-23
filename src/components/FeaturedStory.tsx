@@ -17,9 +17,8 @@ interface FeaturedStoryProps {
 export default function FeaturedStory({ data }: FeaturedStoryProps) {
   return (
     <div className="py-5" >
-      <div style={{ backgroundColor: '#f8f6f1',padding:'20px'}}>
+      <div style={{ backgroundColor: '#f8f6f1', padding: '20px' }}>
         <div className="row align-items-center">
-          {/* Left Column: Image + Info */}
           <div className="col-12 col-lg-6 mb-4 mb-lg-0 d-flex flex-column align-items-center text-center" >
             <p
               style={{
@@ -49,29 +48,29 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
             </h2>
 
             <Image
-  src={data.image}
-  alt={data.title}
-  width={300}
-  height={450} 
-  style={{
-    width: '100%',
-    maxWidth: '250px',
-    height: 'auto',
-    aspectRatio: '2 / 3', 
-    objectFit: 'cover',
-    border: '1px solid #ddd',
-  }}
-  className="img-fluid"
-  priority
-/>
+              src={data.image}
+              alt={data.title}
+              width={300}
+              height={450}
+              style={{
+                width: '100%',
+                maxWidth: '250px',
+                height: 'auto',
+                aspectRatio: '2 / 3',
+                objectFit: 'cover',
+                border: '1px solid #ddd',
+              }}
+              className="img-fluid"
+              priority
+            />
 
 
             <div style={{ marginTop: '10px' }}>
               <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
               <span style={{ color: '#222', fontSize: '10px' }}>Published on</span>
-<span style={{ color: '#333', marginLeft: '4px', fontSize: '10px' }}>{data.date}</span>
+              <span style={{ color: '#333', marginLeft: '4px', fontSize: '10px' }}>{data.date}</span>
 
-</div>
+            </div>
           </div>
 
           <div className="col-12 col-lg-6">

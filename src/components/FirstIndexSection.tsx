@@ -28,7 +28,6 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
           className="first-section-row align-items-stretch"
           style={{ margin: 0, gap: 0 }}
         >
-          {/* Text Section */}
           <Col
             md={6}
             xs={12}
@@ -54,7 +53,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
               }}
             >
               <div className="first-text-wrapper">
-                <h2
+                <p
                   style={{
                     fontFamily: '"Georgia", serif',
                     fontSize: 'clamp(14px, 4vw, 28px)',
@@ -68,9 +67,13 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                   }}
                 >
                   {data.category}
-                </h2>
+                </p>
 
-
+                <h1
+                  className="responsive-title"
+                >
+                  {data.title}
+                </h1>
 
                 <p
                   style={{
@@ -98,7 +101,6 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
             </Link>
           </Col>
 
-          {/* Image Section */}
           <Col
             md={6}
             xs={12}
@@ -129,15 +131,6 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
           </Col>
         </Row>
       </Container>
-
-      {/* <div
-        style={{
-          width: '100%',
-          height: '1px',
-          backgroundColor: '#ddd',
-          marginTop: '0',
-        }}
-      /> */}
     </div>
   );
 };

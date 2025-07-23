@@ -78,7 +78,7 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
               {data.category}
             </p>
 
-            <h2
+            <p
               style={{
                 color: '#000',
                 fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
@@ -88,7 +88,7 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
               }}
             >
               {data.title}
-            </h2>
+            </p>
 
             {isMobile ? (
               <div
@@ -147,16 +147,7 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
                 </div>
 
                 <div style={{ flexShrink: 0 }}>
-                  {/* <Image
-                    src={data.image}
-                    alt={data.title ?? 'Thumbnail'}
-                    width={100}
-                    height={100}
-                    style={{
-                      objectFit: 'cover',
-                      display: 'block',
-                    }}
-                  /> */}
+                
                   <Image
                     src={data.image}
                     alt={data.title}
@@ -173,7 +164,6 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
               </div>
             ) : (
               <>
-                {/* Description on Desktop */}
                 <p
                   style={{
                     color: 'rgb(51, 51, 51)',
@@ -192,7 +182,6 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
                 </p>
 
 
-                {/* Date on Desktop */}
                 <p
                   style={{
                     fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,

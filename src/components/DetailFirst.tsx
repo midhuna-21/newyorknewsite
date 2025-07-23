@@ -17,10 +17,7 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
     <div
       id="detail-first"
       style={{ border: '1px solid #ccc', padding: '60px', marginTop: '80px' }}
-    >
-    
-
-     
+    >     
         <div
           style={{
             display: 'flex',
@@ -29,9 +26,9 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
             gap: '20px',
           }}
         >
-          {/* TEXT SIDE */}
           <div className="text-side">
-            <p className="category">{data.category}</p>
+            <h1
+             className="category">{data.category}</h1>
             <h2 className="title">{data.title}</h2>
             <p className="shortdesc">{data.shortdescription}</p>
             <p className="date">
@@ -41,7 +38,6 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
             </p>
           </div>
 
-          {/* IMAGE Content */}
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Image
               src={data.image}

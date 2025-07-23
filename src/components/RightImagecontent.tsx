@@ -41,7 +41,6 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
             />
           </div>
 
-          {/* TEXT SIDE */}
           <div
             className="col-lg-6 d-flex justify-content-center align-items-center text-center order-1 order-lg-1 content-column"
             style={{
@@ -65,7 +64,7 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                 {data.category}
               </p>
 
-              <h1
+              <h2
                 className="title"
                 style={{
                   fontFamily: 'Georgia, serif',
@@ -76,7 +75,7 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                 }}
               >
                 {data.title}
-              </h1>
+              </h2>
 
               <p
                 className="shortdesc"

@@ -36,7 +36,6 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
         style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
       >
         {isMobile ? (
-          // Mobile View
           <div
             style={{
               display: 'flex',
@@ -45,7 +44,6 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
               width: '100%',
             }}
           >
-            {/* Content Left */}
             <div
               style={{
                 flex: '1 1 auto',
@@ -53,7 +51,7 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                 maxWidth: 'calc(100% - 120px)',
               }}
             >
-              <h2
+              <p
                 style={{
                   color: '#000',
                   fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
@@ -64,7 +62,7 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                 }}
               >
                 {data.title}
-              </h2>
+              </p>
 
               <p style={{ margin: 0 }}>
                 <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
@@ -73,50 +71,49 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
               </p>
             </div>
 
-            {/* Right Content */}
 
-<div
-  style={{
-    width: '100px',
-    flexShrink: 0,
-    position: 'relative',
-  }}
->
-  <Image
-    src={data.image}
-    alt={data.title}
-    width={100}
-    height={100} // required, will be overridden for auto height
-    style={{
-      width: '100%',
-      height: 'auto',
-      objectFit: 'cover',
-      display: 'block',
-    }}
-  />
-</div>
+            <div
+              style={{
+                width: '100px',
+                flexShrink: 0,
+                position: 'relative',
+              }}
+            >
+              <Image
+                src={data.image}
+                alt={data.title}
+                width={100}
+                height={100}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+            </div>
 
           </div>
         ) : (
           <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-          <Image
-  src={data.image}
-  alt={data.title ?? 'News image'}
-  width={400} 
-  height={300} 
-  style={{
-    aspectRatio: '4 / 3',
-    objectFit: 'cover',
-    width: '100%',
-    height: 'auto',
-    borderRadius: 0,
-  }}
-  sizes="(max-width: 768px) 100vw, 33vw"
-  priority
-/>
+            <Image
+              src={data.image}
+              alt={data.title ?? 'News image'}
+              width={400}
+              height={300}
+              style={{
+                aspectRatio: '4 / 3',
+                objectFit: 'cover',
+                width: '100%',
+                height: 'auto',
+                borderRadius: 0,
+              }}
+              sizes="(max-width: 768px) 100vw, 33vw"
+              priority
+            />
 
             <div style={{ padding: '20px 0 0 0' }}>
-              <h2
+              <p
                 style={{
                   color: '#000',
                   fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
@@ -125,7 +122,7 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                 }}
               >
                 {data.title}
-              </h2>
+              </p>
 
               {data.shortdescription && (
                 <p

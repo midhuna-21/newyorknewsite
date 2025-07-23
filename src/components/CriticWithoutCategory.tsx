@@ -44,34 +44,32 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
         }}
       >
         <div>
-          {/* Desktop View - Image Top */}
           {!isMobile && (
 
-<div
-  style={{
-    width: '200px',
-    height: '270px',
-    margin: '0 auto',
-    overflow: 'hidden',
-    position: 'relative',
-  }}
->
-  <Image
-    src={data.image}
-    alt={data.title}
-    width={200}
-    height={270}
-    style={{
-      objectFit: 'cover',
-      display: 'block',
-    }}
-  />
-</div>
+            <div
+              style={{
+                width: '200px',
+                height: '270px',
+                margin: '0 auto',
+                overflow: 'hidden',
+                position: 'relative',
+              }}
+            >
+              <Image
+                src={data.image}
+                alt={data.title}
+                width={200}
+                height={270}
+                style={{
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+            </div>
 
           )}
 
-          {/* Title */}
-          <h2
+          <p
             style={{
               color: '#000',
               fontFamily: `TNYAdobeCaslonPro, "Times New Roman", Times, serif`,
@@ -82,9 +80,8 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
             }}
           >
             {data.title}
-          </h2>
+          </p>
 
-          {/* Mobile: Side-by-side text + image */}
           {isMobile ? (
             <div
               style={{
@@ -107,21 +104,20 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
               >
                 {data.shortdescription}
               </p>
-             <div style={{ flexShrink: 0, width: '100px', height: '100px', position: 'relative' }}>
-  <Image
-    src={data.image}
-    alt={data.title}
-    width={100}
-    height={100}
-    style={{
-      objectFit: 'cover',
-      display: 'block',
-    }}
-  />
-</div>
+              <div style={{ flexShrink: 0, width: '100px', height: '100px', position: 'relative' }}>
+                <Image
+                  src={data.image}
+                  alt={data.title}
+                  width={100}
+                  height={100}
+                  style={{
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              </div>
             </div>
           ) : (
-            // Desktop Description
             <p
               style={{
                 color: 'rgb(51, 51, 51)',
@@ -136,7 +132,6 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
             </p>
           )}
 
-          {/* Date */}
           <p
             style={{
               fontWeight: 'bold',

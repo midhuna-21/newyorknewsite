@@ -43,10 +43,9 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
                     gap: '16px',
                 }}
             >
-                {/* Text Content */}
-         <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ flex: 1, minWidth: 0 }}>
 
-                    <h3
+                    <p
                         className="news-title"
                         style={{
                             color: '#000',
@@ -58,7 +57,7 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
                         }}
                     >
                         {data.title}
-                    </h3>
+                    </p>
 
                     <div
                         style={{
@@ -68,7 +67,6 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
                             alignItems: 'flex-start',
                         }}
                     >
-                        {/* Short Description */}
                         <div style={{ flex: 1 }}>
                             <p
                                 style={{
@@ -104,19 +102,18 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
                             </div>
                         </div>
 
-                        {/* Image beside description */}
                         <div className="news-image-wrapper">
                             {isMobile ? (
-                               <Image
-  src={data.image}
-  alt={data.title ?? 'Image'}
-  width={100}
-  height={100}
-  style={{
-    objectFit: 'cover',
-    display: 'block',
-  }}
-/>
+                                <Image
+                                    src={data.image}
+                                    alt={data.title ?? 'Image'}
+                                    width={100}
+                                    height={100}
+                                    style={{
+                                        objectFit: 'cover',
+                                        display: 'block',
+                                    }}
+                                />
 
                             ) : (
                                 <Image
@@ -136,7 +133,7 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
                     </div>
                 </div>
             </Link>
-    </div>
+        </div>
     );
 };
 

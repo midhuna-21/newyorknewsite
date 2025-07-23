@@ -78,7 +78,7 @@ const HeroImageSection: React.FC<Props> = ({ data }) => {
             {data.category}
           </p>
 
-          <h1
+          <h2
             style={{
               fontFamily: 'Georgia, serif',
               fontSize: isMobile ? '1.2rem' : '2rem',
@@ -89,7 +89,7 @@ const HeroImageSection: React.FC<Props> = ({ data }) => {
             }}
           >
             {data.title}
-          </h1>
+          </h2>
 
           <p
             style={{

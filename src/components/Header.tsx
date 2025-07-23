@@ -229,7 +229,7 @@ const Header = () => {
                   <Button
                     style={{
                       fontSize: '12px',
-                      backgroundColor: '#0787CA',
+                      backgroundColor: '#0267A4',
                       color: 'white',
                       fontWeight: 500,
                       padding: '4px 14px',

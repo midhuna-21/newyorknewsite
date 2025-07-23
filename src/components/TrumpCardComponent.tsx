@@ -62,7 +62,6 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
 
         </div>
 
-        {/* Category */}
         <p
           style={{
             fontSize: '12px',
@@ -76,8 +75,7 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
           {data.category}
         </p>
 
-        {/* Title */}
-        <h2
+        <p
           style={{
             fontSize: '18px',
             fontWeight: 400,
@@ -88,9 +86,8 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
           }}
         >
           {data.title}
-        </h2>
+        </p>
 
-        {/* Date */}
         <p style={{ fontWeight: 'bold', fontSize: '0.9rem', textAlign: 'left' }}>
           <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
           <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>

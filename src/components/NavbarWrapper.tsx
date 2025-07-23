@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Navbar from './Navbar'; // Your actual navbar component
+import Navbar from './Navbar'; 
 
 const NavbarWrapper = () => {
   const navbarRef = useRef<HTMLDivElement>(null);
@@ -9,7 +9,6 @@ const NavbarWrapper = () => {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
-    // Get reference to Today’s News section
     todaySectionRef.current = document.getElementById('todays-news');
 
     const handleScroll = () => {
@@ -18,10 +17,8 @@ const NavbarWrapper = () => {
       const navbarTop = navbarRef.current.getBoundingClientRect().top;
       const todayBottom = todaySectionRef.current.getBoundingClientRect().bottom;
 
-      // Make sticky when navbar hits top
-      const shouldStick = navbarTop <= 70; // header height = 70px
+      const shouldStick = navbarTop <= 70; 
 
-      // Unstick when "Today’s News" section ends
       const shouldUnstick = todayBottom <= 70;
 
       setIsSticky(shouldStick && !shouldUnstick);

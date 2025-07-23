@@ -17,6 +17,19 @@ interface NewsCardProps {
 
 const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
     return (
+        <div>
+            <span
+                    style={{
+                        marginTop: '50px',
+                        textAlign: 'center',
+                        textTransform: 'capitalize',
+                        fontFamily: 'Georgia, serif',
+                    }}
+                >
+                    {data.category}
+                </span>
+
+     
         <div className='py-4'>
             <div className="row align-items-center">
 
@@ -39,7 +52,8 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                         style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit' }}
                     >
                         <div style={{ textAlign: 'center', maxWidth: '600px' }}>
-                            <p style={{
+                            <h1
+                             style={{
                                 fontSize: 'clamp(10px, 1vw, 14px)',
                                 fontWeight: 400,
                                 color: 'rgb(219, 51, 52)',
@@ -50,8 +64,9 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                                 fontFamily: `'Georgia', serif`
                             }}>
                                 {data.category}
-                            </p>
-                            <h2 style={{
+                            </h1>
+                            <h2
+                            style={{
                                 fontFamily: '"Georgia", serif',
                             fontSize: 'clamp(22px, 3vw, 30px)',
                                 textTransform: 'uppercase',
@@ -80,6 +95,7 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                     </Link>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

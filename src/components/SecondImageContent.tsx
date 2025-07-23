@@ -38,7 +38,6 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
 
   return (
     <div className='py-5'>
-
       <Link
         href={`/${data.category}/${data.slug}`}
         title={data.slug}
@@ -49,16 +48,15 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
           display: 'block',
         }}
       >
-        <Container fluid style={{ padding: 0 , backgroundColor: '#000', color: '#fff'}}>
+        <Container fluid style={{ padding: 0, backgroundColor: '#000', color: '#fff' }}>
           <Row
             style={{
               display: 'flex',
               flexDirection: isMobile ? 'column' : 'row',
               margin: 0,
-              minHeight: isMobile ? undefined : isLarge ? '620px' : '650px', // slightly reduced
+              minHeight: isMobile ? undefined : isLarge ? '620px' : '650px',
             }}
           >
-            {/* Text Column */}
             <Col
               md={6}
               xs={12}
@@ -83,7 +81,7 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
                 {data.category}
               </h2>
 
-              <h2
+              <p
                 style={{
                   fontFamily: 'Georgia, serif',
                   fontSize: isSmallMobile ? '14px' : isMobile ? '20px' : '28px',
@@ -93,7 +91,7 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
                 }}
               >
                 {data.title}
-              </h2>
+              </p>
 
               <p
                 style={{
@@ -140,7 +138,6 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
               </div>
             </Col>
 
-            {/* Image Column */}
             <Col
               md={6}
               xs={12}
@@ -155,19 +152,19 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
               }}
             >
 
-<Image
-  src={data.image}
-  alt={data.title ?? 'Image'}
-  width={300}         // replace with your exact width in pixels
-  height={200}        // replace with your exact height in pixels
-  style={{
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  }}
-  sizes="(max-width: 768px) 100vw, 300px"  // optional: for responsive hints
-  priority            // optional: preload if above the fold
-/>
+              <Image
+                src={data.image}
+                alt={data.title ?? 'Image'}
+                width={300}
+                height={200}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+                sizes="(max-width: 768px) 100vw, 300px"
+                priority
+              />
 
             </Col>
           </Row>
