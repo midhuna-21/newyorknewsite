@@ -134,13 +134,14 @@ const Header = () => {
                 <Button
                   style={{
                     fontSize: '10px',
-                    backgroundColor: '#0787CA',
+                    backgroundColor: '#0267A4',
                     color: 'white',
                     fontWeight: 500,
                     padding: '3px 8px',
                     borderRadius: '2px',
                     border: 'none',
                     whiteSpace: 'nowrap',
+                    
                   }}
                 >
                   Subscribe
@@ -234,6 +235,7 @@ const Header = () => {
                       padding: '4px 14px',
                       borderRadius: '2px',
                       border: 'none',
+                          textTransform: 'none',
                     }}
                   >
                     Subscribe

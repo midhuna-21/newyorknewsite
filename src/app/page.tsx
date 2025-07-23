@@ -23,11 +23,59 @@ import SectionWrapper from "@/components/SectionWrapper";
 import AllMiniCards from "@/components/AllMiniCards";
 import Header from "@/components/Header";
 import NavbarWrapper from "@/components/NavbarWrapper";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <main>
-   
+   <Script
+        id="structured-data-webpage"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: "Business,Politics, Technology,Health,Science,Sports",
+              description:
+                "Stay informed with the latest breaking news, global business trends, financial strategies, investment opportunities, and expert market analysis.",
+              url: "https://tangentweekly.com/",
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["h1"],
+              },
+            },
+            null,
+            2
+          ),
+        }}
+      />
+
+      <Script
+        id="structured-data-itemlist"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              url: "https://tangentweekly.com/",
+              numberOfItems: 5,
+              itemListOrder: "http://schema.org/ItemListOrderAscending",
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": "https://tangentweekly.com/",
+              },
+
+
+            },
+            null,
+            2
+          ),
+        }}
+      />
 
         <Header />
         <div id="first-section">

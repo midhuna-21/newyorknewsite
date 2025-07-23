@@ -52,12 +52,12 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
   src={data.image}
   alt={data.title}
   width={300}
-  height={450} // taller than width
+  height={450} 
   style={{
     width: '100%',
     maxWidth: '250px',
     height: 'auto',
-    aspectRatio: '2 / 3', // ensures tall shape
+    aspectRatio: '2 / 3', 
     objectFit: 'cover',
     border: '1px solid #ddd',
   }}
@@ -68,12 +68,12 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
 
             <div style={{ marginTop: '10px' }}>
               <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-              <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-              <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
-            </div>
+              <span style={{ color: '#222', fontSize: '10px' }}>Published on</span>
+<span style={{ color: '#333', marginLeft: '4px', fontSize: '10px' }}>{data.date}</span>
+
+</div>
           </div>
 
-          {/* Right Column: Description */}
           <div className="col-12 col-lg-6">
             <p
               style={{
@@ -99,7 +99,7 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
             <Link
               href={`/${data.category}/${data.slug}`}
               style={{
-                color: '#0074cc',
+                color: '#0059A9',
                 textDecoration: 'none',
                 fontFamily: 'Georgia, serif',
                 fontSize: '1.1rem',

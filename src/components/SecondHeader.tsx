@@ -167,6 +167,7 @@ const SecondHeader = () => {
                     borderRadius: '2px',
                     border: 'none',
                     whiteSpace: 'nowrap',
+                        textTransform: 'none',
                   }}
                 >
                   Subscribe
@@ -254,12 +255,13 @@ const SecondHeader = () => {
                   <Button
                     style={{
                       fontSize: '12px',
-                      backgroundColor: '#0787CA',
+                      backgroundColor: '#0267A4',
                       color: 'white',
                       fontWeight: 500,
                       padding: '4px 14px',
                       borderRadius: '2px',
                       border: 'none',
+                      
                     }}
                   >
                     Subscribe

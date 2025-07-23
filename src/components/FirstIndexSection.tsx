@@ -23,7 +23,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
 
   return (
     <div id="first-index-section" style={{ backgroundColor: '#fff', color: '#000', }}>
-      <Container fluid style={{ paddingTop:'0px' }}>
+      <Container fluid style={{ paddingTop: '0px' }}>
         <Row
           className="first-section-row align-items-stretch"
           style={{ margin: 0, gap: 0 }}
@@ -34,7 +34,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
             xs={12}
             id="first-section-text-col"
             style={{
-             
+
               textAlign: 'center',
               display: 'flex',
               flexDirection: 'column',
@@ -53,7 +53,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                 color: 'inherit',
               }}
             >
-           <div className="first-text-wrapper">
+              <div className="first-text-wrapper">
                 <h2
                   style={{
                     fontFamily: '"Georgia", serif',
@@ -64,17 +64,17 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                     fontWeight: 400,
                     marginBottom: '0.3rem',
                     marginTop: '0.5rem',
-                    color: '#000',
+                    color: '#111',
                   }}
                 >
                   {data.category}
                 </h2>
-           
+
 
 
                 <p
                   style={{
-                    color: '#000',
+                    color: '#111',
                     fontFamily:
                       'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
                     fontSize: 'clamp(14px, 2vw, 22px)',
@@ -91,10 +91,8 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                     size={10}
                     style={{ marginRight: '4px', color: '#000' }}
                   />
-                  <span style={{ color: '#555', opacity: 0.6 }}>Published on</span>
-                  <span style={{ color: '#222', marginLeft: '4px' }}>
-                    {data.date}
-                  </span>
+                  <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
+                  <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
                 </div>
               </div>
             </Link>

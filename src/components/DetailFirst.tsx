@@ -20,11 +20,7 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
     >
     
 
-      <Link
-        href={`/${data.category}/${data.slug}`}
-        title={data.slug}
-        style={{ textDecoration: 'none', color: 'inherit' }}
-      >
+     
         <div
           style={{
             display: 'flex',
@@ -40,8 +36,8 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
             <p className="shortdesc">{data.shortdescription}</p>
             <p className="date">
               <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-              <span className="published-label">Published on</span>{' '}
-              <span className="published-date">{data.date}</span>
+            <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
+      <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
             </p>
           </div>
 
@@ -57,7 +53,6 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
             />
           </div>
         </div>
-      </Link>
     </div>
   );
 }
