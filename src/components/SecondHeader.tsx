@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image'
 
 const NavItems = [
   { label: 'Business', slug: 'business' },
@@ -140,19 +141,13 @@ const SecondHeader = () => {
                 </button>
 
                 <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-                  <span
-                    style={{
-                      fontFamily: 'serif',
-                      fontWeight: 'normal',
-                      margin: 0,
-                      fontSize: 'clamp(1rem, 3.5vw, 1.5rem)',
-                      letterSpacing: '0.05em',
-                      whiteSpace: 'nowrap',
-                      color: textColor,
-                    }}
-                  >
-                    THE NEW YORKER <span style={{ color: 'red', letterSpacing: '-0.15em' }}>100</span>
-                  </span>
+                   <Image
+                                     src="/images/nystatenews-logo.webp"
+                                     alt="nystatenews logo"
+                                     width={200}
+                                     height={0}
+                                     style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
+                                   />
                 </Link>
 
                 <Button
@@ -205,19 +200,14 @@ const SecondHeader = () => {
 
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                   <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-                    <h1
-                      style={{
-                        fontFamily: 'serif',
-                        fontWeight: 'normal',
-                        margin: 0,
-                        fontSize: 'clamp(1.2rem, 4vw, 2rem)',
-                        letterSpacing: '0.05em',
-                        whiteSpace: 'nowrap',
-                        color: textColor,
-                      }}
-                    >
-                      THE NEW YORKER <span style={{ color: 'red', letterSpacing: '-0.15em' }}>100</span>
-                    </h1>
+  <Image
+                      src="/images/nystatenews-logo.webp"
+                      alt="nystatenews logo"
+                      width={200}
+                      height={50}
+                      style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
+                    />
+
                   </Link>
                 </div>
 
