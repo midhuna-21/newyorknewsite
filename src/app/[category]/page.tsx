@@ -10,8 +10,18 @@ import CatNewsFeatureCard from '@/components/CatNewsFeatureCard';
 import CardListCategoryPage from '@/components/CardListCategoryPage';
 import NewsMiniFeatureCard from '@/components/NewsMiniFeatureCard';
 import SectionWrapper from '@/components/SectionWrapper';
-import Header from '@/components/Header';
 import SecondHeader from '@/components/SecondHeader';
+
+export async function generateStaticParams() {
+    return [
+        { category: "politics" },
+        { category: "business" },
+        { category: "technology" },
+        { category: "sports" },
+        { category: "science" },
+        { category: "health" },
+    ];
+}
 
 interface NewsItem {
     category: string;
@@ -23,11 +33,7 @@ interface NewsItem {
     date: string;
 }
 
-interface CategoryPageProps {
-    params: Promise<{
-        category: string;
-    }>;
-}
+
 
 const allData: Record<string, NewsItem[]> = {
     business: businessData,
@@ -136,3 +142,4 @@ const allData: Record<string, NewsItem[]> = {
         </div>
     );
 }
+

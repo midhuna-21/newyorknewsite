@@ -1,0 +1,82 @@
+import React from 'react';
+import { notFound } from 'next/navigation';
+import ArticleParagraphWith from '@/components/ArticleParagraph';
+import CardListCategoryPage from '@/components/CardListCategoryPage';
+import ClosingOfferBanner from '@/components/ClosingOfferBanner';
+import FavoritesList from '@/components/FavouritesList';
+import AuthorInfo from '@/components/AuthorInfo';
+import Signup from '@/components/Signup';
+import SectionWrapper from '@/components/SectionWrapper';
+import DetailFirst from '@/components/DetailFirst';
+import CategoryNavbar from '@/components/CategoryNavbar';
+import Header from '@/components/Header';
+import SecondHeader from '@/components/SecondHeader';
+
+
+export default async function StaticDetailPage() {
+     const article = {
+     title: "Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting",
+     category: "politics",
+     date :"05/07/2025",
+    image : '/images/wanda-vazquez-political-targeting.webp',
+    slug:'charges-dropped-wanda-vazquez-political-targeting',
+
+     sub : [
+        {
+            subheading: "Wanda_vázquez_cleared",
+            description: "Former Puerto Rico Governor Wanda Vázquez Garced has seen all federal felony charges against her dismissed in a stunning turn of events. U.S. prosecutors, who once alleged a sweeping bribery and fraud scheme, abruptly abandoned the case and replaced the indictment with a single-count technical campaign finance infraction. This resolution means no trial will occur and no criminal conviction for corruption will stain Vázquez’s record. The DOJ’s retreat – resolving the matter with a minor administrative violation rather than any bribery charge – has left Vázquez completely vindicated, prompting supporters to claim she was the target of a politically motivated prosecution."
+        },
+        {
+            subheading: "A Three-Year Saga Ends in Exoneration",
+            description: "TThe collapse of the case closes a high-profile saga that stretched on for over three years. Vázquez, who led Puerto Rico in 2019–2021, was arrested in 2022 amid allegations that she accepted help for her gubernatorial campaign from a foreign bank owner in exchange for official favors. She vehemently denied wrongdoing from the outset and cooperated fully with investigators. Over time, the prosecution’s case weakened significantly, according to legal observers. Key evidence of an explicit quid pro quo never materialized, and no funds were ever actually received by Vázquez or her campaign. What began as a dramatic FBI indictment ended with no finding of bribery or fraud. All substantive charges – conspiracy, bribery, honest services wire fraud – have been dropped. The only remaining issue is a technical violation of campaign finance law: an “offer” of support by a foreign national that was never even accepted."
+        },
+        {
+            subheading: "Legal Experts Cite “Face-Saving” by DOJ",
+            description: "Analysts describe the outcome as a face-saving exit for the U.S. Department of Justice. After pursuing an aggressive corruption case that ultimately yielded only a minor infraction, the DOJ’s resolution is being seen as an acknowledgment that the evidence for bribery fell short. “This is not a guilty plea – it’s a procedural footnote,” said one attorney familiar with the proceedings, emphasizing that Vázquez is not admitting any crime."
+        },
+        {
+            subheading: "Political Overtones and Claims of Targeting",
+            description: "The dismissal has sparked renewed debate about why the case was brought in the first place. Many political observers now call Vázquez’s ordeal a textbook case of prosecutorial overreach driven by political motivations rather than facts. Notably, the federal investigation escalated shortly after Vázquez endorsed then-President Donald Trump’s re-election bid in 2020. That timing fueled accusations of political targeting. Some in Puerto Rico suspect that “deep-state” actors within the DOJ aimed to silence a prominent Latina Republican voice."
+        },
+        {
+            subheading: "Co-Defendant’s Case Also Resolved",
+            description: "The fallout of the collapsed bribery case extends beyond Vázquez. Julio Herrera Velutini, the international banker accused of offering the campaign funding, has similarly seen his charges effectively neutralized, meaning he too will face no trial. In essence, both the governor and the banker will only face procedural technicalities that carry no admission of corruption. The once-sweeping corruption allegations against them have evaporated, reinforcing the narrative that the scandal was overstated."
+        },
+    ]
+}
+
+    return (
+        <div>
+            <SecondHeader />
+
+            <div className="d-none d-md-block">
+
+                <CategoryNavbar />
+            </div>
+
+            {/* <NewsArticleHeading data={article} /> */}
+            <DetailFirst data={article} />
+            <div className="container py-5">
+
+                <div className="row justify-content-center">
+                    <div className="col-12 col-lg-7 mz-autho">
+                        {/* <NewsImageWithCaption data={article} /> */}
+                        {/* <ArticleParagraphWith data={article} /> */}
+                        {/* <ClosingOfferBanner /> */}
+                        {/* <FavoritesList /> */}
+                        <AuthorInfo />
+                        <Signup />
+                    </div>
+                </div>
+
+                {/* <SectionWrapper title='Read More'>
+                    <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
+                    <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
+                    <CardListCategoryPage data={[data[9], data[10], data[11], data[12]]} />
+                </SectionWrapper> */}
+            </div>
+        </div>
+
+
+    );
+}

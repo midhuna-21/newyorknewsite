@@ -4,7 +4,7 @@ import { BiCalendar } from 'react-icons/bi';
 
 interface NewsItem {
   title: string;
-  shortdescription: string;
+  shortdescription?: string;
   image: string;
   author?: string;
   category?: string;
