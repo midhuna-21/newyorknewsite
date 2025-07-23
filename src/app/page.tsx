@@ -43,7 +43,8 @@ export default function Home() {
           </SectionWrapper>
           </section>
 
-          <HeroImageSection data={PoliticalData[28]} />
+          <HeroImageSection data={HealthData[2]} />
+
 
           <SectionWrapper title="The Lede">
             <HorizontalNewsCard data={[ScienceData[1], TechnologyData[2], SportsData[1], BusinessData[1], PoliticalData[1], HealthData[0], ScienceData[10]]} />
@@ -56,7 +57,7 @@ export default function Home() {
             <AllCritics data={[ScienceData[2], TechnologyData[3], SportsData[3], BusinessData[2], HealthData[10], PoliticalData[10]]} />
           </SectionWrapper>
 
-          <LeftImageContent data={BusinessData[10]} />
+          <LeftImageContent data={PoliticalData[0]} />
 
           <SectionWrapper title="Our Columnists">
             <HorizontalNewsWithCategory data={[TechnologyData[4], SportsData[4], HealthData[1], ScienceData[3]]} />
