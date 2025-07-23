@@ -85,8 +85,8 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                 width={100}
                 height={100}
                 style={{
-                  width: '100%',
-                  height: 'auto',
+                  width: '100px',
+                  height: '100px',
                   objectFit: 'cover',
                   display: 'block',
                 }}
