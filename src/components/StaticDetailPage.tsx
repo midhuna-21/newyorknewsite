@@ -99,8 +99,7 @@ export default async function StaticDetailPage() {
                 <SectionWrapper title='Read More'>
                     <CardListCategoryPage data={[politicsData[3], politicsData[4], politicsData[5], politicsData[6]]} />
                     <CardListCategoryPage data={[politicsData[7], politicsData[8], politicsData[9], politicsData[10]]} />
-                    <CardListCategoryPage data={[politicsData[11], politicsData[12], politicsData[13], politicsData[14]]} />
-                </SectionWrapper>
+                 </SectionWrapper>
             </div>
         </div>
 
