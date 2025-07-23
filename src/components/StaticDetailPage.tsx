@@ -1,5 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import politicsData from '../../public/data/politics.json';
 import ArticleParagraphWith from '@/components/ArticleParagraph';
 import CardListCategoryPage from '@/components/CardListCategoryPage';
 import ClosingOfferBanner from '@/components/ClosingOfferBanner';
@@ -95,11 +96,11 @@ export default async function StaticDetailPage() {
                     </div>
                 </div>
 
-                {/* <SectionWrapper title='Read More'>
-                    <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
-                    <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
-                    <CardListCategoryPage data={[data[9], data[10], data[11], data[12]]} />
-                </SectionWrapper> */}
+                <SectionWrapper title='Read More'>
+                    <CardListCategoryPage data={[politicsData[3], politicsData[4], politicsData[5], politicsData[6]]} />
+                    <CardListCategoryPage data={[politicsData[7], politicsData[8], politicsData[9], politicsData[10]]} />
+                    <CardListCategoryPage data={[politicsData[11], politicsData[12], politicsData[13], politicsData[14]]} />
+                </SectionWrapper>
             </div>
         </div>
 
