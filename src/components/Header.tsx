@@ -126,7 +126,7 @@ const Header = () => {
                       color: textColor,
                     }}
                   >
-                    THE NEW YORKER <span style={{ color: 'red', letterSpacing: '-0.15em' }}>100</span>
+                    THE NEW YORKER <span style={{ color: '#B00000', letterSpacing: '-0.15em' }}>100</span>
                   </h1>
                 </Link>
 
