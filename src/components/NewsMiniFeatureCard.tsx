@@ -102,28 +102,28 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
                             </div>
                         </div>
 
-                     <div
-  className="news-image-wrapper"
-  style={{
-    flexShrink: 0,
-    width: isMobile ? '100px' : '140px',
-    height: isMobile ? '100px' : '140px',
-    overflow: 'hidden',
-  }}
->
-  <Image
-    src={data.image}
-    alt={data.title}
-    width={isMobile ? 100 : 140}
-    height={isMobile ? 100 : 140}
-    style={{
-      objectFit: 'cover',
-      width: '100%',
-      height: '100%',
-      display: 'block',
-    }}
-  />
-</div>
+                        <div
+                            className="news-image-wrapper"
+                            style={{
+                                flexShrink: 0,
+                                width: isMobile ? '100px' : '140px',
+                                height: isMobile ? '100px' : '140px',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <Image
+                                src={data.image}
+                                alt={data.title}
+                                width={isMobile ? 100 : 140}
+                                height={isMobile ? 100 : 140}
+                                style={{
+                                    objectFit: 'cover',
+                                    width: '100%',
+                                    height: '100%',
+                                    display: 'block',
+                                }}
+                            />
+                        </div>
 
                     </div>
                 </div>
