@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nystatenews.org/
+
+# Sitemaps
+Sitemap: https://nystatenews.org/sitemap.xml

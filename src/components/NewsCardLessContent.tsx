@@ -64,11 +64,18 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                 {data.title}
               </p>
 
-              <p style={{ margin: 0 }}>
-                <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-                <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-                <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
-              </p>
+              <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                <BiCalendar
+                  size={10}
+                  style={{ marginRight: '4px', color: '#999' }}
+                />
+                <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
+                  Published on
+                </span>
+                <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
+                  {data.date}
+                </span>
+              </div>
             </div>
 
 
@@ -119,6 +126,7 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                   fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
                   fontSize: '22px',
                   fontWeight: 400,
+                    marginBottom: '4px',
                 }}
               >
                 {data.title}
@@ -137,11 +145,18 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                 </p>
               )}
 
-              <p style={{ margin: 0 }}>
-                <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-                <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
-                <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
-              </p>
+              <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                <BiCalendar
+                  size={10}
+                  style={{ marginRight: '4px', color: '#999' }}
+                />
+                <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
+                  Published on
+                </span>
+                <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
+                  {data.date}
+                </span>
+              </div>
             </div>
           </div>
         )}

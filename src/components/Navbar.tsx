@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const categories = [
@@ -9,17 +9,24 @@ const categories = [
     { label: 'Health', category: 'health' },
     { label: 'Science', category: 'science' },
     { label: 'Politics', category: 'politics' },
+    { label: 'Entertainment', category: 'entertainment' },
+
 ];
 
 const Navbar = () => {
+    const [hovered, setHovered] = useState<string | null>(null);
+
     return (
+
         <nav
             aria-label="Category Navigation"
             style={{
-                backgroundColor: '#fff',
-                borderBottom: '1px solid #ddd',
-                 borderTop: '1px solid #ddd',
-                padding: '10px 0',
+                backgroundColor: 'transparent',
+                borderTop: '1px solid #ccc',
+                borderBottom: '2px solid #ccc',
+                padding: '7px 0',
+                position: 'relative',
+                zIndex: 10,
             }}
         >
             <Container>
@@ -29,33 +36,35 @@ const Navbar = () => {
                             style={{
                                 display: 'flex',
                                 flexWrap: 'wrap',
-                                gap: '20px',
                                 justifyContent: 'center',
-                                fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-                                fontSize: '0.95rem',
-                                fontWeight: 600,
-                                padding:'4px'
+                                gap: '28px',
+                                fontFamily: '"Poppins", "Segoe UI", sans-serif',
+                                fontSize: '12.5px',
+                                fontWeight: 700,
+                                letterSpacing: '1px',
+                                textTransform: 'uppercase',
                             }}
                         >
-
                             {categories.map((item) => (
                                 <Link
-                                    key={item.category} 
+                                    key={item.category}
                                     href={`/${item.category}`}
-                                    title={item.label} 
+                                    title={item.label}
                                     style={{
-                                        fontSize: '12px',
-                                        color: '#000000',
-                                        fontWeight: 600,
-                                        fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-                                        textDecoration: 'none',
-                                        whiteSpace: 'nowrap',
+                                        padding: '6px 10px',
+                                        color: '#000',
+                                        textDecoration: hovered === item.category ? 'underline' : 'none',
+                                        textUnderlineOffset: '5px',
+                                        fontFamily: '"Poppins", "Segoe UI", sans-serif',
+                                        transition: 'text-decoration 0.3s ease',
+                                        cursor: 'pointer',
                                     }}
+                                    onMouseEnter={() => setHovered(item.category)}
+                                    onMouseLeave={() => setHovered(null)}
                                 >
                                     {item.label}
                                 </Link>
                             ))}
-
                         </div>
                     </Col>
                 </Row>

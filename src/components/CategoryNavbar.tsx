@@ -10,11 +10,15 @@ const categories = [
     { label: 'Health', category: 'health' },
     { label: 'Science', category: 'science' },
     { label: 'Politics', category: 'politics' },
+    { label: 'Entertainment', category: 'entertainment' },
+
 ];
 
 const CategoryNavbar = () => {
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [hovered, setHovered] = useState<string | null>(null);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,6 +39,7 @@ const CategoryNavbar = () => {
     }, [lastScrollY]);
 
     return (
+
         <nav
             aria-label="Category Navigation"
             style={{
@@ -44,22 +49,27 @@ const CategoryNavbar = () => {
                 width: '100%',
                 zIndex: 998,
                 backgroundColor: '#fff',
-                padding: '14px 0',
+                borderBottom: '2px solid #ccc',
+                padding: '7px 0',
                 boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
                 transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
                 opacity: isVisible ? 1 : 0,
                 transition: 'all 0.6s ease-in-out',
             }}
         >
+
+
             <div
                 style={{
                     display: 'flex',
                     flexWrap: 'wrap',
-                    gap: '20px',
                     justifyContent: 'center',
-                    fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-                    fontSize: '0.95rem',
-                    fontWeight: 600,
+                    gap: '28px',
+                    fontFamily: '"Poppins", "Segoe UI", sans-serif',
+                    fontSize: '12.5px',
+                    fontWeight: 700,
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase',
                 }}
             >
                 {categories.map((item) => (
@@ -68,14 +78,16 @@ const CategoryNavbar = () => {
                         href={`/${item.category}`}
                         title={item.label}
                         style={{
-                            fontSize: '12px',
-                            color: '#000000', 
-                            fontWeight: 600,
-                            fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-                            textDecoration: 'none',
-                            whiteSpace: 'nowrap',
-                            transition: 'color 0.3s ease',
+                            padding: '6px 10px',
+                            color: '#000',
+                            textDecoration: hovered === item.category ? 'underline' : 'none',
+                            textUnderlineOffset: '5px',
+                            fontFamily: '"Poppins", "Segoe UI", sans-serif',
+                            transition: 'text-decoration 0.3s ease',
+                            cursor: 'pointer',
                         }}
+                        onMouseEnter={() => setHovered(item.category)}
+                        onMouseLeave={() => setHovered(null)}
                     >
                         {item.label}
                     </Link>

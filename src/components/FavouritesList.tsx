@@ -58,7 +58,7 @@ const FavoritesList = () => {
           marginBottom: '15px',
         }}
       >
-        New Yorker Favorites
+        Nystate News Favorites
       </h2>
 
       <hr />

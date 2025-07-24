@@ -28,6 +28,7 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  
 
   return (
     <div style={{ display: 'block' }}>
@@ -116,38 +117,22 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
                     {data.shortdescription}
                   </p>
 
-                  <p
-                    style={{
-                      fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
-                      fontSize: '0.8rem',
-                      fontWeight: 'bold',
-                      marginBottom: 0,
-                    }}
-                  >
-                    <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-                    <span
-                      style={{
-                        color: '#000',
-                        opacity: 0.6,
-                        fontSize: '8px',
-                      }}
-                    >
+                  <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                    <BiCalendar
+                      size={10}
+                      style={{ marginRight: '4px', color: '#999' }}
+                    />
+                    <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
                       Published on
                     </span>
-                    <span
-                      style={{
-                        color: '#555',
-                        marginLeft: '4px',
-                        fontSize: '8px',
-                      }}
-                    >
+                    <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
                       {data.date}
                     </span>
-                  </p>
+                  </div>
                 </div>
 
                 <div style={{ flexShrink: 0 }}>
-                
+
                   <Image
                     src={data.image}
                     alt={data.title}
@@ -182,33 +167,18 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
                 </p>
 
 
-                <p
-                  style={{
-                    fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-                  <span
-                    style={{
-                      color: '#000',
-                      opacity: 0.6,
-                      fontSize: '8px',
-                    }}
-                  >
+                <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                  <BiCalendar
+                    size={10}
+                    style={{ marginRight: '4px', color: '#999' }}
+                  />
+                  <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
                     Published on
                   </span>
-                  <span
-                    style={{
-                      color: '#555',
-                      marginLeft: '4px',
-                      fontSize: '8px',
-                    }}
-                  >
+                  <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
                     {data.date}
                   </span>
-                </p>
+                </div>
               </>
             )}
           </div>

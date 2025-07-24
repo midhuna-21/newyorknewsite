@@ -7,7 +7,7 @@ interface SectionWrapperProps {
 
 export default function SectionWrapper({ title, children }: SectionWrapperProps) {
   return (
-    <div id="section-wrapper">
+    <div className="section-wrapper">
       <hr style={{ borderTop: '1px solid #ccc' }} />
       
       <p

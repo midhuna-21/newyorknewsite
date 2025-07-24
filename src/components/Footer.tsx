@@ -47,7 +47,7 @@ export default function Footer() {
              
               <Image
                 src="/images/nystatenews-white-logo.webp"
-                alt="nystatenews logo"
+                alt="Nystate News logo"
                 width={200}
                 height={50}
                 style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
@@ -109,9 +109,8 @@ export default function Footer() {
               lineHeight: '1.6',
               padding: isMobile ? '0 10px' : undefined,
             }}>
-              © 2025 Condé Nast. All rights reserved. <em>The New Yorker</em> may earn a portion of sales from products that are purchased through our site as part of our Affiliate Partnerships with retailers.
-              The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Condé Nast.{' '}
-              <a href="#" style={{ color: '#fff', textDecoration: 'underline' }}>Ad Choices</a>
+© 2025 nystatenews. All rights reserved. Content may not be reproduced or distributed without permission. Some links may earn us a commission through affiliate partnerships.
+
             </p>
           </Col>
 

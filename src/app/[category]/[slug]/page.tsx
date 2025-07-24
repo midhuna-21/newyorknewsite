@@ -6,18 +6,18 @@ import sportsData from '../../../../public/data/sports.json';
 import healthData from '../../../../public/data/health.json';
 import politicsData from '../../../../public/data/politics.json';
 import scienceData from '../../../../public/data/science.json';
+import EntertainmentData from '../../../../public/data/entertainment.json'
 import ArticleParagraphWith from '@/components/ArticleParagraph';
 import CardListCategoryPage from '@/components/CardListCategoryPage';
-import ClosingOfferBanner from '@/components/ClosingOfferBanner';
 import FavoritesList from '@/components/FavouritesList';
 import AuthorInfo from '@/components/AuthorInfo';
-import Signup from '@/components/Signup';
 import SectionWrapper from '@/components/SectionWrapper';
 import DetailFirst from '@/components/DetailFirst';
 import CategoryNavbar from '@/components/CategoryNavbar';
 import SecondHeader from '@/components/SecondHeader';
 import { Metadata } from 'next';
 import StaticDetailPage from '@/components/StaticDetailPage';
+import DateDisplay from '@/components/DateDisplay';
 
 
 export async function generateStaticParams() {
@@ -28,6 +28,8 @@ export async function generateStaticParams() {
     { category: 'sports', articles: sportsData },
     { category: 'science', articles: scienceData },
     { category: 'health', articles: healthData },
+    { category: 'entertainment', articles: EntertainmentData },
+
   ];
 
   const params = allData.flatMap(({ category, articles }) =>
@@ -42,26 +44,26 @@ export async function generateStaticParams() {
 
 
 interface NewsItem {
-    category: string;
-    title: string;
-    shortdescription?: string;
-    description?: string;
-    image: string;
-    slug: string;
-    date: string;
+  category: string;
+  title: string;
+  shortdescription?: string;
+  description?: string;
+  image: string;
+  slug: string;
+  date: string;
 }
 
 interface DetailPageProps {
-    params: Promise<{ category: string, slug: string }>;
+  params: Promise<{ category: string, slug: string }>;
 }
 
 const allData: Record<string, NewsItem[]> = {
-    business: businessData,
-    technology: technologyData,
-    sports: sportsData,
-    health: healthData,
-    politics: politicsData,
-    science: scienceData,
+  business: businessData,
+  technology: technologyData,
+  sports: sportsData,
+  health: healthData,
+  politics: politicsData,
+  science: scienceData,
 };
 
 export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
@@ -79,7 +81,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
   const articles = allDataMap[category] || [];
   const article = articles.find((a) => a.slug === slug);
 
-  const siteUrl = 'https://nystatenews.com';
+  const siteUrl = 'https://nystatenews.org';
   const currentUrl = `${siteUrl}/${category}/${slug}`;
   const imageUrl = article?.image?.startsWith('http') ? article.image : `${siteUrl}${article?.image}`;
 
@@ -93,14 +95,14 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
   if (slug === 'wanda-vazquez-charges-dropped') {
     return {
       title: 'Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting',
-      description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped...',
-      keywords: 'Wanda Vázquez Garced charges dropped, Puerto Rico governor, DOJ, corruption case, campaign finance violation',
+      description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.',
+      keywords: 'Wanda Vázquez Garced, Wanda vázquez cleared, A Three-Year Saga Ends in Exoneration, Legal Experts Cite “Face-Saving” by DOJ, Political Overtones and Claims of Targeting,Co-Defendant’s Case Also Resolved',
       authors: [{ name: 'Cameron Ellis' }],
       openGraph: {
         title: 'Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting',
-        description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped...',
+        description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.',
         url: currentUrl,
-        siteName: 'nystatenews',
+        siteName: 'Nystate News',
         images: [
           {
             url: imageUrl,
@@ -133,7 +135,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
           },
           publisher: {
             '@type': 'Organization',
-            name: 'nystatenews',
+            name: 'Nystate News',
             logo: {
               '@type': 'ImageObject',
               url: `${siteUrl}/nystatenews-logo.webp`,
@@ -182,13 +184,13 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
 
 
 export default async function DetailPage({ params }: DetailPageProps) {
-    const { category, slug } = await params;
-    const data = allData[category?.toLowerCase()];
+  const { category, slug } = await params;
+  const data = allData[category?.toLowerCase()];
 
-    if (!data) return notFound();
+  if (!data) return notFound();
 
-    const article = data.find(item => item.slug === slug);
-    if (!article) {
+  const article = data.find(item => item.slug === slug);
+  if (!article) {
     return <div className="p-4">No article found for slug: {slug}</div>;
   }
 
@@ -200,38 +202,41 @@ export default async function DetailPage({ params }: DetailPageProps) {
     );
   }
 
-    return (
-        <div>
-            <SecondHeader />
+  return (
+    <div>
+      <SecondHeader />
 
-            <div className="d-none d-md-block">
+      <div className="d-none d-md-block">
 
-                <CategoryNavbar />
-            </div>
+        <CategoryNavbar />
+      </div>
 
-            {/* <NewsArticleHeading data={article} /> */}
-            <DetailFirst data={article} />
-            <div className="container py-5">
-
-                <div className="row justify-content-center">
-                    <div className="col-12 col-lg-7 mz-autho">
-                        {/* <NewsImageWithCaption data={article} /> */}
-                        <ArticleParagraphWith data={article} />
-                        <ClosingOfferBanner />
-                        <FavoritesList />
-                        <AuthorInfo />
-                        <Signup />
-                    </div>
-                </div>
-
-                <SectionWrapper title='Read More'>
-                    <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
-                    <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
-                    <CardListCategoryPage data={[data[9], data[10], data[11], data[12]]} />
-                </SectionWrapper>
-            </div>
+      <DetailFirst data={article} />
+      <div className="container py-3">
+        <div className="row justify-content-center">
+          <div className="col-12 col-lg-7 mz-autho">
+            <DateDisplay date={article.date} />
+            <ArticleParagraphWith data={article} />
+            <FavoritesList />
+            <AuthorInfo />
+          </div>
         </div>
 
+        <SectionWrapper title="Read More">
+          <div style={{ marginBottom: '24px' }}>
+            <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
+          </div>
+          <div style={{ marginBottom: '24px' }}>
+            <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
+          </div>
+          <div>
+            <CardListCategoryPage data={[data[9], data[10], data[11], data[12]]} />
+          </div>
+        </SectionWrapper>
 
-    );
+      </div>
+    </div>
+
+
+  );
 }

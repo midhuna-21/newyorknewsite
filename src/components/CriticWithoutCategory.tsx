@@ -145,35 +145,18 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
 
           )}
 
-          <p
-            style={{
-              fontWeight: 'bold',
-              fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
-              fontSize: '0.9rem',
-              margin: isMobile ? '0' : '0 auto',
-              maxWidth: isMobile ? '100%' : '600px',
-            }}
-          >
-            <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-            <span
-              style={{
-                color: '#000',
-                opacity: 0.6,
-                fontSize: '8px',
-              }}
-            >
+          <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: isMobile?'flex-start':'center' }}>
+            <BiCalendar
+              size={10}
+              style={{ marginRight: '4px', color: '#999' }}
+            />
+            <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
               Published on
             </span>
-            <span
-              style={{
-                color: '#555',
-                marginLeft: '4px',
-                fontSize: '8px',
-              }}
-            >
+            <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
               {data.date}
             </span>
-          </p>
+          </div>
         </div>
       </Link>
     </div>

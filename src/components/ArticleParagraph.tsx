@@ -1,8 +1,10 @@
 import React from 'react';
+import { BiCalendar } from 'react-icons/bi';
 
 interface ArticleParagraphProps {
   data: {
     description?: string;
+    date:string;
   };
 }
 

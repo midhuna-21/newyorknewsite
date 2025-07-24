@@ -22,7 +22,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
   if (!data) return null;
 
   return (
-    <div id="first-index-section" style={{ backgroundColor: '#fff', color: '#000', }}>
+    <div id="first-index-section" style={{ backgroundColor: '#fff', color: '#000', paddingTop: '80px', }}>
       <Container fluid style={{ paddingTop: '0px' }}>
         <Row
           className="first-section-row align-items-stretch"
@@ -89,14 +89,27 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                   {data.shortdescription}
                 </p>
 
-                <div style={{ fontSize: '10px', color: '#555', marginTop: '10px' }}>
+                {/* <div style={{ fontSize: '10px', color: '#555', marginTop: '10px' }}>
                   <BiCalendar
                     size={10}
                     style={{ marginRight: '4px', color: '#000' }}
                   />
                   <span style={{ color: '#000', opacity: 0.6, fontSize: '8px' }}>Published on</span>
                   <span style={{ color: '#555', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
+                </div> */}
+                <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <BiCalendar
+                    size={10}
+                    style={{ marginRight: '4px', color: '#999' }}
+                  />
+                  <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
+                    Published on
+                  </span>
+                  <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
+                    {data.date}
+                  </span>
                 </div>
+
               </div>
             </Link>
           </Col>

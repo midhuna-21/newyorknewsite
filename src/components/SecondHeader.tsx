@@ -31,7 +31,7 @@ const SecondHeader = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
- 
+
   useEffect(() => {
     if (!isHomePage) return;
 
@@ -116,7 +116,7 @@ const SecondHeader = () => {
           borderBottom: backgroundColor === '#fff' ? '1px solid #ddd' : 'none',
         }}
       >
-         <Container fluid>
+        <Container fluid>
           <div style={{ position: 'relative', height: '70px', width: '100%' }}>
             {isMobile ? (
               <div className="d-flex d-lg-none align-items-center justify-content-between px-3" style={{ height: '100%' }}>
@@ -140,14 +140,14 @@ const SecondHeader = () => {
                   {toggleIcon}
                 </button>
 
-                <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-                   <Image
-                                     src="/images/nystatenews-logo.webp"
-                                     alt="nystatenews logo"
-                                     width={200}
-                                     height={0}
-                                     style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
-                                   />
+                <Link href="/" className="text-decoration-none" title='index' style={{ color: textColor }}>
+                  <Image
+                    src="/images/nystatenews-logo.webp"
+                    alt="Nystate News logo"
+                    width={200}
+                    height={0}
+                    style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
+                  />
                 </Link>
 
                 <Button
@@ -160,7 +160,7 @@ const SecondHeader = () => {
                     borderRadius: '2px',
                     border: 'none',
                     whiteSpace: 'nowrap',
-                        textTransform: 'none',
+                    textTransform: 'none',
                   }}
                 >
                   Subscribe
@@ -199,10 +199,10 @@ const SecondHeader = () => {
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                  <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-  <Image
+                  <Link href="/" className="text-decoration-none" title='index' style={{ color: textColor }}>
+                    <Image
                       src="/images/nystatenews-logo.webp"
-                      alt="nystatenews logo"
+                      alt="Nystate News logo"
                       width={200}
                       height={50}
                       style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
@@ -226,7 +226,7 @@ const SecondHeader = () => {
                   >
                     Newsletter
                   </a>
-                
+
                   <Button
                     style={{
                       fontSize: '12px',
@@ -236,7 +236,7 @@ const SecondHeader = () => {
                       padding: '4px 14px',
                       borderRadius: '2px',
                       border: 'none',
-                      
+
                     }}
                   >
                     Subscribe
@@ -273,6 +273,7 @@ const SecondHeader = () => {
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                 >
                   <Link
+                    title={item.slug}
                     href={`/${item.slug}`}
                     className="text-black text-decoration-none fw-bold d-block px-2"
                     onClick={() => setExpanded(false)}

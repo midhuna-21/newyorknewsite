@@ -1,11 +1,9 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import Image from 'next/image'
-
+import Image from 'next/image';
 
 const NavItems = [
   { label: 'Business', slug: 'business' },
@@ -14,41 +12,31 @@ const NavItems = [
   { label: 'Health', slug: 'health' },
   { label: 'Science', slug: 'science' },
   { label: 'Politics', slug: 'politics' },
+  { label: 'Entertainment', slug: 'entertainment' },
+
 ];
 
 const Header = () => {
-  const pathname = usePathname();
-  const isHomePage = pathname === '/';
-
-  const [isFixed, setIsFixed] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
-  const placeholderRef = useRef<HTMLDivElement>(null);
 
-  const backgroundColor = '#fff';
-  const textColor = '#000';
-
+  // Scroll progress logic
   useEffect(() => {
     const handleScroll = () => {
-      const header = headerRef.current;
-      const placeholder = placeholderRef.current;
-      if (!header || !placeholder) return;
-      const rect = placeholder.getBoundingClientRect();
-      setIsFixed(rect.top <= 0);
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = Math.min((scrollTop / scrollHeight) * 100, 100);
+      setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 992);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const backgroundColor = '#fff';
+  const textColor = '#000';
 
   const toggleIcon = expanded ? (
     <span style={{ fontSize: '24px', color: textColor, fontWeight: 'bold' }}>×</span>
@@ -72,12 +60,11 @@ const Header = () => {
 
   return (
     <>
-      <div ref={placeholderRef} style={{ height: '2cm' }} />
-
+      {/* Header */}
       <div
         ref={headerRef}
         style={{
-          position: isFixed ? 'fixed' : 'static',
+          position: 'fixed',
           top: 0,
           left: 0,
           width: '100%',
@@ -91,138 +78,123 @@ const Header = () => {
           transition: 'all 0.3s ease',
         }}
       >
-        <Container fluid>
+        <Container fluid className="px-lg-5">
           <div style={{ position: 'relative', height: '70px', width: '100%' }}>
-            {isMobile ? (
-              <div className="d-flex d-lg-none align-items-center justify-content-between px-3" style={{ height: '100%' }}>
-                <button
-                  onClick={() => setExpanded(!expanded)}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: 0,
-                    width: '32px',
-                    height: '32px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                  aria-label="Toggle navigation"
-                  aria-expanded={expanded}
-                >
-                  {toggleIcon}
-                </button>
+            <div className="d-flex d-lg-none align-items-center justify-content-between px-3" style={{ height: '100%' }}>
+              <button
+                onClick={() => setExpanded(!expanded)}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
+                  width: '32px',
+                  height: '32px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                aria-label="Toggle navigation"
+                aria-expanded={expanded}
+              >
+                {toggleIcon}
+              </button>
 
-                <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-                  <Image
-                    src="/images/nystatenews-logo.webp"
-                    alt="nystatenews logo"
-                    width={200}
-                    height={0}
-                    style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
-                  />
-                </Link>
+              <Link href="/" className="text-decoration-none" title="index" style={{ color: textColor }}>
+                <Image
+                  src="/images/nystatenews-logo.webp"
+                  alt="Nystate News logo"
+                  width={200}
+                  height={0}
+                  style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
+                />
+              </Link>
 
-                <Button
-                  style={{
-                    fontSize: '10px',
-                    backgroundColor: '#0267A4',
-                    color: 'white',
-                    fontWeight: 500,
-                    padding: '3px 8px',
-                    borderRadius: '2px',
-                    border: 'none',
-                    whiteSpace: 'nowrap',
+              <Button
+                style={{
+                  fontSize: '10px',
+                  backgroundColor: '#0267A4',
+                  color: 'white',
+                  fontWeight: 500,
+                  padding: '3px 8px',
+                  borderRadius: '2px',
+                  border: 'none',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Subscribe
+              </Button>
+            </div>
+            <div className="d-none d-lg-flex justify-content-center align-items-center px-lg-5" style={{ height: '100%' }}>
+              <Link href="/" className="text-decoration-none" title="index" style={{ color: textColor }}>
+                <Image
+                  src="/images/nystatenews-logo.webp"
+                  alt="Nystate News logo"
+                  width={200}
+                  height={50}
+                  style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
+                />
+              </Link>
+            </div>
+            <div
+              className="d-none d-lg-flex align-items-center gap-3"
+              style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}
+            >
+              <a
+                href="#"
+                style={{
+                  fontSize: '12px',
+                  color: textColor,
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                }}
+              >
+                Newsletter
+              </a>
 
-                  }}
-                >
-                  Subscribe
-                </Button>
-              </div>
-            ) : (
-              <>
-                <div
-                  className="d-lg-none"
-                  style={{
-                    position: 'absolute',
-                    left: '20px',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                  }}
-                >
-                  <button
-                    onClick={() => setExpanded(!expanded)}
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      padding: 0,
-                      width: '32px',
-                      height: '32px',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                    aria-label="Toggle navigation"
-                    aria-expanded={expanded}
-                  >
-                    {toggleIcon}
-                  </button>
-                </div>
-
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                  <Link href="/" className="text-decoration-none" style={{ color: textColor }}>
-                    <Image
-                      src="/images/nystatenews-logo.webp"
-                      alt="nystatenews logo"
-                      width={200}
-                      height={50}
-                      style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
-                    />
-                  </Link>
-                </div>
-
-                <div
-                  className="d-none d-lg-flex align-items-center gap-3"
-                  style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}
-                >
-                  <a
-                    href="#"
-                    style={{
-                      fontSize: '12px',
-                      color: textColor,
-                      fontWeight: 500,
-                      textDecoration: 'none',
-                    }}
-                  >
-                    Newsletter
-                  </a>
-                 
-                  <Button
-                    style={{
-                      fontSize: '12px',
-                      backgroundColor: '#0267A4',
-                      color: 'white',
-                      fontWeight: 500,
-                      padding: '4px 14px',
-                      borderRadius: '2px',
-                      border: 'none',
-                      textTransform: 'none',
-                    }}
-                  >
-                    Subscribe
-                  </Button>
-                  <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: textColor }}>
-                    🔍
-                  </span>
-                </div>
-              </>
-            )}
+              <Button
+                style={{
+                  fontSize: '12px',
+                  backgroundColor: '#0267A4',
+                  color: 'white',
+                  fontWeight: 500,
+                  padding: '4px 14px',
+                  borderRadius: '2px',
+                  border: 'none',
+                  textTransform: 'none',
+                }}
+              >
+                Subscribe
+              </Button>
+              <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: textColor }}>
+                🔍
+              </span>
+            </div>
           </div>
         </Container>
+      </div>
+
+      {/* Scroll Progress Bar */}
+      <div
+        style={{
+          position: 'fixed',
+          top: '70px',
+          left: 0,
+          width: '100%',
+          height: '2px',
+          backgroundColor: '#e5e5e541', 
+          zIndex: 998,
+        }}
+      >
+        <div
+          style={{
+            height: '100%',
+            width: `${scrollProgress}%`,
+            backgroundColor: '#000', 
+            transition: 'width 0.2s ease-out',
+          }}
+        />
       </div>
 
       {expanded && (
@@ -245,6 +217,7 @@ const Header = () => {
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                 >
                   <Link
+                    title={item.slug}
                     href={`/${item.slug}`}
                     className="text-black text-decoration-none fw-bold d-block px-2"
                     onClick={() => setExpanded(false)}

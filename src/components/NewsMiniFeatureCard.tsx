@@ -33,6 +33,7 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
     return (
         <div style={{ display: 'block' }}>
             <Link
+                title={`${data.slug}`}
                 href={`/${data.category}/${data.slug}`}
                 className="text-decoration-none text-reset"
                 style={{
@@ -85,20 +86,17 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
                                 {data.shortdescription}
                             </p>
 
-                            <div
-                                className="news-date"
-                                style={{
-                                    fontSize: '10px',
-                                    color: '#000',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '4px',
-                                    opacity: 0.7,
-                                }}
-                            >
-                                <BiCalendar size={12} />
-                                <span>Published on</span>
-                                <span style={{ color: '#555' }}>{data.date}</span>
+                            <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                                <BiCalendar
+                                    size={10}
+                                    style={{ marginRight: '4px', color: '#999' }}
+                                />
+                                <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
+                                    Published on
+                                </span>
+                                <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
+                                    {data.date}
+                                </span>
                             </div>
                         </div>
 

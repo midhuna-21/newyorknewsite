@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { BiCalendar } from 'react-icons/bi';
 
 interface NewsItem {
   title: string;
@@ -8,6 +9,7 @@ interface NewsItem {
   author?: string;
   category?: string;
   slug: string;
+  date: string;
 }
 
 export default function RightImageContent({ data }: { data: NewsItem }) {
@@ -20,7 +22,7 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
       >
         <div
           className="row flex-column flex-lg-row align-items-center"
-          style={{ marginTop: '24px', marginBottom: '24px' }} 
+          style={{ marginTop: '24px', marginBottom: '24px' }}
         >
           <div
             className="col-lg-6 text-center order-2 order-lg-2 content-image-column"
@@ -43,12 +45,9 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
 
           <div
             className="col-lg-6 d-flex justify-content-center align-items-center text-center order-1 order-lg-1 content-column"
-            style={{
-              paddingTop: 24,
-              paddingBottom: 24,
-            }}
+           
           >
-            <div className="px-3" style={{ maxWidth: '90%' }}>
+            <div >
               <p
                 style={{
                   fontSize: '12px',
@@ -90,6 +89,18 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
               >
                 {data.shortdescription}
               </p>
+              <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <BiCalendar
+                  size={10}
+                  style={{ marginRight: '4px', color: '#999' }}
+                />
+                <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
+                  Published on
+                </span>
+                <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
+                  {data.date}
+                </span>
+              </div>
             </div>
           </div>
         </div>

@@ -2,87 +2,86 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const AuthorInfo = () => {
-  const [isMobile, setIsMobile] = useState(false);
+const socialLinks = [
+  {
+    icon: FaFacebookF,
+    url: '#',
+    label: 'Visit our Facebook page',
+  },
+  {
+    icon: FaXTwitter,
+    url: '#',
+    label: 'Visit our Twitter (X) page',
+  },
+  {
+    icon: FaInstagram,
+    url: '#',
+    label: 'Visit our Instagram page',
+  },
+];
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <div className="container py-4" style={{ maxWidth: '800px' }}>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          alignItems: isMobile ? 'center' : 'flex-start',
-          textAlign: isMobile ? 'center' : 'left',
-          gap: '20px',
-          marginBottom: '30px',
-        }}
-      >
-        <div>
-          <Image
-            src="/images/author-dummy.webp"
-            alt="Benjamin Wallace-Wells"
-            width={100}
-            height={100}
-            style={{ borderRadius: '50%' }}
-          />
+        <p className="text-muted mb-3" style={{ fontSize: '0.95rem' }}>
+       July 12, 2025
+      </p>
+
+      <div className="d-flex justify-content-between align-items-start flex-wrap gap-2">
+        <div className="d-flex align-items-center gap-3">
+
+          <div>
+              <div
+                className="fw-bold text-dark"
+                style={{
+                  fontSize: '18px',
+                  fontFamily: "'Archivo', Arial, sans-serif",
+                  fontWeight: 700,
+                  textDecoration: 'underline',
+                  color: '#000000',
+                }}
+              >
+                Cameron Ellis
+              </div>
+            <div
+              className="text-uppercase"
+              style={{
+                color: '#767676',
+                fontWeight: 700,
+                fontSize: '14px',
+                fontFamily: "'Rubik', Arial, sans-serif'"
+              }}
+            >
+             Founding Editor
+            </div>
+          </div>
         </div>
 
-        <p
-          style={{
-            fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-            fontWeight: 400,
-            fontStyle: 'italic',
-            margin: 0,
-            maxWidth: '700px',
-            fontSize: isMobile ? '17px' : '21px',
-            lineHeight: isMobile ? '1.5' : '1.7',
-          }}
-        >
-          <a
-            href="#"
-            style={{
-              color: 'black',
-              textDecoration: 'underline',
-              fontStyle: 'italic',
-              fontSize: isMobile ? '17px' : '21px',
-            }}
-          >
-            Benjamin Wallace-Wells
-          </a>{' '}
-          began contributing to <em>The New Yorker</em> in 2006 and joined the magazine as a staff
-          writer in 2015. He writes about American politics and society.
-        </p>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: isMobile ? 'center' : 'flex-start',
-          fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif',
-          fontSize: isMobile ? '12px' : '13px',
-          fontWeight: 700,
-          rowGap: '10px',
-          columnGap: '15px',
-          textAlign: isMobile ? 'center' : 'left',
-        }}
-      >
-        <span style={{ color: 'rgb(102, 102, 102)' }}>More:</span>
-        <span style={{ color: '#000' }}>Trump Administration</span>
-        <span style={{ color: '#000' }}>Immigrants, Immigration</span>
-        <span style={{ color: '#000' }}>Deportations</span>
-        <span style={{ color: '#000' }}>U.S. Supreme Court</span>
+        <div className="d-flex align-items-center gap-2">
+          {socialLinks.map(({ icon: Icon, url, label }, i) => (
+            <a
+              key={i}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="text-decoration-none"
+              style={{ color: 'inherit' }}
+            >
+              <div
+                className="rounded-circle border p-2 d-flex align-items-center justify-content-center"
+                style={{ width: 32, height: 32 }}
+              >
+                <Icon size={14} />
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

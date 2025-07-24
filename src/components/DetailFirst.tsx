@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { BiCalendar } from 'react-icons/bi';
+import DateDisplay from './DateDisplay';
 
 interface NewsItem {
   title: string;
@@ -19,11 +20,8 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
           <h1 className="category">{data.category}</h1>
           <h2 className="title">{data.title}</h2>
           <p className="shortdesc">{data.shortdescription}</p>
-          <p className="date">
-            <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-            <span className="published-label">Published on</span>
-            <span className="published-date">{data.date}</span>
-          </p>
+          
+            <DateDisplay date='5th July 2025' />
         </div>
 
         <div className="image-side">

@@ -52,19 +52,7 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                         style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit' }}
                     >
                         <div style={{ textAlign: 'center', maxWidth: '600px' }}>
-                            <span
-                             style={{
-                                fontSize: 'clamp(10px, 1vw, 14px)',
-                                fontWeight: 400,
-                                color: 'rgb(219, 51, 52)',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.5px',
-                                marginTop: '20px',
-                                marginBottom: '10px',
-                                fontFamily: `'Georgia', serif`
-                            }}>
-                                {data.category}
-                            </span>
+                            
                             <h2
                             style={{
                                 fontFamily: '"Georgia", serif',
@@ -86,11 +74,18 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                             }}>
                                 {data.shortdescription}
                             </p>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-                                <BiCalendar size={10} style={{ color: '#000' }} />
-                                <span style={{ color: '#000', opacity: 0.6, fontSize: 'clamp(7px, 1vw, 10px)' }}>Published on</span>
-                                <span style={{ color: '#555', fontSize: 'clamp(7px, 1vw, 10px)' }}>{data.date}</span>
-                            </div>
+                             <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                             <BiCalendar
+                                               size={10}
+                                               style={{ marginRight: '4px', color: '#999' }}
+                                             />
+                                             <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
+                                               Published on
+                                             </span>
+                                             <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
+                                               {data.date}
+                                             </span>
+                                           </div>
                         </div>
                     </Link>
                 </div>

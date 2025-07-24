@@ -140,7 +140,7 @@ a {
 
 /* Base styles */
 #detail-first {
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   margin-top: 80px;
   padding: 60px;
 
@@ -308,16 +308,16 @@ a {
 
 /* sectionwrapper */
 
-#section-wrapper .section-title {
+.section-wrapper .section-title {
   font-size: 28px;
 }
 
 @media (max-width: 576px) {
-  #section-wrapper .section-title {
+  .section-wrapper .section-title {
     font-size: 20px !important;
   }
 
-  #section-wrapper .section-children {
+  .section-wrapper .section-children {
     margin-top: 0.75rem !important;
   }
 }
@@ -325,14 +325,14 @@ a {
 
 
 /* TrumpCardComponent */
-#trump-card.trump-card {
+.trump-card.trump-card {
   font-family: Georgia, serif;
   width: 100%;
   max-width: 220px;
 }
 
 @media (max-width: 767px) {
-  #trump-card.trump-card {
+  .trump-card.trump-card {
     max-width: 290px;
     margin: 0 auto;
   }
@@ -464,5 +464,19 @@ a {
   animation: fadeInUp 0.6s ease-out;
 }
 
+
+
+/* header */
+
+/* Global height adjustment for header on large screens */
+.header-height {
+  height: 70px;
+}
+
+@media (min-width: 992px) {
+  .header-height {
+    height: 90px; /* increased height for large screens */
+  }
+}
 
 }

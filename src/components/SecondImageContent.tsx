@@ -107,35 +107,18 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
                 {data.shortdescription}
               </p>
 
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '6px',
-                  flexWrap: 'wrap',
-                  marginTop: '5px',
-                }}
-              >
-                <BiCalendar size={16} color="#fff" />
-                <span
-                  style={{
-                    color: '#fff',
-                    opacity: 0.6,
-                    fontSize: '12px',
-                  }}
-                >
-                  Published on
-                </span>
-                <span
-                  style={{
-                    color: '#aaa',
-                    fontSize: '12px',
-                  }}
-                >
-                  {data.date}
-                </span>
-              </div>
+             <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                             <BiCalendar
+                               size={10}
+                               style={{ marginRight: '4px', color: '#fff' }}
+                             />
+                             <span style={{ color: '#fff', fontWeight: 500, fontSize: '8px' }}>
+                               Published on
+                             </span>
+                             <span style={{ color: '#fff', marginLeft: '4px', fontSize: '8px' }}>
+                               {data.date}
+                             </span>
+                           </div>
             </Col>
 
             <Col

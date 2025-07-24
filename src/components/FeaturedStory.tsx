@@ -65,12 +65,18 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
             />
 
 
-            <div style={{ marginTop: '10px' }}>
-              <BiCalendar size={10} style={{ marginRight: '4px', color: '#000' }} />
-              <span style={{ color: '#222', fontSize: '10px' }}>Published on</span>
-              <span style={{ color: '#333', marginLeft: '4px', fontSize: '10px' }}>{data.date}</span>
-
-            </div>
+             <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                             <BiCalendar
+                               size={10}
+                               style={{ marginRight: '4px', color: '#000' }}
+                             />
+                             <span style={{ color: '#000', fontWeight: 500, fontSize: '8px' }}>
+                               Published on
+                             </span>
+                             <span style={{ color: '#000', marginLeft: '4px', fontSize: '8px' }}>
+                               {data.date}
+                             </span>
+                           </div>
           </div>
 
           <div className="col-12 col-lg-6">
@@ -96,6 +102,7 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
             </p>
 
             <Link
+            title={`${data.slug}`}
               href={`/${data.category}/${data.slug}`}
               style={{
                 color: '#0059A9',

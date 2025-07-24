@@ -29,97 +29,96 @@ const HeroImageSection: React.FC<Props> = ({ data }) => {
   }, []);
 
   return (
-  <div style={{ width: '100%', paddingTop: '3rem', paddingBottom: '2rem' }}>
-    <Link
-      href={`/${data.category}/${data.slug}`}
-      title={data.slug}
-      className="text-decoration-none"
-      style={{
-        textDecoration: 'none',
-        color: 'inherit',
-        display: 'block',
-      }}
-    >
-      <div
+    <div style={{ width: '100%', paddingTop: '3rem', paddingBottom: '2rem' }}>
+      <Link
+        href={`/${data.category}/${data.slug}`}
+        title={data.slug}
+        className="text-decoration-none"
         style={{
-          position: 'relative',
-          width: '100%',
-          minHeight: isMobile ? '60vh' : '90vh',
-          backgroundImage: `url(${data.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          display: 'flex',
-          justifyContent: isMobile ? 'center' : 'flex-end',
-          alignItems: 'center',
-          padding: '0 1.5rem',
-          textAlign: 'center',
+          textDecoration: 'none',
+          color: 'inherit',
+          display: 'block',
         }}
       >
         <div
           style={{
-            maxWidth: '550px',
-            padding: '1.5rem',
-            color: '#fff',
+            position: 'relative',
             width: '100%',
+            minHeight: isMobile ? '60vh' : '90vh',
+            backgroundImage: `url(${data.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            display: 'flex',
+            justifyContent: isMobile ? 'center' : 'flex-end',
+            alignItems: 'center',
+            padding: '0 1.5rem',
             textAlign: 'center',
           }}
         >
-          <p
-            style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: isMobile ? '0.75rem' : '1rem',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              fontWeight: 400,
-              marginBottom: '0.5rem',
-            }}
-          >
-            {data.category}
-          </p>
-
-          <h2
-            style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: isMobile ? '1.2rem' : '2rem',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              fontWeight: 400,
-              marginBottom: '0.75rem',
-            }}
-          >
-            {data.title}
-          </h2>
-
-          <p
-            style={{
-              fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-              fontSize: isMobile ? '1rem' : '1.25rem',
-              fontWeight: 400,
-              marginBottom: '1rem',
-            }}
-          >
-            {data.shortdescription}
-          </p>
-
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: isMobile ? '0.75rem' : '0.9rem',
-              opacity: 0.8,
+              maxWidth: '550px',
+              padding: '1.5rem',
+              color: '#fff',
+              width: '100%',
+              textAlign: 'center',
             }}
           >
-            <BiCalendar size={12} style={{ marginRight: '4px' }} />
-            <span>Published on</span>
-            <span style={{ marginLeft: '4px' }}>{data.date}</span>
+            <p
+              style={{
+                fontFamily: 'Georgia, serif',
+                fontSize: isMobile ? '0.75rem' : '1rem',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontWeight: 400,
+                marginBottom: '0.5rem',
+              }}
+            >
+              {data.category}
+            </p>
+
+            <h2
+              style={{
+                fontFamily: 'Georgia, serif',
+                fontSize: isMobile ? '1.2rem' : '2rem',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontWeight: 400,
+                marginBottom: '0.75rem',
+              }}
+            >
+              {data.title}
+            </h2>
+
+            <p
+              style={{
+                fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+                fontSize: isMobile ? '1rem' : '1.25rem',
+                fontWeight: 400,
+                marginBottom: '1rem',
+              }}
+            >
+              {data.shortdescription}
+            </p>
+
+            <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <BiCalendar
+                size={10}
+                style={{ marginRight: '4px', color: '#fff' }}
+              />
+              <span style={{ color: '#fff', fontWeight: 500, fontSize: '8px' }}>
+                Published on
+              </span>
+              <span style={{ color: '#fff', marginLeft: '4px', fontSize: '8px' }}>
+                {data.date}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </Link>
-  </div>
-);
+      </Link>
+    </div>
+  );
 
 };
 

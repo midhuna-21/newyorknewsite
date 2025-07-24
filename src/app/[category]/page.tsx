@@ -5,6 +5,7 @@ import sportsData from '../../../public/data/sports.json';
 import healthData from '../../../public/data/health.json';
 import politicsData from '../../../public/data/politics.json';
 import scienceData from '../../../public/data/science.json';
+import EntertainmentData from '../../../public/data/entertainment.json'
 import CategoryNavbar from '@/components/CategoryNavbar';
 import CatNewsFeatureCard from '@/components/CatNewsFeatureCard';
 import CardListCategoryPage from '@/components/CardListCategoryPage';
@@ -20,6 +21,8 @@ export async function generateStaticParams() {
         { category: "sports" },
         { category: "science" },
         { category: "health" },
+        { category: 'entertainment' },
+
     ];
 }
 
@@ -42,13 +45,14 @@ const allData: Record<string, NewsItem[]> = {
     health: healthData,
     politics: politicsData,
     science: scienceData,
+    entertainment: EntertainmentData
 };
 
- export default async function CategoryPage({
-        params,
-    }: {
-        params: Promise<{ category: string }>;
-    }) {
+export default async function CategoryPage({
+    params,
+}: {
+    params: Promise<{ category: string }>;
+}) {
     const { category } = await params;
     const data = allData[category];
 
@@ -64,40 +68,24 @@ const allData: Record<string, NewsItem[]> = {
         <div>
             <SecondHeader />
             <div className="d-none d-md-block">
-
                 <CategoryNavbar />
             </div>
-            <div className="container py-5 " >
-                {/* <h1 className="responsive-title">{category}</h1>
-                */}
-                {/* <h1
-                    style={{
-                        marginTop: '50px',
-                        textAlign: 'center',
-                        textTransform: 'capitalize',
-                        fontFamily: 'Georgia, serif',
-                    }}
-                >
-                    {category}
-                </h1> */}
-
-
-
-                <CatNewsFeatureCard data={data[0]} />
+            <div className="container py-5" style={{ marginTop: '22px' }} >
+                <CatNewsFeatureCard data={data[14]} />
 
                 <SectionWrapper title="Reporting & News">
                     <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
                 </SectionWrapper>
 
-                <SectionWrapper title="Commentary">
+                {/* <SectionWrapper title="Commentary">
                     <CardListCategoryPage data={[data[5], data[6], data[7], data[8]]} />
-                </SectionWrapper>
+                </SectionWrapper> */}
 
                 <SectionWrapper title="Conversations">
                     <div className="row">
                         <div className="col-12 col-lg-7">
 
-                            {data.slice(9, 13).map((item, index, arr) => (
+                            {data.slice(5, 10).map((item, index, arr) => (
                                 <div
                                     key={index}
                                     style={{
@@ -114,31 +102,9 @@ const allData: Record<string, NewsItem[]> = {
                 </SectionWrapper>
 
                 <SectionWrapper title="From Our Columnists">
-                    <CardListCategoryPage data={[data[14], data[15], data[16], data[17]]} />
+                    <CardListCategoryPage data={[data[11], data[12], data[13], data[0]]} />
                 </SectionWrapper>
-
-                {/* <SectionWrapper title="More News">
-                    <div className="row mt-5">
-                        <div className="col-12 col-lg-7 ">
-
-                            {data.slice(18).map((item, index, arr) => (
-                                <div
-                                    key={index}
-                                    style={{
-                                        borderBottom: index < arr.length - 1 ? '1px solid #ddd' : 'none',
-                                            paddingBottom: '24px',
-                                            marginBottom: '24px',
-                                    }}
-                                >
-                                    <NewsMiniFeatureCard data={item} />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </SectionWrapper> */}
             </div>
-
-
         </div>
     );
 }
