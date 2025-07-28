@@ -23,6 +23,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "critters": "^0.0.25",
+    "sharp": "^0.34.3",
     "typescript": "^5"
   }
 }
