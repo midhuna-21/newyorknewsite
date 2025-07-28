@@ -13,6 +13,8 @@ const NavItems = [
   { label: 'Health', slug: 'health' },
   { label: 'Science', slug: 'science' },
   { label: 'Politics', slug: 'politics' },
+  { label: 'Entertainment', slug: 'entertainment' },
+  { label: 'Education', slug: 'education' },
 ];
 
 const SecondHeader = () => {

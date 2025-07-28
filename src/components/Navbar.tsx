@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const categories = [
-    { label: 'Business', category: 'business' },
-    { label: 'Technology', category: 'technology' },
+     { label: 'Business', category: 'business' },
     { label: 'Sports', category: 'sports' },
+    { label: 'Politics', category: 'politics' },
+    { label: 'Technology', category: 'technology' },
     { label: 'Health', category: 'health' },
     { label: 'Science', category: 'science' },
-    { label: 'Politics', category: 'politics' },
     { label: 'Entertainment', category: 'entertainment' },
+    { label: 'Education', category: 'education' },
 
 ];
 

@@ -70,11 +70,13 @@ export default function Footer() {
             </h3>
             <ul style={listStyle}>
               <li>Business</li>
-              <li>Science</li>
+              <li>Health</li>
               <li>Politics</li>
+              <li>Science</li>
               <li>Technology</li>
               <li>Sports</li>
-              <li>Health</li>
+              <li>Entertainment</li>
+              <li>Education</li>
             </ul>
           </Col>
 

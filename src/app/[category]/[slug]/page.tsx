@@ -6,7 +6,8 @@ import sportsData from '../../../../public/data/sports.json';
 import healthData from '../../../../public/data/health.json';
 import politicsData from '../../../../public/data/politics.json';
 import scienceData from '../../../../public/data/science.json';
-import EntertainmentData from '../../../../public/data/entertainment.json'
+import entertainmentData from '../../../../public/data/entertainment.json'
+import educationData from '../../../../public/data/education.json';
 import ArticleParagraphWith from '@/components/ArticleParagraph';
 import CardListCategoryPage from '@/components/CardListCategoryPage';
 import FavoritesList from '@/components/FavouritesList';
@@ -28,7 +29,8 @@ export async function generateStaticParams() {
     { category: 'sports', articles: sportsData },
     { category: 'science', articles: scienceData },
     { category: 'health', articles: healthData },
-    { category: 'entertainment', articles: EntertainmentData },
+    { category: 'entertainment', articles: entertainmentData },
+    { category: 'education', articles: educationData },
 
   ];
 
@@ -64,6 +66,8 @@ const allData: Record<string, NewsItem[]> = {
   health: healthData,
   politics: politicsData,
   science: scienceData,
+  entertainment: entertainmentData,
+  education: educationData,
 };
 
 export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
@@ -76,6 +80,8 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
     sports: sportsData,
     science: scienceData,
     health: healthData,
+    entertainment: entertainmentData,
+    education: educationData,
   };
 
   const articles = allDataMap[category] || [];

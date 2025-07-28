@@ -5,12 +5,13 @@ import React, { useEffect, useState } from 'react';
 
 const categories = [
     { label: 'Business', category: 'business' },
-    { label: 'Technology', category: 'technology' },
     { label: 'Sports', category: 'sports' },
+    { label: 'Politics', category: 'politics' },
+    { label: 'Technology', category: 'technology' },
     { label: 'Health', category: 'health' },
     { label: 'Science', category: 'science' },
-    { label: 'Politics', category: 'politics' },
     { label: 'Entertainment', category: 'entertainment' },
+    { label: 'Education', category: 'education' },
 
 ];
 

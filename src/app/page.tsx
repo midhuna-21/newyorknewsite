@@ -37,7 +37,7 @@ export default function Home() {
             {
               "@context": "https://schema.org",
               "@type": "WebPage",
-              name: "Business,Politics, Technology,Health,Science,Sports",
+              name: "Business,Politics, Technology, Health, Science, Sports, Entertainment, Education",
               description:
                 "Stay informed with the latest breaking news, global business trends, financial strategies, investment opportunities, and expert market analysis.",
               url: "https://nystatenews.org/",

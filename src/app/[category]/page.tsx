@@ -5,7 +5,8 @@ import sportsData from '../../../public/data/sports.json';
 import healthData from '../../../public/data/health.json';
 import politicsData from '../../../public/data/politics.json';
 import scienceData from '../../../public/data/science.json';
-import EntertainmentData from '../../../public/data/entertainment.json'
+import entertainmentData from '../../../public/data/entertainment.json'
+import educationData from '../../../public/data/education.json'
 import CategoryNavbar from '@/components/CategoryNavbar';
 import CatNewsFeatureCard from '@/components/CatNewsFeatureCard';
 import CardListCategoryPage from '@/components/CardListCategoryPage';
@@ -22,7 +23,7 @@ export async function generateStaticParams() {
         { category: "science" },
         { category: "health" },
         { category: 'entertainment' },
-
+        { category: 'education' },
     ];
 }
 
@@ -45,7 +46,8 @@ const allData: Record<string, NewsItem[]> = {
     health: healthData,
     politics: politicsData,
     science: scienceData,
-    entertainment: EntertainmentData
+    entertainment: entertainmentData,
+    education: educationData
 };
 
 export default async function CategoryPage({
