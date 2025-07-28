@@ -39,7 +39,7 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                 height: 'auto',
                 objectFit: 'cover',
               }}
-              priority
+                fetchPriority="high" 
             />
           </div>
 

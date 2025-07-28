@@ -113,11 +113,12 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
               src={data.image}
               alt={data.title}
               fill
-              priority
+                fetchPriority="high" 
               style={{
                 objectFit: 'cover',
                 objectPosition: 'center',
               }}
+              
             />
           </div>
         </div>

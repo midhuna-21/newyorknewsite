@@ -46,6 +46,7 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
                   height: 'auto',
                   display: 'block',
                 }}
+                  fetchPriority="high" 
               />
             </div>
           </Link>

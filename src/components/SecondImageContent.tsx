@@ -146,7 +146,7 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
                   objectFit: 'cover',
                 }}
                 sizes="(max-width: 768px) 100vw, 300px"
-                priority
+                  fetchPriority="high" 
               />
 
             </Col>

@@ -59,6 +59,7 @@ const NewsCard = ({ data }: NewsCardProps) => {
                                 height: '100%',
                                 display: 'block',
                             }}
+                              fetchPriority="high" 
                         />
                     </div>
 

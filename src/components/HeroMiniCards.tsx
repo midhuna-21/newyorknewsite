@@ -89,6 +89,7 @@ export default function HeroMiniCards({ data }: HeroMiniCardProps) {
               width: '60px',
               height: '60px',
             }}
+              fetchPriority="high" 
           />
         </div>
       </div>

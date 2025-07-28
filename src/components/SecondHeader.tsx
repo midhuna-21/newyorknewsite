@@ -147,6 +147,7 @@ const SecondHeader = () => {
                     width={200}
                     height={0}
                     style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
+                      fetchPriority="high" 
                   />
                 </Link>
 
@@ -206,6 +207,7 @@ const SecondHeader = () => {
                       width={200}
                       height={50}
                       style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
+                        fetchPriority="high" 
                     />
 
                   </Link>

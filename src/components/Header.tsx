@@ -35,7 +35,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Main Header */}
       <div
         ref={headerRef}
         style={{
@@ -55,7 +54,6 @@ const Header = () => {
       >
         <Container fluid className="px-lg-5">
           <div style={{ position: 'relative', height: '70px', width: '100%' }}>
-            {/* Mobile Header */}
             <div className="d-flex d-lg-none align-items-center justify-content-between px-3" style={{ height: '100%' }}>
               <button
                 onClick={() => setExpanded(!expanded)}
@@ -85,6 +83,7 @@ const Header = () => {
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src = '/images/fallback-logo.png';
                   }}
+                    fetchPriority="high" 
                 />
               </Link>
 
@@ -104,7 +103,6 @@ const Header = () => {
               </Button>
             </div>
 
-            {/* Desktop Header */}
             <div className="d-none d-lg-flex justify-content-center align-items-center px-lg-5" style={{ height: '100%' }}>
               <Link href="/" className="text-decoration-none" title="index">
                 <Image
@@ -116,11 +114,10 @@ const Header = () => {
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src = '/images/fallback-logo.png';
                   }}
+                    fetchPriority="high" 
                 />
               </Link>
             </div>
-
-            {/* Desktop Right Controls */}
             <div
               className="d-none d-lg-flex align-items-center gap-3"
               style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}
@@ -150,16 +147,11 @@ const Header = () => {
               >
                 Subscribe
               </Button>
-
-              <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: '#000' }}>
-                <FiSearch />
-              </span>
             </div>
           </div>
         </Container>
       </div>
 
-      {/* Scroll Progress Bar */}
       <div
         style={{
           position: 'fixed',
@@ -181,7 +173,6 @@ const Header = () => {
         />
       </div>
 
-      {/* Mobile Menu Overlay */}
       {expanded && (
         <div
           className="position-fixed top-0 start-0 h-100 w-100 d-lg-none"

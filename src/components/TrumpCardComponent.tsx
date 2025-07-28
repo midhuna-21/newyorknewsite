@@ -55,7 +55,7 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
               display: 'block',
             }}
             sizes="100vw"
-            priority
+              fetchPriority="high" 
           />
         </div>
 
