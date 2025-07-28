@@ -67,7 +67,6 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
                 style={{
                   objectFit: 'cover',
                 }}
-                  fetchPriority="high" 
               />
             </div>
 
@@ -142,7 +141,6 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
                     objectFit: 'cover',
                     display: 'block',
                   }}
-                    fetchPriority="high" 
                 />
               </div>
             </div>

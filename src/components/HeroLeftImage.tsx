@@ -162,7 +162,6 @@ export default function HeroLeftImage({ data }: HeroLeftImageProps) {
                   width: '100%',
                   objectFit: 'cover',
                 }}
-                  fetchPriority="high" 
               />
             </div>
           </div>

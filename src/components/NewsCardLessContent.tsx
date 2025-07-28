@@ -97,7 +97,6 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                   objectFit: 'cover',
                   display: 'block',
                 }}
-                  fetchPriority="high" 
               />
             </div>
 
@@ -117,7 +116,6 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                 borderRadius: 0,
               }}
               sizes="(max-width: 768px) 100vw, 33vw"
-                fetchPriority="high" 
             />
 
             <div style={{ padding: '20px 0 0 0' }}>

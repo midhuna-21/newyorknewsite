@@ -40,6 +40,7 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                                 alt={data.title}
                                 layout="fill"
                                 objectFit="cover"
+                                 priority={true}
                                 fetchPriority="high"
                             />
                         </div>

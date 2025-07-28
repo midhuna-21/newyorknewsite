@@ -58,7 +58,6 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
                   display: 'block',
                 }}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                  fetchPriority="high" 
               />
             </div>
           )}
@@ -144,7 +143,6 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
                       objectFit: 'cover',
                       display: 'block',
                     }}
-                      fetchPriority="high" 
                   />
                 </div>
               </div>

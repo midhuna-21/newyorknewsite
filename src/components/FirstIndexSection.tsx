@@ -179,6 +179,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                   objectFit: 'cover',
                   objectPosition: 'center',
                 }}
+                 priority={true}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>

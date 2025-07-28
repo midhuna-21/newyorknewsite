@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "optimize-images": "node scripts/optimize-images.js",
     "build": "next build && node w3infoclear.js",
     "start": "next start",
     "lint": "next lint"
@@ -21,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "critters": "^0.0.25",
     "typescript": "^5"
   }
 }

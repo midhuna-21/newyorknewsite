@@ -84,7 +84,6 @@ const Header = () => {
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src = '/images/fallback-logo.png';
                   }}
-                    fetchPriority="high" 
                 />
               </Link>
 
@@ -115,7 +114,6 @@ const Header = () => {
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src = '/images/fallback-logo.png';
                   }}
-                    fetchPriority="high" 
                 />
               </Link>
             </div>

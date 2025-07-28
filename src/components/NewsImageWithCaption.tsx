@@ -28,7 +28,6 @@ const NewsImageWithCaption = ({ data }: NewsImageWithCaptionProps) => {
                 height: 'auto',
                 objectFit: 'cover',
               }}
-                fetchPriority="high" 
             />
           </div>
           <p

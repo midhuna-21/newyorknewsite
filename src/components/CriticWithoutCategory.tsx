@@ -64,7 +64,6 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
                   objectFit: 'cover',
                   display: 'block',
                 }}
-                  fetchPriority="high" 
               />
             </div>
 
@@ -122,7 +121,6 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
                     objectFit: 'cover',
                     display: 'block',
                   }}
-                    fetchPriority="high" 
                 />
               </div>
             </div>

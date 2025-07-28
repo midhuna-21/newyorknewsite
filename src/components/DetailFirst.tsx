@@ -113,7 +113,6 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
               src={data.image}
               alt={data.title}
               fill
-                fetchPriority="high" 
               style={{
                 objectFit: 'cover',
                 objectPosition: 'center',

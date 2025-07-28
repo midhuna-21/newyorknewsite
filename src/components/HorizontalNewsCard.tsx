@@ -5,7 +5,6 @@ import NewsCard from './NewsCard';
 
 interface NewsCardListProps {
   data: Array<{
-
     category: string;
     title: string;
     shortdescription?: string;
@@ -20,7 +19,6 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(4);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const calculateItemsPerPage = () => {
     const width = window.innerWidth;
@@ -32,12 +30,10 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
 
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
       setItemsPerPage(calculateItemsPerPage());
-      setIsSmallScreen(width < 576);
     };
 
-    handleResize(); 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -62,35 +58,33 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
   }, [data.length, itemsPerPage]);
 
   return (
-    <div>
+    <div className="w-100">
       <div
         ref={containerRef}
+        className="d-flex overflow-auto pb-2"
         style={{
-          display: 'flex',
-          overflowX: data.length > itemsPerPage ? 'scroll' : 'hidden',
           scrollSnapType: data.length > itemsPerPage ? 'x mandatory' : 'none',
-          scrollbarWidth: 'auto',
-          paddingBottom: '4px',
+          scrollbarWidth: 'thin',
+          WebkitOverflowScrolling: 'touch',
         }}
-        className="custom-scrollbar"
       >
-
         {data.map((item, index) => {
           const isLastItem = index === data.length - 1;
+          const widthPercent = 100 / itemsPerPage;
+          const spacing = itemsPerPage > 1 ? 12 : 0;
 
           return (
             <div
               key={index}
+              className="d-flex"
               style={{
-                display: 'flex',
-                flexDirection: 'row',
-                flex: `0 0 ${100 / itemsPerPage}%`,
+                flex: `0 0 ${widthPercent}%`,
                 scrollSnapAlign: 'start',
-
                 minWidth: 0,
+                paddingRight: !isLastItem ? `${spacing}px` : '0',
               }}
             >
-              <div style={{ flex: 1 }}>
+              <div className="d-flex flex-column h-100 w-100">
                 <NewsCard
                   data={{
                     category: item.category,
@@ -106,14 +100,15 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
               {!isLastItem && (
                 <div
                   style={{
-                    width: '0.5px',
-                    backgroundColor: '#eee',
-                    margin: '16px',
-                    height: '40%',
+                    width: '1px',
+                    height: '50%',
+                    backgroundColor: '#ddd',
+                    marginLeft: '12px',
+                    alignSelf: 'flex-start',
+                    marginBottom: '16px',
                   }}
                 />
               )}
-
             </div>
           );
         })}
@@ -131,7 +126,7 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
                 backgroundColor: idx === activeIndex ? '#000' : '#ccc',
                 transition: 'background-color 0.3s ease',
               }}
-            ></div>
+            />
           ))}
         </div>
       )}

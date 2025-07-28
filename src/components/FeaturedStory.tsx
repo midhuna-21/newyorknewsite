@@ -61,7 +61,6 @@ export default function FeaturedStory({ data }: FeaturedStoryProps) {
                 border: '1px solid #ddd',
               }}
               className="img-fluid"
-                fetchPriority="high" 
             />
 
 

@@ -52,7 +52,6 @@ export default function DailyNews({ data }: DailyNewsProps) {
         height: 'auto',
         marginBottom: '20px',
       }}
-        fetchPriority="high" 
     />
     <em
       style={{

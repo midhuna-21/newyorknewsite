@@ -51,7 +51,7 @@ export default function Footer() {
                 width={200}
                 height={50}
                 style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
-                  fetchPriority="high" 
+            
               />
             </div>
           </Col>
