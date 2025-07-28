@@ -26,6 +26,7 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
           scrollSnapType: 'x mandatory',
           WebkitOverflowScrolling: 'touch',
           scrollBehavior: 'smooth',
+          paddingBottom: '10px',
         }}
       >
         {fixedFourCards.map((item, index) => (
@@ -34,10 +35,11 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
             style={{
               scrollSnapAlign: 'start',
               flexShrink: 0,
-              width: '100vw',
+              minWidth: '80%',
+              maxWidth: '90%',
               display: 'flex',
               justifyContent: 'center',
-              padding: '0.5rem 0', 
+              padding: '0 10px',
               boxSizing: 'border-box',
             }}
           >
@@ -46,28 +48,35 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
         ))}
       </div>
 
-      <div className="row justify-content-center d-none d-lg-flex">
-        {fixedFourCards.map((item, index) => (
-          <div
-            key={index}
-            className="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center position-relative"
-            style={{ padding: '0 10px' }}
-          >
-            <TrumpCardComponent data={item} />
+      <div className="container d-none d-lg-block">
+        <div className="row justify-content-center">
+          {fixedFourCards.map((item, index) => (
+            <div
+              key={index}
+              className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center"
+              style={{
+                padding: '10px 0',
+                position: 'relative',
+              }}
+            >
+              <TrumpCardComponent data={item} />
 
-            {index < fixedFourCards.length - 1 && (
-              <div
-                style={{
-                  position: 'absolute',
-                  right: '-1px',
-                  height: 'calc(65% - 40px)',
-                  width: '1px',
-                  backgroundColor: '#eee',
-                }}
-              />
-            )}
-          </div>
-        ))}
+              {index < fixedFourCards.length - 1 && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    right: 0,
+                    top: 0,
+                    height: '65%',
+                    width: '1px',
+                    backgroundColor: '#eee',
+                  }}
+                />
+              )}
+
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

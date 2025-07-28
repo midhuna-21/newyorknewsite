@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FiMenu, FiX, FiSearch } from 'react-icons/fi';
 
 const NavItems = [
   { label: 'Business', slug: 'business' },
@@ -13,16 +14,13 @@ const NavItems = [
   { label: 'Science', slug: 'science' },
   { label: 'Politics', slug: 'politics' },
   { label: 'Entertainment', slug: 'entertainment' },
-
 ];
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
 
-  // Scroll progress logic
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -35,32 +33,9 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const backgroundColor = '#fff';
-  const textColor = '#000';
-
-  const toggleIcon = expanded ? (
-    <span style={{ fontSize: '24px', color: textColor, fontWeight: 'bold' }}>×</span>
-  ) : (
-    <span
-      style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='${encodeURIComponent(
-          textColor
-        )}' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")`,
-        filter: isHovered ? 'brightness(70%)' : 'brightness(100%)',
-        width: '18px',
-        height: '18px',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundSize: '100%',
-        display: 'inline-block',
-        transition: 'filter 0.3s ease',
-      }}
-    />
-  );
-
   return (
     <>
-      {/* Header */}
+      {/* Main Header */}
       <div
         ref={headerRef}
         style={{
@@ -69,8 +44,8 @@ const Header = () => {
           left: 0,
           width: '100%',
           zIndex: 999,
-          backgroundColor,
-          color: textColor,
+          backgroundColor: '#fff',
+          color: '#000',
           padding: '15px 0',
           height: '70px',
           display: 'flex',
@@ -80,11 +55,10 @@ const Header = () => {
       >
         <Container fluid className="px-lg-5">
           <div style={{ position: 'relative', height: '70px', width: '100%' }}>
+            {/* Mobile Header */}
             <div className="d-flex d-lg-none align-items-center justify-content-between px-3" style={{ height: '100%' }}>
               <button
                 onClick={() => setExpanded(!expanded)}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
                 style={{
                   background: 'none',
                   border: 'none',
@@ -98,16 +72,19 @@ const Header = () => {
                 aria-label="Toggle navigation"
                 aria-expanded={expanded}
               >
-                {toggleIcon}
+                {expanded ? <FiX size={24} color="#000" /> : <FiMenu size={24} color="#000" />}
               </button>
 
-              <Link href="/" className="text-decoration-none" title="index" style={{ color: textColor }}>
+              <Link href="/" className="text-decoration-none" title="index">
                 <Image
                   src="/images/nystatenews-logo.webp"
                   alt="Nystate News logo"
                   width={200}
-                  height={0}
+                  height={20}
                   style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = '/images/fallback-logo.png';
+                  }}
                 />
               </Link>
 
@@ -126,17 +103,24 @@ const Header = () => {
                 Subscribe
               </Button>
             </div>
+
+            {/* Desktop Header */}
             <div className="d-none d-lg-flex justify-content-center align-items-center px-lg-5" style={{ height: '100%' }}>
-              <Link href="/" className="text-decoration-none" title="index" style={{ color: textColor }}>
+              <Link href="/" className="text-decoration-none" title="index">
                 <Image
                   src="/images/nystatenews-logo.webp"
                   alt="Nystate News logo"
                   width={200}
-                  height={50}
+                  height={35}
                   style={{ height: '35px', width: 'auto', objectFit: 'contain' }}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = '/images/fallback-logo.png';
+                  }}
                 />
               </Link>
             </div>
+
+            {/* Desktop Right Controls */}
             <div
               className="d-none d-lg-flex align-items-center gap-3"
               style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)' }}
@@ -145,7 +129,7 @@ const Header = () => {
                 href="#"
                 style={{
                   fontSize: '12px',
-                  color: textColor,
+                  color: '#000',
                   fontWeight: 500,
                   textDecoration: 'none',
                 }}
@@ -162,13 +146,13 @@ const Header = () => {
                   padding: '4px 14px',
                   borderRadius: '2px',
                   border: 'none',
-                  textTransform: 'none',
                 }}
               >
                 Subscribe
               </Button>
-              <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: textColor }}>
-                🔍
+
+              <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: '#000' }}>
+                <FiSearch />
               </span>
             </div>
           </div>
@@ -183,7 +167,7 @@ const Header = () => {
           left: 0,
           width: '100%',
           height: '2px',
-          backgroundColor: '#e5e5e541', 
+          backgroundColor: '#e5e5e541',
           zIndex: 998,
         }}
       >
@@ -191,12 +175,13 @@ const Header = () => {
           style={{
             height: '100%',
             width: `${scrollProgress}%`,
-            backgroundColor: '#000', 
+            backgroundColor: '#000',
             transition: 'width 0.2s ease-out',
           }}
         />
       </div>
 
+      {/* Mobile Menu Overlay */}
       {expanded && (
         <div
           className="position-fixed top-0 start-0 h-100 w-100 d-lg-none"
@@ -213,14 +198,13 @@ const Header = () => {
                 <li
                   key={item.slug}
                   className="py-2 border-bottom"
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f4f4f4')}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => setExpanded(false)}
                 >
                   <Link
                     title={item.slug}
                     href={`/${item.slug}`}
                     className="text-black text-decoration-none fw-bold d-block px-2"
-                    onClick={() => setExpanded(false)}
                   >
                     {item.label}
                   </Link>

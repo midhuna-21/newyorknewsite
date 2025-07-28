@@ -241,9 +241,7 @@ const SecondHeader = () => {
                   >
                     Subscribe
                   </Button>
-                  <span role="button" style={{ fontSize: '1.2rem', cursor: 'pointer', color: textColor }}>
-                    🔍
-                  </span>
+                  
                 </div>
               </>
             )}

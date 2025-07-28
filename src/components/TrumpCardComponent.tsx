@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiCalendar } from 'react-icons/bi';
@@ -23,11 +22,11 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
       style={{
         fontFamily: 'Georgia, serif',
         width: '100%',
+        maxWidth: '240px',
       }}
-      className="trump-card"
     >
       <Link
-        title={`${data.slug}`}
+        title={data.slug}
         href={`/${data.category}/${data.slug}`}
         className="text-decoration-none"
         style={{
@@ -46,26 +45,25 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
         >
           <Image
             src={data.image}
-            alt={data.title ?? 'Image'}
+            alt={data.title}
             width={400}
-            height={300}
+            height={270}
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'cover',
               display: 'block',
             }}
-            sizes="(max-width: 768px) 100vw, 400px"
+            sizes="100vw"
             priority
           />
-
         </div>
 
         <p
           style={{
             fontSize: '12px',
             fontWeight: 400,
-            color: 'rgb(219, 51, 52)',
+            color: '#DB3334',
             textTransform: 'uppercase',
             letterSpacing: '0.5px',
             marginBottom: '8px',
@@ -79,26 +77,45 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
             fontSize: '18px',
             fontWeight: 400,
             color: '#000',
-            fontFamily: `'Georgia', serif`,
+            lineHeight: 1.4,
             marginBottom: '10px',
-            lineHeight: '1.4',
           }}
         >
           {data.title}
         </p>
 
-         <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-                         <BiCalendar
-                           size={10}
-                           style={{ marginRight: '4px', color: '#999' }}
-                         />
-                         <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
-                           Published on
-                         </span>
-                         <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
-                           {data.date}
-                         </span>
-                       </div>
+        <div
+          style={{
+            fontSize: '10px',
+            marginTop: '10px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+          }}
+        >
+          <BiCalendar
+            size={10}
+            style={{ marginRight: '4px', color: '#999' }}
+          />
+          <span
+            style={{
+              color: '#c0392b',
+              fontWeight: 500,
+              fontSize: '8px',
+            }}
+          >
+            Published on
+          </span>
+          <span
+            style={{
+              color: '#4d5459',
+              marginLeft: '4px',
+              fontSize: '8px',
+            }}
+          >
+            {data.date}
+          </span>
+        </div>
       </Link>
     </div>
   );

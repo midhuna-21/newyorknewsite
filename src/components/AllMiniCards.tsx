@@ -17,10 +17,18 @@ const AllMiniCards = ({ data }: NewsCardProps) => {
   const displayItems = data.slice(0, 4);
 
   return (
-    <div id="all-mini-cards">
-      <div className="mini-card-grid">
+    <div id="all-mini-cards" className="container">
+      <div className="row g-4">
         {displayItems.map((item, index) => (
-          <div key={index}>
+          <div
+            key={index}
+            className="col-12 col-sm-6 col-xl-3"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}
+          >
             <HeroMiniCards
               data={{
                 category: item.category,
