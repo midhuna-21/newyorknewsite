@@ -14,7 +14,7 @@ interface NewsItem {
 
 export default function RightImageContent({ data }: { data: NewsItem }) {
   return (
-    <div id="right-image-content" className='py-4'>
+    <div id="right-image-content" className="py-4">
       <Link
         href={`/${data.category}/${data.slug}`}
         title={data.slug}
@@ -26,7 +26,10 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
         >
           <div
             className="col-lg-6 text-center order-2 order-lg-2 content-image-column"
-            style={{ marginTop: 0, paddingTop: 0 }}
+            style={{
+              marginTop: '12px', // small margin between text and image on mobile
+              paddingTop: 0,
+            }}
           >
             <Image
               src={data.image}
@@ -42,11 +45,8 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
             />
           </div>
 
-          <div
-            className="col-lg-6 d-flex justify-content-center align-items-center text-center order-1 order-lg-1 content-column"
-           
-          >
-            <div >
+          <div className="col-lg-6 d-flex justify-content-center align-items-center text-center order-1 order-lg-1 content-column">
+            <div>
               <p
                 style={{
                   fontSize: '12px',
@@ -62,6 +62,7 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                 {data.category}
               </p>
 
+              {/* Title - Responsive font size */}
               <h2
                 className="title"
                 style={{
@@ -70,33 +71,67 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                   textTransform: 'uppercase',
                   letterSpacing: '1px',
                   fontWeight: 400,
+                  lineHeight: 1
                 }}
               >
-                {data.title}
+                <span className="d-none d-lg-inline">{data.title}</span>
+                <span
+                  className="d-inline d-lg-none"
+                  style={{ fontSize: '22px', }}
+                >
+                  {data.title}
+                </span>
               </h2>
 
+              {/* Short Description - Responsive font size */}
               <p
                 className="shortdesc"
                 style={{
                   color: 'rgb(51, 51, 51)',
-                  fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
+                  fontFamily:
+                    'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
                   fontSize: '17px',
                   fontWeight: 400,
                   marginTop: 12,
-                  marginBottom: 0,
+                  marginBottom: 6, // reduced space to published date
                 }}
               >
-                {data.shortdescription}
+                <span className="d-none d-lg-inline">{data.shortdescription}</span>
+                <span
+                  className="d-inline d-lg-none"
+                  style={{ fontSize: '15px' }}
+                >
+                  {data.shortdescription}
+                </span>
               </p>
-              <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+              {/* Published on section */}
+              <div
+                style={{
+                  fontSize: '10px',
+                  marginTop: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '4px',
+                }}
+              >
                 <BiCalendar
                   size={10}
                   style={{ marginRight: '4px', color: '#999' }}
                 />
-                <span style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
+                <span
+                  style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}
+                >
                   Published on
                 </span>
-                <span style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
+                <span
+                  style={{
+                    color: '#4d5459ff',
+                    marginLeft: '4px',
+                    fontSize: '8px',
+                  }}
+                >
                   {data.date}
                 </span>
               </div>

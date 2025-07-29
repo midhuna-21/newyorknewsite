@@ -76,7 +76,7 @@ export default function Home() {
           ),
         }}
       />
-      <Header />
+
       <div id="first-section">
         <FirstIndexSection data={TechnologyData[16]} />
       </div>
