@@ -14,7 +14,7 @@ interface FeaturedStoryProps {
   };
 }
 
-export default function FeaturedStory({ data }: FeaturedStoryProps) {
+export default function   FeaturedStory({ data }: FeaturedStoryProps) {
   return (
     <div className="py-5" >
       <div style={{ backgroundColor: '#f8f6f1', padding: '20px' }}>

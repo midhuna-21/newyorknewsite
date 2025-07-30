@@ -18,7 +18,7 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
       className="container-fluid"
       style={{
         borderBottom: '1px solid #ccc',
-        marginTop: '80px',
+        marginTop: '70px',
         padding: '0px',
         backgroundColor: '#fff',
       }}
@@ -29,7 +29,6 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
           minHeight: '500px',
         }}
       >
-        {/* Text Column */}
         <div
           className="col-12 col-md-6 d-flex flex-column justify-content-center text-center"
           style={{

@@ -83,7 +83,7 @@ export default function AboutPage() {
           </section>
         </article>
       </main>
-      <div className="text-center">
+      {/* <div className="text-center">
         <div className="px- mx-auto" style={{ maxWidth: '720px' }}>
           <p
             className="mb-0"
@@ -96,7 +96,7 @@ export default function AboutPage() {
             Published by the NY State News Staff
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
 </>
   );

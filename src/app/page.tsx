@@ -13,6 +13,8 @@ import ScienceData from "../../public/data/science.json";
 import TechnologyData from '../../public/data/technology.json';
 import SportsData from "../../public/data/sports.json";
 import BusinessData from "../../public/data/business.json";
+import EducationData from "../../public/data/education.json";
+import EntertainmentData from "../../public/data/entertainment.json";
 import SecondImageContent from "@/components/SecondImageContent";
 import HorizontalNewsWithCategory from "@/components/HorizontalNewsWithCategory";
 import AllFourCritics from "@/components/AllFourCritics";
@@ -84,7 +86,7 @@ export default function Home() {
       <div className="container py-lg-5 py-3">
         <div id="todays-news">
 
-          <SectionWrapper title="Today’s News">
+          <SectionWrapper title="Latest News">
             <HorizontalNewsCard data={[ScienceData[0], TechnologyData[0], SportsData[0], BusinessData[0]]} />
           </SectionWrapper>
         </div>
@@ -96,26 +98,26 @@ export default function Home() {
 
         <SecondImageContent data={ScienceData[2]} />
 
-        <SectionWrapper title="The Critics">
+        <SectionWrapper title="Also in the News">
           <AllCritics data={[BusinessData[24], TechnologyData[3], SportsData[3], ScienceData[17], HealthData[10], PoliticalData[10]]} />
         </SectionWrapper>
 
         <LeftImageContent data={PoliticalData[0]} />
 
-        <SectionWrapper title="Our Columnists">
-          <HorizontalNewsWithCategory data={[TechnologyData[23], SportsData[23], HealthData[23], ScienceData[23]]} />
+        <SectionWrapper title="Sports">
+          <HorizontalNewsWithCategory data={[SportsData[25], SportsData[24], SportsData[23], SportsData[22]]} />
         </SectionWrapper>
 
         <RigtImageContent data={HealthData[11]} />
 
-        <SectionWrapper title="Ideas">
-          <AllFourCritics data={[ScienceData[21], TechnologyData[21], SportsData[18], BusinessData[21]]} />
+        <SectionWrapper title="Business">
+          <AllFourCritics data={[BusinessData[21], BusinessData[22], BusinessData[23], BusinessData[19]]} />
         </SectionWrapper>
 
         <HeroImageSection data={ScienceData[26]} />
 
-        <SectionWrapper title="Persons of Interest">
-          <HorizontalLessContent data={[TechnologyData[20], SportsData[20], HealthData[20], ScienceData[20]]} />
+        <SectionWrapper title="Health">
+          <HorizontalLessContent data={[HealthData[20], HealthData[21], HealthData[22], HealthData[23]]} />
         </SectionWrapper>
 
         <HeroLeftImage data={TechnologyData[11]} />
@@ -124,12 +126,12 @@ export default function Home() {
 
         <FeaturedStroy data={HealthData[3]} />
 
-        <SectionWrapper title="The Talk of the Town">
-          <TrumpCards data={[TechnologyData[6], SportsData[6], HealthData[4], ScienceData[6]]} />
+        <SectionWrapper title="Education">
+          <TrumpCards data={[EducationData[0], EducationData[1], EducationData[2], EducationData[3]]} />
         </SectionWrapper>
-        <SectionWrapper title="Shouts & Murmurs">
 
-          <ScrollingLessContent data={[HealthData[4], BusinessData[5], HealthData[5], ScienceData[7], TechnologyData[9], BusinessData[14], HealthData[22]]} />
+        <SectionWrapper title="The Spotlight">
+          <ScrollingLessContent data={[EntertainmentData[0], EntertainmentData[1], EntertainmentData[2], EntertainmentData[3], EntertainmentData[4], EntertainmentData[5], EntertainmentData[6]]} />
         </SectionWrapper>
       </div>
     </main>

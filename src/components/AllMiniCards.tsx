@@ -22,7 +22,7 @@ const AllMiniCards = ({ data }: NewsCardProps) => {
         {displayItems.map((item, index) => (
           <div
             key={index}
-            className="col-12 col-sm-6 col-xl-3"
+            className="col-12 col-xl-3" // 1 per row on mobile/tablet, 4 per row on xl
             style={{
               display: 'flex',
               flexDirection: 'column',

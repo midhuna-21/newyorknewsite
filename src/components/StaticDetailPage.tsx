@@ -45,9 +45,9 @@ export default async function StaticDetailPage() {
 
     return (
         <div>
-            <SecondHeader />
+            {/* <SecondHeader /> */}
 
-            <div className="d-none d-md-block">
+            <div className="d-none d-lg-block">
 
                 <CategoryNavbar />
             </div>

@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import NewsCard from './NewsCard';
 
 interface NewsCardListProps {
@@ -16,85 +14,56 @@ interface NewsCardListProps {
 }
 
 const NewsCardList = ({ data }: NewsCardListProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
-
-  const calculateItemsPerPage = () => {
-    const width = window.innerWidth;
-    if (width < 576) return 1;
-    if (width < 768) return 2;
-    if (width < 992) return 3;
-    return 4;
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setItemsPerPage(calculateItemsPerPage());
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const totalPages = Math.ceil(data.length / itemsPerPage);
-
-  const handleScroll = () => {
-    const container = containerRef.current;
-    if (!container) return;
-    const scrollLeft = container.scrollLeft;
-    const pageWidth = container.offsetWidth;
-    const newIndex = Math.round(scrollLeft / pageWidth);
-    setActiveIndex(newIndex);
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (container && data.length > itemsPerPage) {
-      container.addEventListener('scroll', handleScroll);
-      return () => container.removeEventListener('scroll', handleScroll);
-    }
-  }, [data.length, itemsPerPage]);
-
   return (
     <div className="w-100">
       <div
-        ref={containerRef}
-        className="d-flex overflow-auto pb-2"
+        className="d-flex d-md-none overflow-auto pb-2"
         style={{
-          scrollSnapType: data.length > itemsPerPage ? 'x mandatory' : 'none',
-          scrollbarWidth: 'thin',
+          scrollSnapType: data.length > 1 ? 'x mandatory' : 'none',
           WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'thin',
         }}
       >
         {data.map((item, index) => {
           const isLastItem = index === data.length - 1;
-          const widthPercent = 100 / itemsPerPage;
-          const spacing = itemsPerPage > 1 ? 12 : 0;
+          return (
+            <div
+              key={index}
+              style={{
+                flex: '0 0 100%',
+                scrollSnapAlign: 'start',
+                paddingRight: isLastItem ? '0' : '12px',
+              }}
+            >
+              <NewsCard data={item} />
+            </div>
+          );
+        })}
+      </div>
 
+      <div
+        className="d-none d-md-flex pb-2"
+        style={{
+          overflowX: data.length > 4 ? 'auto' : 'visible',
+          WebkitOverflowScrolling: 'touch',
+          scrollSnapType: data.length > 4 ? 'x mandatory' : 'none',
+        }}
+      >
+        {data.map((item, index) => {
+          const isLastItem = index === data.length - 1;
           return (
             <div
               key={index}
               className="d-flex"
               style={{
-                flex: `0 0 ${widthPercent}%`,
+                flex: '0 0 25%',
                 scrollSnapAlign: 'start',
-                minWidth: 0,
-                paddingRight: !isLastItem ? `${spacing}px` : '0',
+                minWidth: '250px',
+                paddingRight: !isLastItem ? '12px' : '0',
               }}
             >
-              <div className="d-flex flex-column h-100 w-100">
-                <NewsCard
-                  data={{
-                    category: item.category,
-                    title: item.title,
-                    image: item.image,
-                    slug: item.slug,
-                    date: item.date,
-                    shortdescription: item.shortdescription,
-                  }}
-                />
+              <div className="d-flex flex-column w-100">
+                <NewsCard data={item} />
               </div>
 
               {!isLastItem && (
@@ -102,10 +71,9 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
                   style={{
                     width: '1px',
                     height: '50%',
-                    backgroundColor: '#ddd',
+                    backgroundColor: '#ccc',
                     marginLeft: '12px',
-                    alignSelf: 'flex-start',
-                    marginBottom: '16px',
+                    alignSelf: 'stretch',
                   }}
                 />
               )}
@@ -114,22 +82,6 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
         })}
       </div>
 
-      {data.length > itemsPerPage && (
-        <div className="d-flex justify-content-center mt-3" style={{ gap: '8px' }}>
-          {Array.from({ length: totalPages }).map((_, idx) => (
-            <div
-              key={idx}
-              style={{
-                width: '10px',
-                height: '10px',
-                borderRadius: '50%',
-                backgroundColor: idx === activeIndex ? '#000' : '#ccc',
-                transition: 'background-color 0.3s ease',
-              }}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 };

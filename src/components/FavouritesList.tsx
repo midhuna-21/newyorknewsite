@@ -1,98 +1,68 @@
-'use client';
+import React from 'react';
 
-import React, { useEffect, useState } from 'react';
+interface FavoriteItem {
+  title: string;
+  slug: string;
+  category: string;
+}
 
-const FavoritesList = () => {
-  const [isMobile, setIsMobile] = useState(false);
+interface FavoritesListProps {
+  data: FavoriteItem[];
+}
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize(); 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const items = [
-    {
-      text: 'How to die in ',
-      linkText: 'good health.',
-      href: '#',
-    },
-    {
-      text: 'The hottest restaurant in France is an ',
-      linkText: 'all-you-can-eat buffet.',
-      href: '#',
-    },
-    {
-      text: 'A heat shield for ',
-      linkText: 'the most important ice on Earth.',
-      href: '#',
-    },
-    {
-      text: 'Was Machiavelli ',
-      linkText: 'misunderstood?',
-      href: '#',
-    },
-    {
-      text: 'A major Black novelist made a remarkable début. ',
-      linkText: 'Why did he disappear?',
-      href: '#',
-    },
-    {
-      text: 'Andy Warhol obsessively documented his life, but he also lied constantly, ',
-      linkText: 'almost recreationally.',
-      href: '#',
-    },
-  ];
-
+const FavoritesList: React.FC<FavoritesListProps> = ({ data }) => {
   return (
     <div className="container py-5">
       <h2
+        className="mb-3"
         style={{
           fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
           fontWeight: 400,
-          fontSize: isMobile ? '24px' : '31px',
-          marginBottom: '15px',
+          fontSize: '31px',
         }}
       >
-        Nystate News Favorites
+        <span className="d-none d-md-inline">Nystate News Favorites</span>
+        <span className="d-inline d-md-none" style={{ fontSize: '24px' }}>
+          Nystate News Favorites
+        </span>
       </h2>
 
       <hr />
 
       <ul
+        className="mb-4"
         style={{
           listStyle: 'disc',
           paddingLeft: '20px',
           fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-          fontSize: isMobile ? '16px' : '21px',
           color: '#000',
         }}
       >
-        {items.map((item, index) => (
-          <li key={index} style={{ marginBottom: '15px' }}>
-            {item.text}
-            <a href={item.href} style={{ color: 'black', textDecoration: 'underline' }}>
-              {item.linkText}
+        {data.map((item, index) => (
+          <li
+            key={index}
+            className="mb-3"
+            style={{
+              fontSize: '21px',
+            }}
+          >
+            <a
+              title={item.slug} 
+              href={`/${item.category}/${item.slug}`}
+              style={{
+                color: 'black',
+                textDecoration: 'underline',
+              }}
+            >
+              <span className="d-none d-md-inline">{item.title}</span>
+              <span className="d-inline d-md-none" style={{ fontSize: '16px' }}>
+                {item.title}
+              </span>
             </a>
           </li>
         ))}
       </ul>
 
-      <p
-        style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: isMobile ? '15px' : '18px',
-        }}
-      >
-        <a href="#" style={{ color: 'black', textDecoration: 'underline' }}>
-          Sign up for our daily newsletter
-        </a>{' '}
-        to receive the best stories from
-      </p>
     </div>
   );
 };

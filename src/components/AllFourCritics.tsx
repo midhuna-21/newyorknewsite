@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import CriticWithoutCategory from './CriticWithoutCategory';
 
 interface NewsData {
@@ -19,14 +17,6 @@ interface AllCriticsProps {
 
 export default function AllFourCritics({ data }: AllCriticsProps) {
   const displayItems = data.slice(0, 4);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 992);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   return (
     <div
@@ -36,29 +26,27 @@ export default function AllFourCritics({ data }: AllCriticsProps) {
         margin: '0 auto',
       }}
     >
+      {/* === Desktop: 4-column layout === */}
       <div
+        className="d-none d-lg-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
-          gap: isMobile ? '20px' : '30px',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '30px',
         }}
       >
         {displayItems.map((item, index) => (
           <div key={index} style={{ position: 'relative' }}>
             <CriticWithoutCategory data={item} />
+          </div>
+        ))}
+      </div>
 
-            {/* {!isMobile && index !== displayItems.length - 1 && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '30px',
-                  right: '0',
-                  height: '260px',
-                  width: '0.5px',
-                  backgroundColor: '#eee',
-                }}
-              />
-            )} */}
+      {/* === Mobile / Tablet: 1-column layout === */}
+      <div className="d-block d-lg-none">
+        {displayItems.map((item, index) => (
+          <div key={index} style={{ marginBottom: '20px' }}>
+            <CriticWithoutCategory data={item} />
           </div>
         ))}
       </div>

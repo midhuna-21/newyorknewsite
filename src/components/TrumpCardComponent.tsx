@@ -22,7 +22,7 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
       style={{
         fontFamily: 'Georgia, serif',
         width: '100%',
-        maxWidth: '240px',
+        maxWidth: '280px',
       }}
     >
       <Link
@@ -58,7 +58,7 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
           />
         </div>
 
-        <p
+        {/* <p
           style={{
             fontSize: '12px',
             fontWeight: 400,
@@ -69,7 +69,7 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
           }}
         >
           {data.category}
-        </p>
+        </p> */}
 
         <p
           style={{

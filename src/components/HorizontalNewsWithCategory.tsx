@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import NewsCardWithCategory from './NewsCardWithCategory';
 
 interface NewsCardProps {
@@ -17,45 +15,56 @@ interface NewsCardProps {
 
 const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
   const displayItems = data.slice(0, 4);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth >= 993);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: isDesktop ? 'row' : 'column',
-        gap: isDesktop ? '20px' : '10px',
-        alignItems: 'flex-start',
-      }}
-    >
-      {displayItems.map((item, index) => {
-        const isLast = index === displayItems.length - 1;
-        return (
-          <React.Fragment key={index}>
-            <div style={{ flex: '1 1 0' }}>
-              <NewsCardWithCategory data={item} />
-            </div>
+    <div className="w-100">
+      {/* === Desktop View === */}
+      <div className="d-none d-lg-flex" style={{ gap: '20px', alignItems: 'flex-start' }}>
+        {displayItems.map((item, index) => {
+          const isLast = index === displayItems.length - 1;
+          return (
+            <React.Fragment key={index}>
+              <div style={{ flex: '1 1 0' }}>
+                <NewsCardWithCategory data={item} />
+              </div>
+              {!isLast && (
+                <div
+                  style={{
+                    width: '1px',
+                    height: '180px',
+                    backgroundColor: '#ccc',
+                    alignSelf: 'flex-start',
+                  }}
+                />
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
 
-            {!isLast && (
-              <div
-                style={{
-                  width: isDesktop ? '1px' : '100%',
-                  height: isDesktop ? '180px' : '1px',
-                  backgroundColor: '#ccc',
-                  alignSelf: isDesktop ? 'flex-start' : 'stretch',
-                }}
-              />
-            )}
-          </React.Fragment>
-        );
-      })}
+      {/* === Mobile/Tablet Column === */}
+      <div className="d-block d-lg-none">
+        {displayItems.map((item, index) => {
+          const isLast = index === displayItems.length - 1;
+          return (
+            <React.Fragment key={index}>
+              <div className="mb-2">
+                <NewsCardWithCategory data={item} />
+              </div>
+              {!isLast && (
+                <div
+                  style={{
+                    width: '100%',
+                    height: '1px',
+                    backgroundColor: '#ccc',
+                    marginBottom: '10px',
+                  }}
+                />
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
     </div>
   );
 };

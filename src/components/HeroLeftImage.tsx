@@ -1,8 +1,6 @@
-'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiCalendar } from 'react-icons/bi';
-import { useEffect, useState } from 'react';
 
 interface HeroLeftImageProps {
   data: {
@@ -17,145 +15,35 @@ interface HeroLeftImageProps {
 }
 
 export default function HeroLeftImage({ data }: HeroLeftImageProps) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const sharedTextStyle = {
-    fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-    color: '#fff',
-    fontWeight: 400,
-    margin: '10px 0',
-  };
-
-  const rowStyle = {
-    width: '100%',
-    display: 'flex',
-    flexWrap: 'wrap' as const,
-    height: isMobile ? 'auto' : '600px',
-  };
-
-  const textColumnStyle = {
-    backgroundColor: '#000',
-    color: '#fff',
-    padding: isMobile ? '20px' : '40px',
-    height: isMobile ? 'auto' : '100%',
-    display: 'flex',
-    flexDirection: 'column' as const,
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center' as const,
-    width: isMobile ? '100%' : '50%',
-  };
-
-  const imageColumnStyle = {
-    width: isMobile ? '100%' : '50%',
-    height: isMobile ? '300px' : '100%',
-  };
-
   return (
-    <div className="py-5" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+    <div
+      className="py-4"
+      style={{
+        paddingTop: '20px',
+        paddingBottom: '20px',
+        marginTop: '40px',      
+        marginBottom: '40px',   
+      }}
+    >
       <Link
-        title={data.slug}
         href={`/${data.category}/${data.slug}`}
+        title={data.slug}
         className="text-decoration-none"
-        style={{
-          display: 'block',
-          width: '100%',
-          textDecoration: 'none',
-          color: 'inherit',
-        }}
+        style={{ color: 'inherit', display: 'block' }}
       >
         <div
-          className="row align-items-stretch m-0"
+          className="row m-0 align-items-stretch"
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            height: isMobile ? 'auto' : '600px',
+            minHeight: '500px', 
           }}
         >
-          <div
-            className="col-12 col-md-6 order-1 order-md-2"
-            style={{
-              backgroundColor: '#000',
-              color: '#fff',
-              padding: isMobile ? '20px' : '40px',
-              height: isMobile ? 'auto' : '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              textAlign: 'center',
-            }}
-          >
-            <div style={{ width: '100%' }}>
-              <div
-                style={{
-                  fontFamily: '"Georgia", serif',
-                  fontSize: isMobile ? '20px' : '28px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  fontWeight: 400,
-                }}
-              >
-                {data.category}
-              </div>
-
-              <h2
-                style={{
-                  fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                  color: '#fff',
-                  fontWeight: 400,
-                  margin: '10px 0',
-                  fontSize: isMobile ? '16px' : '21px',
-                }}
-              >
-                {data.title}
-              </h2>
-
-              <p
-                style={{
-                  fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                  color: '#fff',
-                  fontWeight: 400,
-                  margin: '10px 0',
-                  fontSize: isMobile ? '14px' : '17px',
-                }}
-              >
-                {data.shortdescription}
-              </p>
-
-              <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <BiCalendar
-                  size={10}
-                  style={{ marginRight: '4px', color: '#fff' }}
-                />
-                <span style={{ color: '#fff', fontWeight: 500, fontSize: '8px' }}>
-                  Published on
-                </span>
-                <span style={{ color: '#fff', marginLeft: '4px', fontSize: '8px' }}>
-                  {data.date}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="col-12 col-md-6 order-2 order-md-1 p-0"
-            style={{
-              height: isMobile ? '300px' : '100%',
-            }}
-          >
+          <div className="col-12 col-md-6 order-2 order-md-1 p-0">
             <div style={{ height: '100%', width: '100%' }}>
               <Image
                 src={data.image}
                 alt={data.title}
                 width={700}
-                height={600}
+                height={500}
                 className="img-fluid"
                 style={{
                   height: '100%',
@@ -165,9 +53,120 @@ export default function HeroLeftImage({ data }: HeroLeftImageProps) {
               />
             </div>
           </div>
+
+          <div
+            className="col-12 col-md-6 order-1 order-md-2 d-flex flex-column justify-content-center align-items-center text-center px-4"
+            style={{
+              backgroundColor: '#000',
+              color: '#fff',
+              paddingTop: '40px',
+              paddingBottom: '40px',
+            }}
+          >
+            <div className="w-100">
+              <p
+                className="d-none d-md-block"
+                style={{
+                  fontFamily: 'Georgia, serif',
+                  fontSize: '1rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  fontWeight: 400,
+                }}
+              >
+                {data.category}
+              </p>
+              <p
+                className="d-block d-md-none"
+                style={{
+                  fontFamily: 'Georgia, serif',
+                  fontSize: '0.75rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  fontWeight: 400,
+                }}
+              >
+                {data.category}
+              </p>
+
+              {/* Title */}
+              <h2
+                className="d-none d-md-block text-uppercase"
+            style={{
+                fontFamily: 'Georgia, serif',
+                fontSize: '28px',
+                letterSpacing: '1px',
+                fontWeight: 400,
+              }}
+              >
+                {data.title}
+              </h2>
+              <h2
+                className="d-block d-md-none text-uppercase"
+                style={{
+                fontFamily: 'Georgia, serif',
+                  fontSize: '22px',
+                  fontWeight: 400,
+                  margin: '10px 0',
+                }}
+              >
+                {data.title}
+              </h2>
+
+              {/* Short Description */}
+              <p
+                className="d-none d-md-block"
+              style={{
+                fontFamily: 'TNYAdobeCaslonPro, Times New Roman, Times, serif',
+                fontSize: '22px',
+                fontWeight: 400,
+              }}
+              >
+                {data.shortdescription}
+              </p>
+              <p
+                className="d-block d-md-none"
+               style={{
+                fontFamily: 'TNYAdobeCaslonPro, Times New Roman, Times, serif',
+                fontSize: '18px',
+                fontWeight: 400,
+              }}
+              >
+                {data.shortdescription}
+              </p>
+
+              {/* Date */}
+              <div
+                className="d-flex align-items-center justify-content-center"
+                style={{ fontSize: '10px', marginTop: '10px' }}
+              >
+                <BiCalendar
+                  size={10}
+                  style={{ marginRight: '4px', color: '#fff' }}
+                />
+                <span
+                  style={{
+                    color: '#fff',
+                    fontWeight: 500,
+                    fontSize: '8px',
+                  }}
+                >
+                  Published on
+                </span>
+                <span
+                  style={{
+                    color: '#fff',
+                    marginLeft: '4px',
+                    fontSize: '8px',
+                  }}
+                >
+                  {data.date}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </Link>
     </div>
   );
-
 }

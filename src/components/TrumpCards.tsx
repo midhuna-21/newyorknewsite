@@ -19,8 +19,9 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
 
   return (
     <div>
+      {/* Mobile View */}
       <div
-        className="d-flex d-lg-none"
+        className="d-flex d-sm-none"
         style={{
           overflowX: 'auto',
           scrollSnapType: 'x mandatory',
@@ -35,7 +36,7 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
             style={{
               scrollSnapAlign: 'start',
               flexShrink: 0,
-              minWidth: '80%',
+              minWidth: '90%',
               maxWidth: '90%',
               display: 'flex',
               justifyContent: 'center',
@@ -48,36 +49,59 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
         ))}
       </div>
 
-      <div className="container d-none d-lg-block">
-        <div className="row justify-content-center">
-          {fixedFourCards.map((item, index) => (
-            <div
-              key={index}
-              className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center"
-              style={{
-                padding: '10px 0',
-                position: 'relative',
-              }}
-            >
-              <TrumpCardComponent data={item} />
-
-              {index < fixedFourCards.length - 1 && (
-                <div
-                  style={{
-                    position: 'absolute',
-                    right: 0,
-                    top: 0,
-                    height: '65%',
-                    width: '1px',
-                    backgroundColor: '#eee',
-                  }}
-                />
-              )}
-
-            </div>
-          ))}
-        </div>
+      {/* Tablet 2-3 items*/}
+      <div
+        className="d-none d-sm-flex d-lg-none"
+        style={{
+          overflowX: 'auto',
+          scrollSnapType: 'x mandatory',
+          WebkitOverflowScrolling: 'touch',
+          scrollBehavior: 'smooth',
+          paddingBottom: '10px',
+        }}
+      >
+        {fixedFourCards.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              scrollSnapAlign: 'start',
+              flexShrink: 0,
+              minWidth: '33%',
+              maxWidth: '50%',
+              display: 'flex',
+              justifyContent: 'center',
+              padding: '0 10px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <TrumpCardComponent data={item} />
+          </div>
+        ))}
       </div>
+
+      {/* Desktop View*/}
+  {/* Desktop View */}
+<div className="container d-none d-lg-block">
+  <div className="d-flex flex-wrap justify-content-center">
+    {fixedFourCards.map((item, index) => (
+      <div
+        key={index}
+        style={{
+          flex: '1 1 25%', // Let it grow and shrink
+          maxWidth: '25%',
+          minWidth: '220px', // Prevent card from becoming too small
+          padding: '10px',
+          boxSizing: 'border-box',
+          position: 'relative',
+        }}
+      >
+        <TrumpCardComponent data={item} />
+      
+      </div>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 }

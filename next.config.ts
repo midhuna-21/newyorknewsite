@@ -50,7 +50,7 @@ const nextConfig: NextConfig = withBundleAnalyzer({
   trailingSlash: true,
 
   images: {
-    unoptimized: true, // required for static export
+    unoptimized: true, 
   },
 
   modularizeImports: {

@@ -1,13 +1,12 @@
-'use client';
-
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
+import NewsCard from './NewsCard';
 import NewsCenteredText from './NewsCenteredText';
 
 interface NewsCardListProps {
   data: Array<{
     category: string;
     title: string;
-    shortdescription: string;
+    shortdescription?: string;
     description?: string;
     image: string;
     slug: string;
@@ -16,69 +15,30 @@ interface NewsCardListProps {
 }
 
 const NewsCardList = ({ data }: NewsCardListProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
-
-  useEffect(() => {
-    const updateItemsPerPage = () => {
-      const isMobile = window.innerWidth < 576;
-      setItemsPerPage(isMobile ? 1 : 4);
-    };
-
-    updateItemsPerPage();
-    window.addEventListener('resize', updateItemsPerPage);
-    return () => window.removeEventListener('resize', updateItemsPerPage);
-  }, []);
-
-  const totalPages = Math.ceil(data.length / itemsPerPage);
-
-  const handleScroll = () => {
-    const container = containerRef.current;
-    if (!container) return;
-    const scrollLeft = container.scrollLeft;
-    const pageWidth = container.offsetWidth;
-    const newIndex = Math.round(scrollLeft / pageWidth);
-    setActiveIndex(newIndex);
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (container && data.length > itemsPerPage) {
-      container.addEventListener('scroll', handleScroll);
-      return () => container.removeEventListener('scroll', handleScroll);
-    }
-  }, [data.length, itemsPerPage]);
-
   return (
-    <div>
-      <div
-        ref={containerRef}
-        style={{
-          display: 'flex',
-          overflowX: data.length > itemsPerPage ? 'scroll' : 'hidden',
-          scrollSnapType: data.length > itemsPerPage ? 'x mandatory' : 'none',
-          scrollbarWidth: 'auto',
-        }}
-        className="custom-scrollbar"
-      >
-        {data.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              flex: `0 0 ${100 / itemsPerPage}%`,
-              scrollSnapAlign: 'start',
-              paddingRight:
-                itemsPerPage === 1
-                  ? '0px'
-                  : index !== data.length - 1
-                    ? '20px'
-                    : '0px',
-              marginBottom: '16px',
-            }}
-          >
+    <div className="w-100">
 
-            <NewsCenteredText
+      {/* Mobile view */}
+      <div
+        className="d-flex d-md-none overflow-auto pb-2"
+        style={{
+          scrollSnapType: data.length > 1 ? 'x mandatory' : 'none',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'thin',
+        }}
+      >
+        {data.map((item, index) => {
+          const isLastItem = index === data.length - 1;
+          return (
+            <div
+              key={index}
+              style={{
+                flex: '0 0 100%',
+                scrollSnapAlign: 'start',
+                paddingRight: isLastItem ? '0' : '12px',
+              }}
+            >
+              <NewsCenteredText
               data={{
                 category: item.category,
                 title: item.title,
@@ -87,27 +47,61 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
                 date: item.date,
               }}
             />
-          </div>
-        ))}
-
+            </div>
+          );
+        })}
       </div>
 
-      {data.length > itemsPerPage && (
-        <div className="d-flex justify-content-center mt-3" style={{ gap: '8px' }}>
-          {Array.from({ length: totalPages }).map((_, idx) => (
+      {/* Desktop*/}
+      <div
+        className="d-none d-md-flex pb-2"
+        style={{
+          overflowX: data.length > 4 ? 'auto' : 'visible',
+          WebkitOverflowScrolling: 'touch',
+          scrollSnapType: data.length > 4 ? 'x mandatory' : 'none',
+        }}
+      >
+        {data.map((item, index) => {
+          const isLastItem = index === data.length - 1;
+          return (
             <div
-              key={idx}
+              key={index}
+              className="d-flex"
               style={{
-                width: '10px',
-                height: '10px',
-                borderRadius: '50%',
-                backgroundColor: idx === activeIndex ? '#000' : '#ccc',
-                transition: 'background-color 0.3s ease',
+                flex: '0 0 25%',
+                scrollSnapAlign: 'start',
+                minWidth: '250px',
+                paddingRight: !isLastItem ? '12px' : '0',
               }}
-            ></div>
-          ))}
-        </div>
-      )}
+            >
+              <div className="d-flex flex-column w-100">
+                <NewsCenteredText
+              data={{
+                category: item.category,
+                title: item.title,
+                image: item.image,
+                slug: item.slug,
+                date: item.date,
+              }}
+            />
+              </div>
+
+              {!isLastItem && (
+                <div
+                  style={{
+                    width: '1px',
+                    height: '50%',
+                    backgroundColor: '#ccc',
+                    marginLeft: '12px',
+                    alignSelf: 'stretch',
+                  }}
+                />
+              )}
+            </div>
+          );
+        })}
+      </div>
+
     </div>
   );
 };

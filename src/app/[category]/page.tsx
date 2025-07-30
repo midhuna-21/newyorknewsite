@@ -59,8 +59,9 @@ export default async function CategoryPage({
 
   return (
     <div>
-      <SecondHeader />
-      <div className="d-none d-md-block">
+      {/* <SecondHeader /> */}
+  <div className="d-none d-lg-block">
+
         <CategoryNavbar />
       </div>
 
@@ -71,7 +72,7 @@ export default async function CategoryPage({
           <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
         </SectionWrapper>
 
-        <SectionWrapper title="Conversations">
+        <SectionWrapper title="More to Explore">
           <div className="row">
             <div className="col-12 col-lg-7">
               {data.slice(5, 10).map((item, index, arr) => (
@@ -89,9 +90,8 @@ export default async function CategoryPage({
               ))}
             </div>
           </div>
-        </SectionWrapper>
-
-        <SectionWrapper title="From Our Columnists">
+        </SectionWrapper> 
+        <SectionWrapper title="">
           <CardListCategoryPage data={[data[11], data[12], data[13], data[0]]} />
         </SectionWrapper>
       </div>

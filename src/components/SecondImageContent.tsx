@@ -1,10 +1,8 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { BiCalendar } from 'react-icons/bi';
+import React from 'react';
 
 interface NewsData {
   category: string;
@@ -21,23 +19,8 @@ interface Props {
 }
 
 const SecondImageContent: React.FC<Props> = ({ data }) => {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  if (!data || windowWidth === null) return null;
-
-  const isMobile = windowWidth <= 768;
-  const isSmallMobile = windowWidth <= 480;
-  const isLarge = windowWidth > 1024;
-
   return (
-    <div className='py-5'>
+    <div className="py-5">
       <Link
         href={`/${data.category}/${data.slug}`}
         title={data.slug}
@@ -48,113 +31,118 @@ const SecondImageContent: React.FC<Props> = ({ data }) => {
           display: 'block',
         }}
       >
-        <Container fluid style={{ padding: 0, backgroundColor: '#000', color: '#fff' }}>
-          <Row
-            style={{
-              display: 'flex',
-              flexDirection: isMobile ? 'column' : 'row',
-              margin: 0,
-              minHeight: isMobile ? undefined : isLarge ? '620px' : '650px',
-            }}
-          >
-            <Col
-              md={6}
-              xs={12}
-              style={{
-                padding: isMobile ? '30px 20px' : '50px 30px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                textAlign: 'center',
-                backgroundColor: '#000',
-              }}
-            >
-              <h2
-                style={{
-                  fontFamily: 'Georgia, serif',
-                  fontSize: isSmallMobile ? '10px' : isMobile ? '12px' : '13px',
-                  textTransform: 'uppercase',
-                  fontWeight: 400,
-                  marginBottom: '10px',
-                }}
-              >
-                {data.category}
-              </h2>
+        {/* Desktop view */}
+        <Container
+          fluid
+          className="p-0 d-none d-md-block"
+          style={{ backgroundColor: '#000', color: '#fff' }}
+        >
+          <Row className="g-0 flex-column flex-md-row" style={{ minHeight: '500px' }}>
+            <TextAndImage data={data} />
+          </Row>
+        </Container>
 
-              <p
-                style={{
-                  fontFamily: 'Georgia, serif',
-                  fontSize: isSmallMobile ? '14px' : isMobile ? '20px' : '28px',
-                  textTransform: 'uppercase',
-                  fontWeight: 400,
-                  marginBottom: '4px',
-                }}
-              >
-                {data.title}
-              </p>
-
-              <p
-                style={{
-                  color: '#fff',
-                  fontFamily: `TNYAdobeCaslonPro, 'Times New Roman', Times, serif`,
-                  fontSize: isSmallMobile ? '13px' : isMobile ? '16px' : '20px',
-                  fontWeight: 400,
-                  maxWidth: '500px',
-                  margin: '0 auto',
-                  padding: isMobile ? '0 10px' : undefined,
-                }}
-              >
-                {data.shortdescription}
-              </p>
-
-             <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                             <BiCalendar
-                               size={10}
-                               style={{ marginRight: '4px', color: '#fff' }}
-                             />
-                             <span style={{ color: '#fff', fontWeight: 500, fontSize: '8px' }}>
-                               Published on
-                             </span>
-                             <span style={{ color: '#fff', marginLeft: '4px', fontSize: '8px' }}>
-                               {data.date}
-                             </span>
-                           </div>
-            </Col>
-
-            <Col
-              md={6}
-              xs={12}
-              style={{
-                backgroundColor: '#000',
-                paddingTop: isMobile ? 0 : '30px',
-                paddingBottom: isMobile ? 0 : '30px',
-                paddingRight: isMobile ? 0 : '30px',
-                paddingLeft: isMobile ? 0 : undefined,
-                display: 'flex',
-                alignItems: 'stretch',
-              }}
-            >
-
-              <Image
-                src={data.image}
-                alt={data.title ?? 'Image'}
-                width={300}
-                height={200}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-                sizes="(max-width: 768px) 100vw, 300px"
-                 
-              />
-
-            </Col>
+        {/* Mobile View */}
+        <Container
+          fluid
+          className="p-0 d-block d-md-none"
+          style={{ backgroundColor: '#000', color: '#fff' }}
+        >
+          <Row className="g-0 flex-column" style={{ minHeight: '400px' }}>
+            <TextAndImage data={data} />
           </Row>
         </Container>
       </Link>
     </div>
   );
 };
+
+const TextAndImage: React.FC<{ data: NewsData }> = ({ data }) => (
+  <>
+    <Col
+      md={6}
+      xs={12}
+      className="d-flex flex-column justify-content-center text-center"
+      style={{
+        padding: '30px 20px',
+        backgroundColor: '#000',
+      }}
+    >
+      <h2
+        className="text-uppercase mb-2 d-none d-md-block"
+        style={{ fontFamily: 'Georgia, serif', fontSize: '1rem', fontWeight: 400 }}
+      >
+        {data.category}
+      </h2>
+      <h2
+        className="text-uppercase mb-2 d-block d-md-none"
+        style={{ fontFamily: 'Georgia, serif', fontSize: '0.75rem', fontWeight: 400 }}
+      >
+        {data.category}
+      </h2>
+
+      <p
+        className="text-uppercase mb-2 d-none d-md-block"
+        style={{ fontFamily: 'Georgia, serif', fontSize: '28px', fontWeight: 400 }}
+      >
+        {data.title}
+      </p>
+      <p
+        className="text-uppercase mb-2 d-block d-md-none"
+        style={{ fontFamily: 'Georgia, serif', fontSize: '18px', fontWeight: 400 }}
+      >
+        {data.title}
+      </p>
+
+      <p
+        className="mx-auto mb-2 d-none d-md-block"
+        style={{
+          fontFamily: `TNYAdobeCaslonPro, 'Times New Roman', Times, serif`,
+          fontSize: '22px',
+          fontWeight: 400,
+          maxWidth: '500px',
+        }}
+      >
+        {data.shortdescription}
+      </p>
+      <p
+        className="mx-auto mb-2 d-block d-md-none"
+        style={{
+          fontFamily: `TNYAdobeCaslonPro, 'Times New Roman', Times, serif`,
+          fontSize: '18px',
+          fontWeight: 400,
+          maxWidth: '500px',
+        }}
+      >
+        {data.shortdescription}
+      </p>
+
+      <div
+        className="d-flex align-items-center justify-content-center mt-2"
+        style={{ fontSize: '10px' }}
+      >
+        <BiCalendar size={10} style={{ marginRight: '4px', color: '#fff' }} />
+        <span style={{ color: '#fff', fontWeight: 500, fontSize: '8px' }}>Published on</span>
+        <span style={{ color: '#fff', marginLeft: '4px', fontSize: '8px' }}>{data.date}</span>
+      </div>
+    </Col>
+
+    <Col
+      md={6}
+      xs={12}
+      className="d-flex align-items-stretch"
+      style={{ backgroundColor: '#000' }}
+    >
+      <Image
+        src={data.image}
+        alt={data.title ?? 'Image'}
+        width={300}
+        height={200}
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
+    </Col>
+  </>
+);
 
 export default SecondImageContent;

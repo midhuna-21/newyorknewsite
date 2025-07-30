@@ -50,6 +50,7 @@ const CategoryNavbar = () => {
                 width: '100%',
                 zIndex: 998,
                 backgroundColor: '#fff',
+                borderTop: '1px solid #ccc',
                 borderBottom: '2px solid #ccc',
                 padding: '7px 0',
                 boxShadow: '0 2px 6px rgba(0,0,0,0.06)',

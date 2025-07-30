@@ -210,10 +210,9 @@ export default async function DetailPage({ params }: DetailPageProps) {
 
   return (
     <div>
-      <SecondHeader />
+      {/* <SecondHeader /> */}
 
-      <div className="d-none d-md-block">
-
+       <div className="d-none d-lg-block">
         <CategoryNavbar />
       </div>
 
@@ -223,7 +222,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
           <div className="col-12 col-lg-7 mz-autho">
             <DateDisplay date={article.date} />
             <ArticleParagraphWith data={article} />
-            <FavoritesList />
+           <FavoritesList data={[data[13], data[14], data[15], data[16],data[17]]}/>
             <AuthorInfo />
           </div>
         </div>
