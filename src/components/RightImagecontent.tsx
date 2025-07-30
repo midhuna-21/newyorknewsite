@@ -27,7 +27,7 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
           <div
             className="col-lg-6 text-center order-2 order-lg-2 content-image-column"
             style={{
-              marginTop: '12px', // small margin between text and image on mobile
+              marginTop: '12px',
               paddingTop: 0,
             }}
           >
@@ -105,7 +105,6 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                 </span>
               </p>
 
-              {/* Published on section */}
               <div
                 style={{
                   fontSize: '10px',

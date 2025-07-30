@@ -1,3 +1,5 @@
+import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import FirstIndexSection from "../components/FirstIndexSection";
 import HorizontalNewsCard from "../components/HorizontalNewsCard";
 import HeroImageSection from "../components/HeroImageSection";

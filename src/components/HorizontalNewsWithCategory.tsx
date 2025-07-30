@@ -31,7 +31,7 @@ const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
                 <div
                   style={{
                     width: '1px',
-                    height: '180px',
+                    height: '230px',
                     backgroundColor: '#ccc',
                     alignSelf: 'flex-start',
                   }}

@@ -98,12 +98,13 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
     };
   }
 
-  if (slug === 'wanda-vazquez-charges-dropped') {
+  if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {
     return {
       title: 'Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting',
       description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.',
       keywords: 'Wanda Vázquez Garced, Wanda vázquez cleared, A Three-Year Saga Ends in Exoneration, Legal Experts Cite “Face-Saving” by DOJ, Political Overtones and Claims of Targeting,Co-Defendant’s Case Also Resolved',
       authors: [{ name: 'Cameron Ellis' }],
+      alternates: { canonical: "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/" },
       openGraph: {
         title: 'Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting',
         description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.',
@@ -148,6 +149,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
             },
           },
           image: imageUrl,
+          alternates: { canonical: "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/" },
           url: currentUrl,
           articleBody: article.description?.slice(0, 160),
           keywords: 'Wanda Vázquez Garced, Puerto Rico, DOJ',
@@ -212,7 +214,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
     <div>
       {/* <SecondHeader /> */}
 
-       <div className="d-none d-lg-block">
+      <div className="d-none d-lg-block">
         <CategoryNavbar />
       </div>
 
@@ -222,7 +224,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
           <div className="col-12 col-lg-7 mz-autho">
             <DateDisplay date={article.date} />
             <ArticleParagraphWith data={article} />
-           <FavoritesList data={[data[13], data[14], data[15], data[16],data[17]]}/>
+            <FavoritesList data={[data[13], data[14]]} />
             <AuthorInfo />
           </div>
         </div>

@@ -95,7 +95,7 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
           </div>
         </div>
 
-        {/* Image Column */}
+        {/* Image */}
         <div
           className="col-12 col-md-6 d-flex align-items-stretch justify-content-center"
           style={{ padding: 0 }}
@@ -116,8 +116,10 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
                 objectFit: 'cover',
                 objectPosition: 'center',
               }}
+               priority={true}
               
             />
+           
           </div>
         </div>
       </div>

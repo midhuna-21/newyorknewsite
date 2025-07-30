@@ -15,45 +15,45 @@ interface NewsData {
 
 const LeftImageContent = ({ data }: { data: NewsData }) => {
   return (
-    <div className="py-5" style={{ backgroundColor: '#fff' }} id="left-image-content">
+    <div className="py-5" style={{ backgroundColor: '#fff' }}>
       <Row className="align-items-center mx-0">
-    <Col
-  xs={12}
-  lg={6}
-  style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '10px',
-  }}
->
-  <Link
-    href={`/${data.category}/${data.slug}`}
-    title={data.slug}
-    className="text-decoration-none w-100"
-    style={{ textAlign: 'center' }}
-  >
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        maxWidth: '100%', 
-        height: 'clamp(240px, 40vw, 440px)', 
-        margin: '0 auto',
-      }}
-    >
-      <Image
-        src={data.image}
-        alt={data.title}
-        fill
-        style={{
-          objectFit: 'cover',
-          objectPosition: 'center',
-        }}
-      />
-    </div>
-  </Link>
-</Col>
+        <Col
+          xs={12}
+          lg={6}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '10px',
+          }}
+        >
+          <Link
+            href={`/${data.category}/${data.slug}`}
+            title={data.slug}
+            className="text-decoration-none w-100"
+            style={{ textAlign: 'center' }}
+          >
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '100%',
+                height: 'clamp(240px, 40vw, 440px)',
+                margin: '0 auto',
+              }}
+            >
+              <Image
+                src={data.image}
+                alt={data.title}
+                fill
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+              />
+            </div>
+          </Link>
+        </Col>
 
         <Col
           xs={12}
@@ -110,18 +110,18 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
             </p>
 
             {/* Mobile View */}
-          <p
-  className="d-block d-lg-none"
-  style={{
-    color: '#333',
-    fontFamily: '"Times New Roman", serif',
-    fontSize: '15px',
-    fontWeight: 400,
-    marginBottom: '8px',
-  }}
->
-  {data.shortdescription}
-</p>
+            <p
+              className="d-block d-lg-none"
+              style={{
+                color: '#333',
+                fontFamily: '"Times New Roman", serif',
+                fontSize: '15px',
+                fontWeight: 400,
+                marginBottom: '8px',
+              }}
+            >
+              {data.shortdescription}
+            </p>
 
 
 

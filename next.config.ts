@@ -61,11 +61,6 @@ const nextConfig: NextConfig = withBundleAnalyzer({
       transform: "date-fns/{{member}}",
     },
   },
-
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-    styledComponents: true,
-  },
 });
 
 export default nextConfig;

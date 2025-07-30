@@ -21,8 +21,8 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ data }) => {
           fontSize: '31px',
         }}
       >
-        <span className="d-none d-md-inline">Nystate News Favorites</span>
-        <span className="d-inline d-md-none" style={{ fontSize: '24px' }}>
+        <span className="d-none d-md-inline" style={{color:'#000'}}>Nystate News Favorites</span>
+        <span className="d-inline d-md-none" style={{ fontSize: '24px',color:'#000' }}>
           Nystate News Favorites
         </span>
       </h2>

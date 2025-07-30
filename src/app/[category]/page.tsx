@@ -66,7 +66,7 @@ export default async function CategoryPage({
       </div>
 
       <div className="container py-5" style={{ marginTop: '22px' }}>
-        <CatNewsFeatureCard data={data[14]} />
+        <CatNewsFeatureCard data={data[0]} />
 
         <SectionWrapper title="Reporting & News">
           <CardListCategoryPage data={[data[1], data[2], data[3], data[4]]} />
@@ -92,7 +92,7 @@ export default async function CategoryPage({
           </div>
         </SectionWrapper> 
         <SectionWrapper title="">
-          <CardListCategoryPage data={[data[11], data[12], data[13], data[0]]} />
+          <CardListCategoryPage data={[data[11], data[12], data[13], data[14]]} />
         </SectionWrapper>
       </div>
     </div>

@@ -5,11 +5,11 @@ import React from 'react';
 export default function EditorialPolicyPage() {
   return (
     <>
-     <SecondHeader />
+     {/* <SecondHeader /> */}
+       <div className="d-none d-lg-block">
       <CategoryNavbar />
-    <div className="bg-white text-dark" style={{ fontFamily: 'Georgia, Times New Roman, serif', lineHeight: '1.6',padding:'80px 0' }}>
-     
-
+      </div>
+    <div className="bg-white text-dark" style={{ fontFamily: 'Georgia, Times New Roman, serif', lineHeight: '1.6',padding:'70px 0' }}>
       <header className="text-center bg-light border-bottom" style={{ padding: '120px 0 80px' }}>
         <div className="mx-auto px-3" style={{ maxWidth: '720px' }}>
           <h1 style={{
@@ -25,12 +25,11 @@ export default function EditorialPolicyPage() {
 
       <main className="mx-auto px-3" style={{ maxWidth: '720px' }}>
         <article className="py-5">
-
           <section className="mb-5">
             <h2 className="pb-3 border-bottom mb-4" style={{ fontSize: '2rem', fontWeight: 400 }}>
               A Commitment to Principled Journalism
             </h2>
-            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333' }}>
+            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333',textAlign:"justify"}}>
               <p className="mb-4">
                 Every story we publish starts with a simple question: How does this help our reader make sense of the world? In an era of constant noise, our mission is to provide a signal of clarity. That's not a corporate slogan; it's a responsibility we feel personally.
               </p>
@@ -41,7 +40,7 @@ export default function EditorialPolicyPage() {
           </section>
 
           <section className="mb-5">
-            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333' }}>
+            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333',textAlign:"justify" }}>
               <p className="mb-4">
                 Truth is the raw material of everything we do. But it's often messy, buried under layers of opinion and misinformation. That's why our editorial process is intentionally demanding. We question our own assumptions, we chase down primary sources, and we don't move forward until we can stand firmly behind every fact. It's not the fastest way to publish news, but we believe it's the only right way. And if we ever fall short of that high bar, you'll find a correction at the top of the article. No excuses, no fine print.
               </p>
@@ -55,7 +54,7 @@ export default function EditorialPolicyPage() {
           </section>
 
           <section className="pt-5 mt-5" style={{ borderTop: '2px solid #000' }}>
-            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333' }}>
+            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333',textAlign:"justify" }}>
               <p className="mb-4">
                 These aren't just rules on a static page; they are the values that live in our newsroom. They are the compass that guides every decision we make, every question we ask, and every article we write.
               </p>

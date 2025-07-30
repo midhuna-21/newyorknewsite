@@ -90,7 +90,7 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
                 <div
                   style={{
                     width: '1px',
-                    height: '50%',
+                    height: '60%',
                     backgroundColor: '#ccc',
                     marginLeft: '12px',
                     alignSelf: 'stretch',

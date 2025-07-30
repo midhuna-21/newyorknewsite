@@ -6,9 +6,11 @@ export default function AboutPage() {
   return (
 <>
 
-      <SecondHeader />
+      {/* <SecondHeader /> */}
+       <div className="d-none d-lg-block">
       <CategoryNavbar />
-    <div className="bg-white text-dark" style={{ fontFamily: 'Georgia, Times New Roman, serif', lineHeight: '1.6', padding: '80px 0' }}>
+      </div>
+    <div className="bg-white text-dark" style={{ fontFamily: 'Georgia, Times New Roman, serif', lineHeight: '1.6', padding: '70px 0' }}>
       <header className="text-center border-bottom bg-light" style={{ padding: '120px 0 80px' }}>
         <div className="mx-auto px-3" style={{ maxWidth: '720px' }}>
           <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', fontWeight: 400, lineHeight: '1.1' }}>About Us</h1>
@@ -18,7 +20,7 @@ export default function AboutPage() {
         <article className="py-5">
           <section className="mb-5">
             <h2 className="pb-3 border-bottom mb-4" style={{ fontSize: '2rem', fontWeight: 400 }}>Who We Are & What We Stand For</h2>
-            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333' }}>
+            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333',textAlign:"justify" }}>
               <p className="mb-4">
                 At its heart, NY State News is a small team of journalists who believe that good information is the bedrock of a strong society. We started this project because we felt a growing need for reporting that steps back from the daily chaos to provide a clearer, more understandable picture of the forces shaping our world.
               </p>
@@ -30,7 +32,7 @@ export default function AboutPage() {
 
           <section className="mb-5">
             <h2 className="pb-3 border-bottom mb-4" style={{ fontSize: '2rem', fontWeight: 400 }}>Our Promise is Our Process</h2>
-            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333' }}>
+            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333',textAlign:"justify" }}>
               <p className="mb-4">
                 Trust isn't given; it's earned, article by article, fact by fact. We want to be open with you about how we work and the principles that guide every story we publish.
               </p>
@@ -48,7 +50,7 @@ export default function AboutPage() {
 
           <section className="mb-5">
             <h2 className="pb-3 border-bottom mb-4" style={{ fontSize: '2rem', fontWeight: 400 }}>Why We Publish as a Team</h2>
-            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333' }}>
+            <div style={{ fontSize: '1.125rem', lineHeight: '1.7', color: '#333',textAlign:"justify" }}>
               <p className="mb-4">
                 When you read an article here, you'll see it's from the "NY State News Staff." This is important to us for two reasons. First, it's the truth—our best work happens when our researchers, writers, and editors all contribute to a single story.
               </p>

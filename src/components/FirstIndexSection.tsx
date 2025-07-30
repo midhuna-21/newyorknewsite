@@ -27,7 +27,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
       style={{ backgroundColor: '#fff', color: '#000', paddingTop: '80px' }}
     >
       <Container fluid>
-        <Row className="align-items-center" style={{ minHeight: '450px' }}>
+        <Row className="align-items-center" style={{ minHeight: '550px' }}>
           <Col
             md={6}
             xs={12}

@@ -63,7 +63,7 @@ const NewsCard = ({ data }: NewsCardProps) => {
 
           {/* Content Section */}
           <div style={{ padding: '16px 0 0 0' }}>
-            <h5
+            <p
               style={{
                 color: '#000',
                 fontFamily:
@@ -74,7 +74,7 @@ const NewsCard = ({ data }: NewsCardProps) => {
               }}
             >
               {data.title}
-            </h5>
+            </p>
 
             <p
               style={{
