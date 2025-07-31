@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: " Nystate News",
     images: [
       {
-        url: "https://nystatenews.org/images/nystatenews-logo.webp",
+        url: "https://nystatenews.org/images/nystatenews-card.webp",
         width: 1200,
         height: 630,
         alt: " Nystate News logo",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Breaking News in Politics, Business, Health & More – Nystate News",
     description:
       "Follow Nystate News for trusted reporting and real-time updates on politics, business, health, science, education, and entertainment.",
-    images: ["https://nystatenews.org/images/nystatenews-logo.webp"],
+    images: ["https://nystatenews.org/images/nystatenews-card.webp"],
     site: "@nystatenews",
     creator: "@nystatenews",
   },

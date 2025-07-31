@@ -145,7 +145,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
             name: 'Nystate News',
             logo: {
               '@type': 'ImageObject',
-              url: `${siteUrl}/nystatenews-logo.webp`,
+              url: `${siteUrl}/nystatenews-card.webp`,
             },
           },
           image: imageUrl,
