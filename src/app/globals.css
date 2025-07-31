@@ -479,4 +479,20 @@ a {
   }
 }
 
+
+
+/* hover underline for headings */
+
+.hover-underline {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.hover-underline:hover {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+
+
+
 }

@@ -26,7 +26,7 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
       >
         <div className="flex-grow-1" style={{ minWidth: 0 }}>
           <p
-            className="mb-3"
+            className="mb-3 hover-underline"
             style={{
               color: '#000',
               fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',

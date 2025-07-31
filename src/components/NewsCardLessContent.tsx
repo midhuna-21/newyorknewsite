@@ -37,6 +37,7 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                   marginBottom: '8px',
                   lineHeight: '1.3',
                 }}
+                className='hover-underline'
               >
                 {data.title}
               </p>
@@ -97,6 +98,7 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
                 fontWeight: 400,
                 marginBottom: '4px',
               }}
+              className='hover-underline'
             >
               {data.title}
             </p>

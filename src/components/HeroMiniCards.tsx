@@ -49,6 +49,7 @@ export default function HeroMiniCards({ data }: HeroMiniCardProps) {
               fontWeight: 400,
               marginBottom: '0',
             }}
+            className='hover-underline'
           >
             {data.title}
           </p>

@@ -95,7 +95,7 @@ const HeroImageSection: React.FC<Props> = ({ data }) => {
           </div>
         </div>
 
-        {/* === Mobile / Tablet layout  */}
+        {/* Mobile View */}
         <div
           className="d-block d-lg-none d-flex align-items-center justify-content-center px-3"
           style={{

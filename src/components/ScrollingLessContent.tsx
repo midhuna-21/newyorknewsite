@@ -1,5 +1,4 @@
 import React from 'react';
-import NewsCard from './NewsCard';
 import NewsCenteredText from './NewsCenteredText';
 
 interface NewsCardListProps {
@@ -17,14 +16,14 @@ interface NewsCardListProps {
 const NewsCardList = ({ data }: NewsCardListProps) => {
   return (
     <div className="w-100">
-
       {/* Mobile view */}
       <div
         className="d-flex d-md-none overflow-auto pb-2"
         style={{
           scrollSnapType: data.length > 1 ? 'x mandatory' : 'none',
           WebkitOverflowScrolling: 'touch',
-          scrollbarWidth: 'thin',
+          scrollbarWidth: 'thin', 
+          scrollbarColor: '#ccc transparent',
         }}
       >
         {data.map((item, index) => {
@@ -39,26 +38,28 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
               }}
             >
               <NewsCenteredText
-              data={{
-                category: item.category,
-                title: item.title,
-                image: item.image,
-                slug: item.slug,
-                date: item.date,
-              }}
-            />
+                data={{
+                  category: item.category,
+                  title: item.title,
+                  image: item.image,
+                  slug: item.slug,
+                  date: item.date,
+                }}
+              />
             </div>
           );
         })}
       </div>
 
-      {/* Desktop*/}
+      {/* Desktop view */}
       <div
         className="d-none d-md-flex pb-2"
         style={{
           overflowX: data.length > 4 ? 'auto' : 'visible',
           WebkitOverflowScrolling: 'touch',
           scrollSnapType: data.length > 4 ? 'x mandatory' : 'none',
+          scrollbarWidth: 'thin', 
+          scrollbarColor: '#ccc transparent', 
         }}
       >
         {data.map((item, index) => {
@@ -76,14 +77,14 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
             >
               <div className="d-flex flex-column w-100">
                 <NewsCenteredText
-              data={{
-                category: item.category,
-                title: item.title,
-                image: item.image,
-                slug: item.slug,
-                date: item.date,
-              }}
-            />
+                  data={{
+                    category: item.category,
+                    title: item.title,
+                    image: item.image,
+                    slug: item.slug,
+                    date: item.date,
+                  }}
+                />
               </div>
 
               {!isLastItem && (
@@ -101,7 +102,6 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
           );
         })}
       </div>
-
     </div>
   );
 };

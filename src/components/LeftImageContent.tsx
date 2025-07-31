@@ -70,7 +70,7 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
             style={{ color: 'inherit', textDecoration: 'none' }}
           >
             <h2
-              className="d-none d-lg-block"
+              className="d-none d-lg-block hover-underline"
               style={{
                 fontFamily: 'Georgia, serif',
                 fontSize: '30px',
@@ -83,7 +83,7 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
             </h2>
 
             <h2
-              className="d-block d-lg-none"
+              className="d-block d-lg-none hover-underline"
               style={{
                 fontFamily: 'Georgia, serif',
                 fontSize: '22px',
@@ -122,8 +122,6 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
             >
               {data.shortdescription}
             </p>
-
-
 
             <div
               style={{

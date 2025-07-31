@@ -18,7 +18,7 @@ const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
 
   return (
     <div className="w-100">
-      {/* === Desktop View === */}
+      {/* Desktop View */}
       <div className="d-none d-lg-flex" style={{ gap: '20px', alignItems: 'flex-start' }}>
         {displayItems.map((item, index) => {
           const isLast = index === displayItems.length - 1;
@@ -42,7 +42,7 @@ const HorizontalNewsWithCategory = ({ data }: NewsCardProps) => {
         })}
       </div>
 
-      {/* === Mobile/Tablet Column === */}
+      {/*  Mobile/Tablet View */}
       <div className="d-block d-lg-none">
         {displayItems.map((item, index) => {
           const isLast = index === displayItems.length - 1;

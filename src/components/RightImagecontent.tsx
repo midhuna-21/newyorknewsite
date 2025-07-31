@@ -62,9 +62,8 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                 {data.category}
               </p>
 
-              {/* Title - Responsive font size */}
               <h2
-                className="title"
+                className="title hover-underline"
                 style={{
                   fontFamily: 'Georgia, serif',
                   fontSize: '36px',
@@ -74,7 +73,7 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                   lineHeight: 1
                 }}
               >
-                <span className="d-none d-lg-inline">{data.title}</span>
+                <span className="d-none d-lg-inline hover-underline">{data.title}</span>
                 <span
                   className="d-inline d-lg-none"
                   style={{ fontSize: '22px', }}
@@ -83,7 +82,6 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                 </span>
               </h2>
 
-              {/* Short Description - Responsive font size */}
               <p
                 className="shortdesc"
                 style={{
@@ -93,7 +91,7 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
                   fontSize: '17px',
                   fontWeight: 400,
                   marginTop: 12,
-                  marginBottom: 6, // reduced space to published date
+                  marginBottom: 6, 
                 }}
               >
                 <span className="d-none d-lg-inline">{data.shortdescription}</span>

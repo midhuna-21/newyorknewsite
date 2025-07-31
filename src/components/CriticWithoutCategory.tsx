@@ -24,7 +24,7 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
         className="text-decoration-none"
         style={{ color: 'inherit', display: 'block' }}
       >
-        {/* === Desktop layout === */}
+        {/* Desktop view */}
         <div className="d-none d-lg-block text-center">
           <div
             style={{
@@ -54,6 +54,7 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
               maxWidth: '600px',
               lineHeight: 1.2,
             }}
+            className='hover-underline'
           >
             {data.title}
           </p>
@@ -88,7 +89,7 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* === Mobile/Tablet layout === */}
+        {/* Mobile/Tablet view */}
         <div className="d-block d-lg-none">
           <p
             style={{
@@ -99,6 +100,7 @@ const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
               margin: '0 0 6px 0',
               lineHeight: 1.2,
             }}
+            className='hover-underline'
           >
             {data.title}
           </p>

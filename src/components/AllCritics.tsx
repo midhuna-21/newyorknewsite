@@ -20,7 +20,7 @@ export default function AllCritics({ data }: AllCriticsProps) {
 
   return (
     <div className="w-100">
-      {/* === Desktop layout: 3 columns === */}
+      {/* Desktop View*/}
       <div className="d-none d-lg-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
@@ -49,7 +49,7 @@ export default function AllCritics({ data }: AllCriticsProps) {
         })}
       </div>
 
-      {/* === Mobile/tablet layout: 1 column === */}
+      {/* Mobile View */}
       <div className="d-block d-lg-none">
         {displayItems.map((item, index) => (
           <div key={index}>
@@ -60,7 +60,7 @@ export default function AllCritics({ data }: AllCriticsProps) {
                 style={{
                   margin: '10px 0',
                   border: 'none',
-                  borderTop: '1px solid #ddd',
+                  borderTop: '1px solid #ccc',
                 }}
               />
             )}

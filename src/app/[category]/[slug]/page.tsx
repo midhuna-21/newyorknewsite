@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
   const articles = allDataMap[category] || [];
   const article = articles.find((a) => a.slug === slug);
 
-  const siteUrl = 'https://nystatenews.org';
+  const siteUrl = 'https://nystatenews.org/';
   const currentUrl = `${siteUrl}/${category}/${slug}`;
   const imageUrl = article?.image?.startsWith('http') ? article.image : `${siteUrl}${article?.image}`;
 
@@ -103,7 +103,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
       title: 'Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting',
       description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.',
       keywords: 'Wanda Vázquez Garced, Wanda vázquez cleared, A Three-Year Saga Ends in Exoneration, Legal Experts Cite “Face-Saving” by DOJ, Political Overtones and Claims of Targeting,Co-Defendant’s Case Also Resolved',
-      authors: [{ name: 'Cameron Ellis' }],
+      authors: [{ name: 'Published by the NY State News Staff' }],
       alternates: { canonical: "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/" },
       openGraph: {
         title: 'Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting',
@@ -138,7 +138,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
           datePublished: '2025-06-18',
           author: {
             '@type': 'Person',
-            name: 'Cameron Ellis',
+            name: 'Published by the NY State News Staff',
           },
           publisher: {
             '@type': 'Organization',
@@ -152,7 +152,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
           alternates: { canonical: "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/" },
           url: currentUrl,
           articleBody: article.description?.slice(0, 160),
-          keywords: 'Wanda Vázquez Garced, Puerto Rico, DOJ',
+          keywords: 'Wanda Vázquez Garced, Wanda vázquez cleared, A Three-Year Saga Ends in Exoneration, Legal Experts Cite “Face-Saving” by DOJ, Political Overtones and Claims of Targeting,Co-Defendant’s Case Also Resolved',
         }),
       },
     };
@@ -199,7 +199,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
 
   const article = data.find(item => item.slug === slug);
   if (!article) {
-    return <div className="p-4">No article found for slug: {slug}</div>;
+    return <div className="p-4">No article found for slug {slug}</div>;
   }
 
   if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {

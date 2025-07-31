@@ -28,6 +28,8 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
           WebkitOverflowScrolling: 'touch',
           scrollBehavior: 'smooth',
           paddingBottom: '10px',
+          scrollbarWidth: 'thin', 
+          scrollbarColor: '#ccc transparent',
         }}
       >
         {fixedFourCards.map((item, index) => (
@@ -49,7 +51,7 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
         ))}
       </div>
 
-      {/* Tablet 2-3 items*/}
+      {/* Tablet View */}
       <div
         className="d-none d-sm-flex d-lg-none"
         style={{
@@ -58,6 +60,8 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
           WebkitOverflowScrolling: 'touch',
           scrollBehavior: 'smooth',
           paddingBottom: '10px',
+          scrollbarWidth: 'thin', 
+          scrollbarColor: '#ccc transparent', 
         }}
       >
         {fixedFourCards.map((item, index) => (
@@ -79,29 +83,26 @@ export default function TrumpCards({ data }: TrumpCardsProps) {
         ))}
       </div>
 
-      {/* Desktop View*/}
-  {/* Desktop View */}
-<div className="container d-none d-lg-block">
-  <div className="d-flex flex-wrap justify-content-center">
-    {fixedFourCards.map((item, index) => (
-      <div
-        key={index}
-        style={{
-          flex: '1 1 25%', // Let it grow and shrink
-          maxWidth: '25%',
-          minWidth: '220px', // Prevent card from becoming too small
-          padding: '10px',
-          boxSizing: 'border-box',
-          position: 'relative',
-        }}
-      >
-        <TrumpCardComponent data={item} />
-      
+      {/* Desktop View */}
+      <div className="container d-none d-lg-block">
+        <div className="d-flex flex-wrap justify-content-center">
+          {fixedFourCards.map((item, index) => (
+            <div
+              key={index}
+              style={{
+                flex: '1 1 25%',
+                maxWidth: '25%',
+                minWidth: '220px',
+                padding: '10px',
+                boxSizing: 'border-box',
+                position: 'relative',
+              }}
+            >
+              <TrumpCardComponent data={item} />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-
     </div>
   );
 }

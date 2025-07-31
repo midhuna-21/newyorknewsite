@@ -28,11 +28,8 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
             >
                 {data.category}
             </h1>
-
-
             <div className='py-4'>
                 <div className="row align-items-center">
-
                     <div className="col-md-6 order-1 order-md-1 mb-4 mb-md-0">
                         <div style={{ position: 'relative', width: '100%', height: '100%', aspectRatio: '17/12' }}>
                             <Image
@@ -40,7 +37,7 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                                 alt={data.title}
                                 layout="fill"
                                 objectFit="cover"
-                                 priority={true}
+                                priority={true}
                                 fetchPriority="high"
                             />
                         </div>
@@ -56,9 +53,10 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                             <div style={{ textAlign: 'center', maxWidth: '600px' }}>
 
                                 <h2
+                                    className='hover-underline'
                                     style={{
                                         fontFamily: '"Georgia", serif',
-                                      fontSize: 'clamp(18px, 2vw, 26px)',
+                                        fontSize: 'clamp(18px, 2vw, 26px)',
                                         textTransform: 'uppercase',
                                         letterSpacing: '1px',
                                         fontWeight: 400,
@@ -70,7 +68,7 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                                 <p style={{
                                     color: 'rgb(51, 51, 51)',
                                     fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
-                                fontSize: 'clamp(14px, 1.8vw, 16px)',
+                                    fontSize: 'clamp(14px, 1.8vw, 16px)',
                                     fontWeight: 400,
                                     marginBottom: '2px'
                                 }}>

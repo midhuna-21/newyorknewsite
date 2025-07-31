@@ -40,7 +40,7 @@ const HorizontalLessContent = ({ data }: NewsCardProps) => {
                   style={{
                     width: '1px',
                     backgroundColor: '#ccc',
-                    height: '180px',
+                    height: '220px',
                     alignSelf: 'flex-start',
                   }}
                 />
@@ -63,6 +63,15 @@ const HorizontalLessContent = ({ data }: NewsCardProps) => {
                 date: item.date,
               }}
             />
+
+              {index !== displayItems.length - 1 && (
+              <hr
+                style={{
+                  margin: '10px 0',
+                  border: 'none',
+                  borderTop: '1px solid #ccc',
+                }}
+              />)}
           </div>
         ))}
       </div>

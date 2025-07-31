@@ -61,7 +61,6 @@ const NewsCard = ({ data }: NewsCardProps) => {
             />
           </div>
 
-          {/* Content Section */}
           <div style={{ padding: '16px 0 0 0' }}>
             <p
               style={{
@@ -72,6 +71,7 @@ const NewsCard = ({ data }: NewsCardProps) => {
                 fontWeight: 400,
                 marginBottom: '8px',
               }}
+              className='hover-underline'
             >
               {data.title}
             </p>

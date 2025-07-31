@@ -60,8 +60,7 @@ export default async function CategoryPage({
   return (
     <div>
       {/* <SecondHeader /> */}
-  <div className="d-none d-lg-block">
-
+      <div className="d-none d-lg-block">
         <CategoryNavbar />
       </div>
 
@@ -90,7 +89,7 @@ export default async function CategoryPage({
               ))}
             </div>
           </div>
-        </SectionWrapper> 
+        </SectionWrapper>
         <SectionWrapper title="">
           <CardListCategoryPage data={[data[11], data[12], data[13], data[14]]} />
         </SectionWrapper>

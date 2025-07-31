@@ -59,7 +59,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
               style={{ color: 'inherit' }}
             >
               <h1
-                className="d-none d-sm-block"
+                className="d-none d-sm-block hover-underline"
                 style={{
                   fontFamily: 'Georgia, serif',
                   fontSize: '30px',
@@ -72,7 +72,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                 {data.title}
               </h1>
               <h1
-                className="d-block d-sm-none"
+                className="d-block d-sm-none hover-underline"
                 style={{
                   fontFamily: 'Georgia, serif',
                   fontSize: '22px',
@@ -174,12 +174,11 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                 src={data.image}
                 alt={data.title}
                 fill
-                  fetchPriority="high" 
+                priority={true}
                 style={{
                   objectFit: 'cover',
                   objectPosition: 'center',
                 }}
-                 priority={true}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>

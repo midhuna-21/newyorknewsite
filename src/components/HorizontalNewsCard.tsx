@@ -16,12 +16,14 @@ interface NewsCardListProps {
 const NewsCardList = ({ data }: NewsCardListProps) => {
   return (
     <div className="w-100">
+      {/* Mobile View*/}
       <div
         className="d-flex d-md-none overflow-auto pb-2"
         style={{
           scrollSnapType: data.length > 1 ? 'x mandatory' : 'none',
           WebkitOverflowScrolling: 'touch',
           scrollbarWidth: 'thin',
+          scrollbarColor: '#ccc transparent',
         }}
       >
         {data.map((item, index) => {
@@ -41,12 +43,71 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
         })}
       </div>
 
+      {/* Tablet View */}
       <div
-        className="d-none d-md-flex pb-2"
+        className="d-none d-md-flex d-lg-none overflow-auto pb-2"
+        style={{
+          scrollSnapType: data.length > 1 ? 'x mandatory' : 'none',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#ccc transparent',
+        }}
+      >
+        {data.map((item, index) => {
+          const isLastItem = index === data.length - 1;
+          return (
+            <div
+              key={index}
+              style={{
+                flex: '0 0 50%',
+                scrollSnapAlign: 'start',
+                minWidth: '50%',
+                paddingRight: isLastItem ? '0' : '12px',
+              }}
+            >
+              <NewsCard data={item} />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Large View*/}
+      <div
+        className="d-none d-lg-flex d-xl-none overflow-auto pb-2"
+        style={{
+          scrollSnapType: data.length > 1 ? 'x mandatory' : 'none',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#ccc transparent',
+        }}
+      >
+        {data.map((item, index) => {
+          const isLastItem = index === data.length - 1;
+          return (
+            <div
+              key={index}
+              style={{
+                flex: '0 0 33.3333%',
+                scrollSnapAlign: 'start',
+                minWidth: '33.3333%',
+                paddingRight: isLastItem ? '0' : '12px',
+              }}
+            >
+              <NewsCard data={item} />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop View*/}
+      <div
+        className="d-none d-xl-flex pb-2"
         style={{
           overflowX: data.length > 4 ? 'auto' : 'visible',
           WebkitOverflowScrolling: 'touch',
           scrollSnapType: data.length > 4 ? 'x mandatory' : 'none',
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#ccc transparent',
         }}
       >
         {data.map((item, index) => {
@@ -81,7 +142,6 @@ const NewsCardList = ({ data }: NewsCardListProps) => {
           );
         })}
       </div>
-
     </div>
   );
 };

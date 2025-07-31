@@ -26,7 +26,7 @@ export default function AllFourCritics({ data }: AllCriticsProps) {
         margin: '0 auto',
       }}
     >
-      {/* === Desktop: 4-column layout === */}
+      {/* Desktop view */}
       <div
         className="d-none d-lg-grid"
         style={{
@@ -38,15 +38,26 @@ export default function AllFourCritics({ data }: AllCriticsProps) {
         {displayItems.map((item, index) => (
           <div key={index} style={{ position: 'relative' }}>
             <CriticWithoutCategory data={item} />
+            
           </div>
         ))}
       </div>
 
-      {/* === Mobile / Tablet: 1-column layout === */}
+      {/* Mobile view */}
       <div className="d-block d-lg-none">
         {displayItems.map((item, index) => (
           <div key={index} style={{ marginBottom: '20px' }}>
             <CriticWithoutCategory data={item} />
+
+              {index !== displayItems.length - 1 && (
+              <hr
+                style={{
+                  margin: '10px 0',
+                  border: 'none',
+                  borderTop: '1px solid #ccc',
+                }}
+              />
+            )}
           </div>
         ))}
       </div>

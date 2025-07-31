@@ -32,7 +32,7 @@ import Script from "next/script";
 export default function Home() {
   return (
     <main>
-         <Script
+      <Script
         id="structured-data-webpage"
         type="application/ld+json"
         strategy="afterInteractive"
@@ -87,13 +87,11 @@ export default function Home() {
       <NavbarWrapper />
       <div className="container py-lg-5 py-3">
         <div id="todays-news">
-
           <SectionWrapper title="Latest News">
             <HorizontalNewsCard data={[ScienceData[0], TechnologyData[0], SportsData[0], BusinessData[0]]} />
           </SectionWrapper>
         </div>
         <HeroImageSection data={HealthData[2]} />
-
         <SectionWrapper title="The Lede">
           <HorizontalNewsCard data={[ScienceData[1], TechnologyData[2], SportsData[1], BusinessData[1], PoliticalData[1], HealthData[0], ScienceData[10]]} />
         </SectionWrapper>

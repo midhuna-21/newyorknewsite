@@ -59,6 +59,7 @@ const NewsCenteredText = ({ data }: NewsCardProps) => {
                 fontWeight: 400,
                 margin: 0,
               }}
+              className='hover-underline'
             >
               {data.title}
             </h3>

@@ -24,7 +24,7 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
         className="text-decoration-none"
         style={{ color: 'inherit', display: 'block' }}
       >
-        {/* === Desktop === */}
+        {/* Desktop View */}
         <div className="d-none d-lg-block">
           <Image
             src={data.image}
@@ -65,6 +65,7 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
               fontWeight: 400,
               marginBottom: '10px',
             }}
+            className='hover-underline'
           >
             {data.title}
           </p>
@@ -122,6 +123,7 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
               fontWeight: 400,
               marginBottom: '6px',
             }}
+            className='hover-underline'
           >
             {data.title}
           </p>

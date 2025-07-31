@@ -79,6 +79,7 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
             lineHeight: 1.4,
             marginBottom: '10px',
           }}
+          className='hover-underline'
         >
           {data.title}
         </p>

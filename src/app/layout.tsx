@@ -26,17 +26,13 @@ const elsie = Elsie({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nystatenews.org/"),
-
-  title: "Nystate News – Breaking Political News, Tech Trends & Market Insights",
-
-  description: "Nystate News brings you breaking updates on Wanda Vázquez Garced’s case, Brazil's Supreme Court rulings on social media, robotaxis by Uber/Waymo, Cooper Flagg NBA draft buzz, and youth mental health trends. Trusted analysis in politics, tech, health, and law.",
-
-  keywords:
-    "Puerto Rico political targeting, Brazil Supreme Court social media ruling,Wanda Vázquez Garced news, Section 230 alternatives, platform liability 2025, AI robotaxis Atlanta, Uber Waymo launch, Cooper Flagg NBA draft 2025, youth smartphone addiction, mailed HPV kits, cervical cancer screening at home, DOJ corruption investigations, Puerto Rico legal system updates",
+  title: "Nystate News – Trusted Breaking News in Politics, Business & Health",
+  description: "Nystate News delivers breaking headlines and expert analysis across politics, business, health, sports, science, entertainment, and education.",
+  keywords: "Puerto Rico political targeting, Brazil Supreme Court social media ruling,Wanda Vázquez Garced news, Section 230 alternatives, platform liability 2025, AI robotaxis Atlanta, Uber Waymo launch, Cooper Flagg NBA draft 2025, youth smartphone addiction, mailed HPV kits, cervical cancer screening at home, DOJ corruption investigations, Puerto Rico legal system updates",
 
   openGraph: {
-  title: "Nystate News – Trusted Breaking News in Politics, Business, Tech & Health",
-    description: "Get in-depth coverage on political prosecutions, tech accountability laws, self-driving cars, youth mental health, and more. Follow the latest developments on Wanda Vázquez, AI robotaxis, and Supreme Court rulings — all in one trusted source.",
+    title: "Nystate News – Coverage That Matters: Politics, Business, Health & Beyond",
+    description: "Stay updated with Nystate News – your reliable source for breaking headlines and expert analysis in politics, business, health, science, sports, entertainment, and education.",
     url: "https://nystatenews.org/",
     siteName: " Nystate News",
     images: [
@@ -52,8 +48,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Nystate News – Breaking Politics, Business, Tech & Health Stories",
-    description: "Breaking analysis on Wanda Vázquez, Brazil's top court vs Big Tech, AI robotaxis, youth mental health, and cancer screening at home.",
+    title: "Breaking News in Politics, Business, Health & More – Nystate News",
+    description:
+      "Follow Nystate News for trusted reporting and real-time updates on politics, business, health, science, education, and entertainment.",
     images: ["https://nystatenews.org/images/nystatenews-logo.webp"],
     site: "@nystatenews",
     creator: "@nystatenews",
@@ -82,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${elsie.variable}`} >
-      <Header />
+        <Header />
         {children}
         <Footer />
       </body>

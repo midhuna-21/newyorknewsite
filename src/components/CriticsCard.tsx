@@ -17,7 +17,7 @@ interface CriticsCardProps {
 
 const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
   return (
-    <div style={{ fontFamily: 'Georgia, serif', paddingTop: '1rem', paddingBottom: '1rem' }}>
+    <div style={{ fontFamily: 'Georgia, serif', paddingBottom: '1rem' }}>
       <Link
         title={data.slug}
         href={`/${data.category}/${data.slug}`}
@@ -25,7 +25,7 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
         style={{ color: 'inherit', display: 'block' }}
       >
 
-        {/* === Desktop version === */}
+        {/* Desktop view */}
         <div className="d-none d-lg-block text-center">
           <div
             style={{
@@ -71,6 +71,7 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
               margin: '-6px auto 12px',
               maxWidth: '600px',
             }}
+            className='hover-underline'
           >
             {data.title}
           </p>
@@ -106,7 +107,7 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* === Mobile/Tablet version === */}
+        {/* Mobile View */}
         <div className="d-block d-lg-none">
           <p
             style={{
@@ -132,6 +133,7 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
               margin: '0 0 6px 0',
               maxWidth: '100%',
             }}
+            className='hover-underline'
           >
             {data.title}
           </p>
