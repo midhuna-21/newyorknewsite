@@ -46,6 +46,7 @@ export default function TrumpCardComponent({ data }: TrumpCardComponentProps) {
           <Image
             src={data.image}
             alt={data.title}
+            title={data.title}
             width={400}
             height={270}
             style={{

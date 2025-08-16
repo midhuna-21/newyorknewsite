@@ -35,7 +35,7 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
             padding: '40px 24px',
           }}
         >
-          <h1
+          <p
             style={{
               fontSize: '12px',
               fontWeight: 400,
@@ -48,9 +48,9 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
             }}
           >
             {data.category}
-          </h1>
+          </p>
 
-          <h2
+          <h1
             style={{
               fontFamily: 'Georgia, serif',
               fontSize: 'clamp(22px, 5vw, 36px)',
@@ -62,7 +62,7 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
             }}
           >
             {data.title}
-          </h2>
+          </h1>
 
           <p
             style={{
@@ -110,7 +110,8 @@ export default function DetailFirst({ data }: { data: NewsItem }) {
           >
             <Image
               src={data.image}
-              alt={data.title}
+           alt={data.title}
+            title={data.title}
               fill
               style={{
                 objectFit: 'cover',

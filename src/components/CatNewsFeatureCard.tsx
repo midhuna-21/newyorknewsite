@@ -34,7 +34,8 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                         <div style={{ position: 'relative', width: '100%', height: '100%', aspectRatio: '17/12' }}>
                             <Image
                                 src={data.image}
-                                alt={data.title}
+                             alt={data.title}
+            title={data.title}
                                 layout="fill"
                                 objectFit="cover"
                                 priority={true}
@@ -52,18 +53,17 @@ const CatNewsFeatureCard = ({ data }: NewsCardProps) => {
                         >
                             <div style={{ textAlign: 'center', maxWidth: '600px' }}>
 
-                                <h2
+                                <p
                                     className='hover-underline'
                                     style={{
                                         fontFamily: '"Georgia", serif',
                                         fontSize: 'clamp(18px, 2vw, 26px)',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '1px',
+                                            textTransform: 'uppercase',
                                         fontWeight: 400,
                                         marginBottom: '10px'
                                     }}>
                                     {data.title.toUpperCase()}
-                                </h2>
+                                </p>
 
                                 <p style={{
                                     color: 'rgb(51, 51, 51)',

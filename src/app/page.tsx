@@ -44,7 +44,7 @@ export default function Home() {
               name: "Business,Politics, Technology, Health, Science, Sports, Entertainment, Education",
               description:
                 "Stay informed with the latest breaking news, global business trends, financial strategies, investment opportunities, and expert market analysis.",
-              url: "https://nystatenews.org/",
+              url: "https://www.nystatenews.org/",
               speakable: {
                 "@type": "SpeakableSpecification",
                 cssSelector: ["h1"],
@@ -64,13 +64,13 @@ export default function Home() {
           __html: JSON.stringify(
             {
               "@context": "https://schema.org",
-              "@type": "ItemList",
-              url: "https://nystatenews.org/",
+              "@type": "NewsMediaOrganization ",
+              url: "https://www.nystatenews.org/",
               numberOfItems: 5,
               itemListOrder: "http://schema.org/ItemListOrderAscending",
               mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://nystatenews.org/",
+                "@id": "https://www.nystatenews.org/",
               },
 
 

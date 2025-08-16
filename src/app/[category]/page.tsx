@@ -64,7 +64,7 @@ export default async function CategoryPage({
         <CategoryNavbar />
       </div>
 
-      <div className="container py-5" style={{ marginTop: '22px' }}>
+      <div className="container py-5" style={{ marginTop:'22px' }}>
         <CatNewsFeatureCard data={data[0]} />
 
         <SectionWrapper title="Reporting & News">

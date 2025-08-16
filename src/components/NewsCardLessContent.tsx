@@ -63,7 +63,8 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
             <div style={{ width: '100px', height: '100px', position: 'relative', flexShrink: 0 }}>
               <Image
                 src={data.image}
-                alt={data.title}
+             alt={data.title}
+            title={data.title}
                 width={100}
                 height={100}
                 style={{ objectFit: 'cover', display: 'block' }}
@@ -76,7 +77,8 @@ const NewsCardLessContent = ({ data }: NewsCardProps) => {
         <div className="d-none d-lg-block" style={{ maxWidth: '300px', margin: '0 auto' }}>
           <Image
             src={data.image}
-            alt={data.title}
+         alt={data.title}
+            title={data.title}
             width={400}
             height={300}
             style={{

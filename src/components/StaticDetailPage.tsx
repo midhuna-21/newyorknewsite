@@ -7,6 +7,7 @@ import DetailFirst from '@/components/DetailFirst';
 import CategoryNavbar from '@/components/CategoryNavbar';
 import SecondHeader from '@/components/SecondHeader';
 import StaticContent from './StaticContent';
+import Script from 'next/script';
 
 
 export default async function StaticDetailPage() {
@@ -45,6 +46,36 @@ export default async function StaticDetailPage() {
 
     return (
         <div>
+            <Script
+                id={`schema-featured-${article.slug}`}
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "NewsArticle",
+                        headline: article.title,
+                        datePublished: article.date,
+                        image: [article.image],
+                        author: {
+                            "@type": "Person",
+                            name: "NY State News",
+                        },
+                        publisher: {
+                            "@type": "Organization",
+                            name: "NY State News",
+                            logo: {
+                                "@type": "ImageObject",
+                                url: "https://www.nystatenews.org/nystatenews-card.webp",
+                            },
+                        },
+                        mainEntityOfPage: {
+                            "@type": "WebPage",
+                            "@id": `https://www.nystatenews.org/${article.category}/${article.slug}`,
+                        },
+                    }),
+                }}
+            />
             {/* <SecondHeader /> */}
 
             <div className="d-none d-lg-block">

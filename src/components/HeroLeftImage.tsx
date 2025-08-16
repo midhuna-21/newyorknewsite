@@ -41,7 +41,8 @@ export default function HeroLeftImage({ data }: HeroLeftImageProps) {
             <div style={{ height: '100%', width: '100%' }}>
               <Image
                 src={data.image}
-                alt={data.title}
+             alt={data.title}
+            title={data.title}
                 width={700}
                 height={500}
                 className="img-fluid"
@@ -101,7 +102,7 @@ export default function HeroLeftImage({ data }: HeroLeftImageProps) {
               >
                 {data.title}
               </h2>
-              <h2
+              <p
                 className="d-block d-md-none text-uppercase"
                 style={{
                 fontFamily: 'Georgia, serif',
@@ -111,9 +112,8 @@ export default function HeroLeftImage({ data }: HeroLeftImageProps) {
                 }}
               >
                 {data.title}
-              </h2>
+              </p>
 
-              {/* Short Description */}
               <p
                 className="d-none d-md-block"
               style={{

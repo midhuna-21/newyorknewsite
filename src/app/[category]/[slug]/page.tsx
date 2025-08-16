@@ -21,6 +21,7 @@ import StaticDetailPage from '@/components/StaticDetailPage';
 import DateDisplay from '@/components/DateDisplay';
 
 
+
 export async function generateStaticParams() {
   const allData = [
     { category: 'politics', articles: politicsData },
@@ -87,7 +88,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
   const articles = allDataMap[category] || [];
   const article = articles.find((a) => a.slug === slug);
 
-  const siteUrl = 'https://nystatenews.org/';
+  const siteUrl = 'https://www.nystatenews.org/';
   const currentUrl = `${siteUrl}/${category}/${slug}`;
   const imageUrl = article?.image?.startsWith('http') ? article.image : `${siteUrl}${article?.image}`;
 
@@ -100,14 +101,14 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
 
   if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {
     return {
-      title: 'Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting',
-      description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.',
+      title: 'Wanda Vázquez Charges Dropped Amid Targeting Claims',
+      description: 'Federal charges against ex-Governor Wanda Vázquez dropped; replaced with a minor violation.',
       keywords: 'Wanda Vázquez Garced, Wanda vázquez cleared, A Three-Year Saga Ends in Exoneration, Legal Experts Cite “Face-Saving” by DOJ, Political Overtones and Claims of Targeting,Co-Defendant’s Case Also Resolved',
       authors: [{ name: 'Published by the NY State News Staff' }],
       alternates: { canonical: "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/" },
       openGraph: {
-        title: 'Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting',
-        description: 'All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.',
+        title: 'Wanda Vázquez Charges Dropped Amid Targeting Claims',
+        description: 'Wanda Vázquez cleared of all federal charges after three-year legal battle.',
         url: currentUrl,
         siteName: 'Nystate News',
         images: [
@@ -205,6 +206,8 @@ export default async function DetailPage({ params }: DetailPageProps) {
   if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {
     return (
       <main>
+        
+
         <StaticDetailPage />
       </main>
     );

@@ -82,7 +82,8 @@ export default function HeroMiniCards({ data }: HeroMiniCardProps) {
         >
           <Image
             src={data.image}
-            alt="Thumbnail"
+         alt={data.title}
+            title={data.title}
             width={60}
             height={60}
             style={{

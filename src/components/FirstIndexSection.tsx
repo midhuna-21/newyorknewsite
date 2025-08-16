@@ -71,7 +71,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
               >
                 {data.title}
               </h1>
-              <h1
+              <p
                 className="d-block d-sm-none hover-underline"
                 style={{
                   fontFamily: 'Georgia, serif',
@@ -83,7 +83,7 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
                 }}
               >
                 {data.title}
-              </h1>
+              </p>
             </Link>
 
             <p
@@ -172,7 +172,8 @@ const FirstIndexSection: React.FC<Props> = ({ data }) => {
             >
               <Image
                 src={data.image}
-                alt={data.title}
+             alt={data.title}
+            title={data.title}
                 fill
                 priority={true}
                 style={{

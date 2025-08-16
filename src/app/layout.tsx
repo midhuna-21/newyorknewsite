@@ -25,19 +25,19 @@ const elsie = Elsie({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nystatenews.org/"),
-  title: "Nystate News – Trusted Breaking News in Politics, Business & Health",
+  metadataBase: new URL("https://www.nystatenews.org/"),
+  title: "Nystate News: Fast Updates on Politics, Health & More",
   description: "Nystate News delivers breaking headlines and expert analysis across politics, business, health, sports, science, entertainment, and education.",
   keywords: "Puerto Rico political targeting, Brazil Supreme Court social media ruling,Wanda Vázquez Garced news, Section 230 alternatives, platform liability 2025, AI robotaxis Atlanta, Uber Waymo launch, Cooper Flagg NBA draft 2025, youth smartphone addiction, mailed HPV kits, cervical cancer screening at home, DOJ corruption investigations, Puerto Rico legal system updates",
 
   openGraph: {
     title: "Nystate News – Coverage That Matters: Politics, Business, Health & Beyond",
     description: "Stay updated with Nystate News – your reliable source for breaking headlines and expert analysis in politics, business, health, science, sports, entertainment, and education.",
-    url: "https://nystatenews.org/",
+    url: "https://www.nystatenews.org/",
     siteName: " Nystate News",
     images: [
       {
-        url: "https://nystatenews.org/images/nystatenews-card.webp",
+        url: "https://www.nystatenews.org/images/nystatenews-card.webp",
         width: 1200,
         height: 630,
         alt: " Nystate News logo",
@@ -51,16 +51,16 @@ export const metadata: Metadata = {
     title: "Breaking News in Politics, Business, Health & More – Nystate News",
     description:
       "Follow Nystate News for trusted reporting and real-time updates on politics, business, health, science, education, and entertainment.",
-    images: ["https://nystatenews.org/images/nystatenews-card.webp"],
+    images: ["https://www.nystatenews.org/images/nystatenews-card.webp"],
     site: "@nystatenews",
     creator: "@nystatenews",
   },
 
   alternates: {
-    canonical: "https://nystatenews.org/",
+    canonical: "https://www.nystatenews.org/",
     languages: {
-      en: "https://nystatenews.org/",
-      "x-default": "https://nystatenews.org/",
+      en: "https://www.nystatenews.org/",
+      "x-default": "https://www.nystatenews.org/",
     },
   },
 

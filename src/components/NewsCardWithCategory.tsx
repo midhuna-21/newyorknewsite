@@ -28,7 +28,8 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
         <div className="d-none d-lg-block">
           <Image
             src={data.image}
-            alt={data.title}
+         alt={data.title}
+            title={data.title}
             width={400}
             height={300}
             style={{
@@ -171,7 +172,8 @@ const NewsCardWithCategory: React.FC<NewsCardProps> = ({ data }) => {
             >
               <Image
                 src={data.image}
-                alt={data.title}
+             alt={data.title}
+            title={data.title}
                 width={100}
                 height={100}
                 style={{

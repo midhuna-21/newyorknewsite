@@ -14,7 +14,7 @@ interface FeaturedStoryProps {
   };
 }
 
-export default function  FeaturedStory({ data }: FeaturedStoryProps) {
+export default function FeaturedStory({ data }: FeaturedStoryProps) {
   return (
     <div className="py-5" >
       <div style={{ backgroundColor: '#f8f6f1', padding: '20px' }}>
@@ -33,24 +33,31 @@ export default function  FeaturedStory({ data }: FeaturedStoryProps) {
             >
               {data.category}
             </p>
-
-            <h2
-              style={{
-                fontFamily: '"Georgia", serif',
-                fontSize: '22px',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                fontWeight: 400,
-                marginBottom: '10px',
-              }}
-              className='hover-underline'
+            <Link
+              title={`${data.slug}`}
+              href={`/${data.category}/${data.slug}`}
+              className='text-decoration-none'
+              style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit' }}
             >
-              "{data.title}"
-            </h2>
 
+              <h2
+                style={{
+                  fontFamily: '"Georgia", serif',
+                  fontSize: '22px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  fontWeight: 400,
+                  marginBottom: '10px',
+                }}
+                className='hover-underline'
+              >
+                "{data.title}"
+              </h2>
+            </Link>
             <Image
               src={data.image}
               alt={data.title}
+              title={data.title}
               width={300}
               height={450}
               style={{
@@ -63,20 +70,18 @@ export default function  FeaturedStory({ data }: FeaturedStoryProps) {
               }}
               className="img-fluid"
             />
-
-
-             <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                             <BiCalendar
-                               size={10}
-                               style={{ marginRight: '4px', color: '#000' }}
-                             />
-                             <span style={{ color: '#000', fontWeight: 500, fontSize: '8px' }}>
-                               Published on
-                             </span>
-                             <span style={{ color: '#000', marginLeft: '4px', fontSize: '8px' }}>
-                               {data.date}
-                             </span>
-                           </div>
+            <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <BiCalendar
+                size={10}
+                style={{ marginRight: '4px', color: '#000' }}
+              />
+              <span style={{ color: '#000', fontWeight: 500, fontSize: '8px' }}>
+                Published on
+              </span>
+              <span style={{ color: '#000', marginLeft: '4px', fontSize: '8px' }}>
+                {data.date}
+              </span>
+            </div>
           </div>
 
           <div className="col-12 col-lg-6">
@@ -102,7 +107,7 @@ export default function  FeaturedStory({ data }: FeaturedStoryProps) {
             </p>
 
             <Link
-            title={`${data.slug}`}
+              title={`${data.slug}`}
               href={`/${data.category}/${data.slug}`}
               style={{
                 color: '#0059A9',

@@ -42,7 +42,8 @@ export default function DailyNews({ data }: DailyNewsProps) {
   >
     <Image
       src={data.image}
-      alt={data.title}
+   alt={data.title}
+            title={data.title}
       width={500}
       height={350}
       className="img-fluid"

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import { BiCalendar } from 'react-icons/bi';
+import Image from 'next/image';
+
 
 interface NewsCardProps {
   data: {
@@ -38,9 +40,12 @@ const NewsCenteredText = ({ data }: NewsCardProps) => {
             width: '100%',
           }}
         >
-          <img
+          <Image
             src={data.image}
-            alt={data.title}
+         alt={data.title}
+            title={data.title}
+            width={800}
+            height={600}
             style={{
               aspectRatio: '4 / 3',
               objectFit: 'cover',
@@ -48,10 +53,12 @@ const NewsCenteredText = ({ data }: NewsCardProps) => {
               height: 'auto',
               borderRadius: '0',
             }}
+            sizes="(max-width: 768px) 100vw, 800px"
           />
 
+
           <div style={{ padding: '20px 0 0 0', textAlign: 'center' }}>
-            <h3
+            <p
               style={{
                 color: '#000',
                 fontFamily: 'TNYAdobeCaslonPro, "Times New Roman", Times, serif',
@@ -62,7 +69,7 @@ const NewsCenteredText = ({ data }: NewsCardProps) => {
               className='hover-underline'
             >
               {data.title}
-            </h3>
+            </p>
 
             <p
               style={{

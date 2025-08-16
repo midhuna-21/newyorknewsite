@@ -38,7 +38,8 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
           >
             <Image
               src={data.image}
-              alt={data.title}
+           alt={data.title}
+            title={data.title}
               width={200}
               height={270}
               style={{ objectFit: 'cover' }}
@@ -170,7 +171,8 @@ const TheCritics: React.FC<CriticsCardProps> = ({ data }) => {
             >
               <Image
                 src={data.image}
-                alt={data.title}
+             alt={data.title}
+            title={data.title}
                 width={100}
                 height={100}
                 style={{ objectFit: 'cover', display: 'block' }}

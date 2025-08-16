@@ -83,7 +83,8 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
             >
               <Image
                 src={data.image}
-                alt={data.title}
+             alt={data.title}
+            title={data.title}
                 width={100}
                 height={100}
                 style={{
@@ -107,7 +108,8 @@ const NewsMiniFeatureCard = ({ data }: NewsCardProps) => {
             >
               <Image
                 src={data.image}
-                alt={data.title}
+             alt={data.title}
+            title={data.title}
                 width={140}
                 height={140}
                 style={{

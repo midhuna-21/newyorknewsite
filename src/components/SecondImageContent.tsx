@@ -68,18 +68,18 @@ const TextAndImage: React.FC<{ data: NewsData }> = ({ data }) => (
         backgroundColor: '#000',
       }}
     >
-      <h2
+      <p
         className="text-uppercase mb-2 d-none d-md-block"
         style={{ fontFamily: 'Georgia, serif', fontSize: '1rem', fontWeight: 400 }}
       >
         {data.category}
-      </h2>
-      <h2
+      </p>
+      <p
         className="text-uppercase mb-2 d-block d-md-none"
         style={{ fontFamily: 'Georgia, serif', fontSize: '0.75rem', fontWeight: 400 }}
       >
         {data.category}
-      </h2>
+      </p>
 
       <p
         className="text-uppercase mb-2 d-none d-md-block"
@@ -135,7 +135,8 @@ const TextAndImage: React.FC<{ data: NewsData }> = ({ data }) => (
     >
       <Image
         src={data.image}
-        alt={data.title ?? 'Image'}
+     alt={data.title}
+            title={data.title}
         width={300}
         height={200}
         style={{ width: '100%', height: '100%', objectFit: 'cover' }}

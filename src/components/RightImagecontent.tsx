@@ -33,7 +33,8 @@ export default function RightImageContent({ data }: { data: NewsItem }) {
           >
             <Image
               src={data.image}
-              alt={data.title}
+           alt={data.title}
+            title={data.title}
               width={650}
               height={850}
               className="img-fluid"

@@ -41,13 +41,11 @@ export default function Footer() {
             </div>
           </Col>
 
-          {/* Link Sections */}
           <Col xs={12} md={8}>
             <div
               className="d-flex flex-wrap gap-4 px-2"
               style={{ justifyContent: 'start' }}
             >
-              {/* Categories Column 1 */}
               <div style={{ minWidth: '120px' }}>
                 <h3
                   style={{
@@ -73,7 +71,6 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Categories Column 2 */}
               <div style={{ minWidth: '120px' }}>
                 <h3
                   className="invisible"
@@ -99,7 +96,6 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* About Section */}
               <div style={{ minWidth: '160px' }}>
                 <h3
                   style={{
@@ -129,7 +125,6 @@ export default function Footer() {
 
         <hr style={{ backgroundColor: '#444', margin: '30px 0' }} />
 
-        {/* Bottom Row */}
         <Row className="align-items-center text-center text-md-start">
           <Col md={9} className="mb-3 mb-md-0">
             <p
@@ -141,11 +136,7 @@ export default function Footer() {
                 lineHeight: '1.6',
               }}
             >
-              <span className="d-none d-sm-inline">
-                © 2025 nystatenews. All rights reserved. Content may not be reproduced or
-                distributed without permission. Some links may earn us a commission through affiliate partnerships.
-              </span>
-              <span className="d-inline d-sm-none" style={{ fontSize: '0.7rem' }}>
+              <span style={{ fontSize: '0.7rem' }}>
                 © 2025 nystatenews. All rights reserved.
               </span>
             </p>
@@ -153,9 +144,9 @@ export default function Footer() {
 
           <Col md={3}>
             <div className="d-flex justify-content-center justify-content-md-end gap-3 flex-wrap mt-2 mt-md-0">
-              <a href="#" aria-label="Instagram"><FaInstagram color="#fff" /></a>
+              {/* <a href="#" aria-label="Instagram"><FaInstagram color="#fff" /></a> */}
               <a href="https://x.com/NYSN_Official" aria-label="Twitter"><FaXTwitter color="#fff" /></a>
-              <a href="#" aria-label="Facebook"><FaFacebookF color="#fff" /></a>
+              {/* <a href="#" aria-label="Facebook"><FaFacebookF color="#fff" /></a> */}
             </div>
           </Col>
         </Row>

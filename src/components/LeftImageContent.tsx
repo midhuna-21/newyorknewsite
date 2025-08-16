@@ -44,7 +44,8 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
             >
               <Image
                 src={data.image}
-                alt={data.title}
+             alt={data.title}
+            title={data.title}
                 fill
                 style={{
                   objectFit: 'cover',
@@ -82,7 +83,7 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
               {data.title}
             </h2>
 
-            <h2
+            <p
               className="d-block d-lg-none hover-underline"
               style={{
                 fontFamily: 'Georgia, serif',
@@ -93,7 +94,7 @@ const LeftImageContent = ({ data }: { data: NewsData }) => {
               }}
             >
               {data.title}
-            </h2>
+            </p>
 
 
             <p

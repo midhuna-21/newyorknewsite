@@ -49,7 +49,8 @@ const NewsCard = ({ data }: NewsCardProps) => {
           >
             <Image
               src={data.image}
-              alt={data.title}
+           alt={data.title}
+            title={data.title}
               width={480}
               height={270}
               style={{

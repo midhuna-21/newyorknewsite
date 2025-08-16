@@ -127,17 +127,16 @@ const HeroImageSection: React.FC<Props> = ({ data }) => {
               {data.category}
             </p>
 
-            <h2
+            <p
               className="text-uppercase mb-3"
               style={{
                 fontFamily: 'Georgia, serif',
                 fontSize: '22px',
-                letterSpacing: '1px',
                 fontWeight: 400,
               }}
             >
               {data.title}
-            </h2>
+            </p>
 
             <p
               className="mb-3"
