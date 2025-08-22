@@ -16,7 +16,7 @@ const ArticleParagraphWith = ({ data }: ArticleParagraphProps) => {
 
   for (let i = 0; i < sentences.length; i += 3) {
     const chunk = sentences.slice(i, i + 3).join('. ') + '.';
-    paragraphs.push(chunk);
+    paragraphs.push(chunk); 
   }
 
   return (

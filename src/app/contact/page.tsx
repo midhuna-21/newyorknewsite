@@ -56,7 +56,7 @@ export default function ContactPage() {
                     borderBottom: '2px solid #1a1a1a'
                   }}
                 >
-                  nystatenews@proton.me
+                  contact@nystatenews.org
                 </a>
               </div>
             </div>

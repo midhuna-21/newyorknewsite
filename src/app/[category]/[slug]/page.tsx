@@ -19,8 +19,7 @@ import SecondHeader from '@/components/SecondHeader';
 import { Metadata } from 'next';
 import StaticDetailPage from '@/components/StaticDetailPage';
 import DateDisplay from '@/components/DateDisplay';
-
-
+import Script from "next/script";
 
 export async function generateStaticParams() {
   const allData = [
@@ -206,7 +205,78 @@ export default async function DetailPage({ params }: DetailPageProps) {
   if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {
     return (
       <main>
-        
+        <Script
+          id={`structured-data-${category}`}
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "NewsArticle",
+                    "@id": "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/#article",
+                    "mainEntityOfPage": {
+                      "@id": "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/#webpage"
+                    },
+                    "headline": "Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting",
+                    "description": "All federal charges against former Puerto Rico Governor Wanda Vázquez have been dropped, with prosecutors replacing them with a minor campaign finance violation — ending a three-year legal battle without a corruption conviction.",
+                    "image": {
+                      "@type": "ImageObject",
+                      "url": "https://www.nystatenews.org/images/wanda-vazquez-political-targeting01.webp",
+                      "width": 600,
+                      "height": 400
+                    },
+                    "datePublished": "2025-07-05T09:15:00-04:00",
+                    "dateModified": "2025-08-22T14:30:00-04:00",
+                    "author": {
+                      "@type": "Organization",
+                      "name": " NY State News Staff",
+                      "url": "https://www.nystatenews.org/our-team/staff/"
+                    },
+                    "publisher": {
+                      "@id": "https://www.nystatenews.org/#organization"
+                    },
+                    "articleSection": "Politics"
+                  },
+                  {
+                    "@type": "WebPage",
+                    "@id": "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/#webpage",
+                    "url": "https://www.nystatenews.org/politics/charges-dropped-wanda-vazquez-political-targeting/",
+                    "name": "Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting | NY State News",
+                    "isPartOf": {
+                      "@id": "https://www.nystatenews.org/#website"
+                    },
+                    "inLanguage": "en-US"
+                  },
+                  {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                      {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://www.nystatenews.org/"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Politics",
+                        "item": "https://www.nystatenews.org/politics/"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Charges Dropped for Wanda Vázquez Amid Claims of Political Targeting"
+                      }
+                    ]
+                  }
+                ]
+              }
+            )
+          }}
+        />
 
         <StaticDetailPage />
       </main>

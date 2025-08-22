@@ -87,6 +87,7 @@
                       (e.currentTarget as HTMLImageElement).src = '/images/fallback-logo.png';
                     }}
                   />
+                 
                 </Link>
 
                 <Button

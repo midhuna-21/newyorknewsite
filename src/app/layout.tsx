@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     description:
       "Follow Nystate News for trusted reporting and real-time updates on politics, business, health, science, education, and entertainment.",
     images: ["https://www.nystatenews.org/images/nystatenews-card.webp"],
-    site: "@nystatenews",
-    creator: "@nystatenews",
+    site: "Nystatenews",
+    creator: "@NYSN_Official",
   },
 
   alternates: {
