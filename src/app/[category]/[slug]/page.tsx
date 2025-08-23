@@ -257,7 +257,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://www.nystatenews.org/"
+                        "item": "https://www.nystatenews.org"
                       },
                       {
                         "@type": "ListItem",

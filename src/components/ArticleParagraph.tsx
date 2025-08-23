@@ -36,7 +36,6 @@ const ArticleParagraphWith = ({ data }: ArticleParagraphProps) => {
             lineHeight: 1.6,
             color: '#000',
             marginBottom: '1.2rem',
-            textAlign: 'justify',
           }}
         >
           {index === 0 ? (

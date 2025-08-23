@@ -25,7 +25,7 @@ const elsie = Elsie({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.nystatenews.org/"),
+  metadataBase: new URL("https://www.nystatenews.org"),
   title: "Nystate News: Fast Updates on Politics, Health & More",
   description: "Nystate News delivers breaking headlines and expert analysis across politics, business, health, sports, science, entertainment, and education.",
   keywords: "Puerto Rico political targeting, Brazil Supreme Court social media ruling,Wanda Vázquez Garced news, Section 230 alternatives, platform liability 2025, AI robotaxis Atlanta, Uber Waymo launch, Cooper Flagg NBA draft 2025, youth smartphone addiction, mailed HPV kits, cervical cancer screening at home, DOJ corruption investigations, Puerto Rico legal system updates",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nystate News – Coverage That Matters: Politics, Business, Health & Beyond",
     description: "Stay updated with Nystate News – your reliable source for breaking headlines and expert analysis in politics, business, health, science, sports, entertainment, and education.",
-    url: "https://www.nystatenews.org/",
+    url: "https://www.nystatenews.org",
     siteName: " Nystate News",
     images: [
       {
@@ -57,10 +57,10 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://www.nystatenews.org/",
+    canonical: "https://www.nystatenews.org",
     languages: {
-      en: "https://www.nystatenews.org/",
-      "x-default": "https://www.nystatenews.org/",
+      en: "https://www.nystatenews.org",
+      "x-default": "https://www.nystatenews.org",
     },
   },
 

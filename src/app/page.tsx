@@ -32,7 +32,6 @@ import Script from "next/script";
 export default function Home() {
   return (
     <main>
-
       <Script
         id="structured-data-webpage"
         type="application/ld+json"
@@ -45,7 +44,7 @@ export default function Home() {
               name: "Business,Politics, Technology, Health, Science, Sports, Entertainment, Education",
               description:
                 "Stay informed with the latest breaking news, global business trends, financial strategies, investment opportunities, and expert market analysis.",
-              url: "https://www.nystatenews.org/",
+              url: "https://www.nystatenews.org",
               speakable: {
                 "@type": "SpeakableSpecification",
                 cssSelector: ["h1"],
@@ -70,7 +69,7 @@ export default function Home() {
                   "@type": "NewsMediaOrganization",
                   "@id": "https://www.nystatenews.org/#organization",
                   "name": "NY State News",
-                  "url": "https://www.nystatenews.org/",
+                  "url": "https://www.nystatenews.org",
                   "logo": {
                     "@type": "ImageObject",
                     "url": "https://www.nystatenews.org/images/nystatenews-logo.webp",
