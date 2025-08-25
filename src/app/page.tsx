@@ -110,7 +110,25 @@ export default function Home() {
       <NavbarWrapper />
       <div className="container py-lg-5 py-3">
         <div id="todays-news">
-          <SectionWrapper title="Latest News">
+            <div className="section-wrapper">
+      {/* <hr style={{ borderTop: '1px solid #ccc' }} /> */}
+      
+      <p
+        className="section-title text-center"
+        style={{
+          color: "#000",
+          fontFamily: '"Cinzel", serif',
+          fontWeight: 400,
+          fontSize: '28px',
+          textTransform: 'uppercase',
+        }}
+      >
+        LATEST NEWS
+      </p>
+
+     
+    </div>
+          <SectionWrapper title="">
             <HorizontalNewsCard data={[ScienceData[0], TechnologyData[0], SportsData[0], BusinessData[0]]} />
           </SectionWrapper>
         </div>
