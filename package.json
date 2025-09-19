@@ -4,10 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "optimize-images": "node scripts/optimize-images.js",
+    "optimize-images": "node",
     "build": "next build && node w3infoclear.js",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+
+    "build:analyze": "ANALYZE=true next build",
+    "perf:bundle": "npm run build:analyze",
+    
+    "perf:lighthouse": "npm run start & lighthouse https://nystatenews.org --output=json --output=html --output-path=./lighthouse-report",
+    
+    "perf:unused-css": "purgecss --css build/static/css/*.css --content build/**/*.js --info",
+    
+    "compress": "gzip -k build/static/js/*.js && gzip -k build/static/css/*.css"
+
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.4.3",

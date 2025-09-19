@@ -91,7 +91,7 @@ export default async function CategoryPage({
   params: Promise<{ category: string }>;
 }) {
   const { category } = await params;
-  const data = allData[category];
+  let data = allData[category];
 
   if (!data) {
     return (
@@ -100,6 +100,9 @@ export default async function CategoryPage({
       </div>
     );
   }
+
+  const excludedSlugs = ["bancredito-trusted-counsel-undoing"];
+  data = data.filter((item) => !excludedSlugs.includes(item.slug));
 
   return (
     <main>

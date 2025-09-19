@@ -32,77 +32,77 @@ import Script from "next/script";
 export default function Home() {
   return (
     <main>
-      <Script
-        id="structured-data-webpage"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            {
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              name: "Business,Politics, Technology, Health, Science, Sports, Entertainment, Education",
-              description:
-                "Stay informed with the latest breaking news, global business trends, financial strategies, investment opportunities, and expert market analysis.",
-              url: "https://www.nystatenews.org",
-              speakable: {
-                "@type": "SpeakableSpecification",
-                cssSelector: ["h1"],
-              },
-            },
-            null,
-            2
-          ),
-        }}
-      />
-
-      <Script
-        id="structured-data-webpage"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            {
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "NewsMediaOrganization",
-                  "@id": "https://www.nystatenews.org/#organization",
-                  "name": "NY State News",
-                  "url": "https://www.nystatenews.org",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://www.nystatenews.org/images/nystatenews-logo.webp",
-                    "width": 600,
-                    "height": 91
-                  },
-                  "sameAs": [
-                    "https://x.com/NYSN_Official"
-                  ],
-                  "contactPoint": {
-                    "@type": "ContactPoint",
-                    "contactType": "General Inquiries",
-                    "email": "contact@nystatenews.org"
-                  },
-                  "publishingPrinciples": "https://www.nystatenews.org/editorial-policy/",
-                  "ethicsPolicy": "https://www.nystatenews.org/editorial-policy/",
-                  "correctionsPolicy": "https://www.nystatenews.org/corrections/"
+        <Script
+          id="structured-data-webpage"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                name: "Business,Politics, Technology, Health, Science, Sports, Entertainment, Education",
+                description:
+                  "Stay informed with the latest breaking news, global business trends, financial strategies, investment opportunities, and expert market analysis.",
+                url: "https://www.nystatenews.org",
+                speakable: {
+                  "@type": "SpeakableSpecification",
+                  cssSelector: ["h1"],
                 },
-                {
-                  "@type": "WebSite",
-                  "@id": "https://www.nystatenews.org/#website",
-                  "url": "https://www.nystatenews.org/",
-                  "name": "NY State News",
-                  "description": "Nystate News delivers breaking headlines and expert analysis across politics, business, health, sports, science, entertainment, and education.",
-                  "publisher": {
-                    "@id": "https://www.nystatenews.org/#organization"
+              },
+              null,
+              2
+            ),
+          }}
+        />
+
+        <Script
+          id="structured-data-webpage"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "NewsMediaOrganization",
+                    "@id": "https://www.nystatenews.org/#organization",
+                    "name": "NY State News",
+                    "url": "https://www.nystatenews.org",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": "https://www.nystatenews.org/images/nystatenews-logo.webp",
+                      "width": 600,
+                      "height": 91
+                    },
+                    "sameAs": [
+                      "https://x.com/NYSN_Official"
+                    ],
+                    "contactPoint": {
+                      "@type": "ContactPoint",
+                      "contactType": "General Inquiries",
+                      "email": "contact@nystatenews.org"
+                    },
+                    "publishingPrinciples": "https://www.nystatenews.org/editorial-policy/",
+                    "ethicsPolicy": "https://www.nystatenews.org/editorial-policy/",
+                    "correctionsPolicy": "https://www.nystatenews.org/corrections/"
+                  },
+                  {
+                    "@type": "WebSite",
+                    "@id": "https://www.nystatenews.org/#website",
+                    "url": "https://www.nystatenews.org/",
+                    "name": "NY State News",
+                    "description": "Nystate News delivers breaking headlines and expert analysis across politics, business, health, sports, science, entertainment, and education.",
+                    "publisher": {
+                      "@id": "https://www.nystatenews.org/#organization"
+                    }
                   }
-                }
-              ]
-            }
-          ),
-        }}
-      />
+                ]
+              }
+            ),
+          }}
+        />
 
       <div id="first-section">
         <FirstIndexSection data={TechnologyData[16]} />
@@ -129,7 +129,7 @@ export default function Home() {
      
     </div>
           <SectionWrapper title="">
-            <HorizontalNewsCard data={[ScienceData[0], TechnologyData[0], SportsData[0], BusinessData[0]]} />
+            <HorizontalNewsCard data={[ScienceData[0], TechnologyData[0], SportsData[0], BusinessData[20]]} />
           </SectionWrapper>
         </div>
         <HeroImageSection data={HealthData[2]} />

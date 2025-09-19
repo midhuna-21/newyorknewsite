@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono,Poppins } from "next/font/google";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Elsie } from 'next/font/google';
 import Footer from "../components/Footer";
 import Header from "@/components/Header";
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +22,11 @@ const elsie = Elsie({
   variable: '--font-elsie',
 });
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nystatenews.org"),
@@ -37,7 +41,7 @@ export const metadata: Metadata = {
     siteName: " Nystate News",
     images: [
       {
-        url: "https://www.nystatenews.org/images/nystatenews-card.webp",
+        url: "https://www.nystatenews.org/images/nystatenews-logo.webp",
         width: 1200,
         height: 630,
         alt: " Nystate News logo",
@@ -78,7 +82,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${elsie.variable}`} >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${elsie.variable} ${poppins.className} `} >
         <Header />
         {children}
         <Footer />

@@ -496,3 +496,40 @@ a {
 
 
 }
+
+
+
+/* Custom light scrollbar */
+.table-responsive::-webkit-scrollbar {
+  height: 6px; /* horizontal scrollbar height */
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f1f1; /* light gray background */
+  border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #d6d6d6; /* lighter thumb */
+  border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf; /* slightly darker on hover */
+}
+
+/* For Firefox */
+.table-responsive {
+  scrollbar-width: thin;
+  scrollbar-color: #d6d6d6 #f1f1f1;
+}
+
+ .text-block {
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .text-block {
+    text-align: start;
+  }
+}

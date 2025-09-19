@@ -1,4 +1,12 @@
-[
+[  {
+    "category": "business",
+    "title": "Abandonment, Conflicted Loyalties, and Lost Opportunities: How Trusted Counsel Became Bancrédito’s Undoing",
+    "shortdescription": "Bancrédito’s downfall came not from fraud or insolvency but from the actions of its own legal advisors. Once deemed compliant, the bank collapsed within two years, ending in receivership and a $15 million FinCEN penalty.",
+    "description": "FinCEN quietly opened a federal BSA investigation in late 2019. Bancrédito retained Kobre & Kim to open a dialogue in Washington, while H&K and McConnell continued to run point before Puerto Rico’s regulator, OCIF. For eighteen months FinCEN stayed silent; H&K and McConnell treated the federal risk as remote and concentrated on beating back OCIF’s ever‑expanding document demands",
+    "image": "/images/bancredito-counsel-undoing.webp",
+    "slug": "bancredito-trusted-counsel-undoing",
+    "date": "17th Sept 2025"
+  },
   {
     "category": "business",
     "title": "Brazil Court: Social Platforms Can Be Liable for User Content",
@@ -173,7 +181,7 @@
   {
     "category": "business",
     "title": "Reviving the City: What Will It Take to Make UK Capital Markets Great Again?",
-    "shortdescription": "Once a dominant force in global finance, the UK’s capital markets have lost their shine in the post-Brexit era. Amid dwindling IPOs, regulatory stagnation, and talent flight, the question looms large: how can Britain reclaim its role as a top-tier financial hub?",
+    "shortdescription": "Post-Brexit, London’s markets struggle with fewer IPOs, stalled regulation, and talent loss—can the UK reclaim its financial hub status?",
     "date": "8th July 2025",
     "slug": "reviving-uk-capital-markets-post-brexit",
     "image": "/images/uk-capital-markets-revival.webp",

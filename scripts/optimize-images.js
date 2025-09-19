@@ -6,7 +6,7 @@ const inputDir = path.join(__dirname, '../public/images');
 
 fs.readdir(inputDir, (err, files) => {
   if (err) {
-    console.error(`❌ Image folder not found at: ${inputDir}`);
+    console.error(`Image folder not found at: ${inputDir}`);
     return;
   }
 
@@ -22,20 +22,20 @@ fs.readdir(inputDir, (err, files) => {
         .then(() => {
           fs.unlink(inputPath, (unlinkErr) => {
             if (unlinkErr) {
-              console.error(`❌ Delete failed: ${file}`, unlinkErr);
+              console.error(`Delete failed: ${file}`, unlinkErr);
               return;
             }
 
             fs.rename(tempPath, inputPath, (renameErr) => {
               if (renameErr) {
-                console.error(`❌ Rename failed: ${file}`, renameErr);
+                console.error(`Rename failed: ${file}`, renameErr);
               } else {
-                console.log(`✅ Optimized: ${file}`);
+                console.log(`Optimized: ${file}`);
               }
             });
           });
         })
-        .catch(err => console.error(`❌ Error optimizing ${file}:`, err));
+        .catch(err => console.error(`Error optimizing ${file}:`, err));
     }
   });
 });

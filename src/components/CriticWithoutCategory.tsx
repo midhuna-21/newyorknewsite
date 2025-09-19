@@ -18,12 +18,12 @@ interface CriticsCardProps {
 const CriticWithoutCategory: React.FC<CriticsCardProps> = ({ data }) => {
   return (
     <div style={{ fontFamily: 'Georgia, serif' }}>
-      <Link
-        title={data.slug}
-        href={`/${data.category}/${data.slug}`}
-        className="text-decoration-none"
-        style={{ color: 'inherit', display: 'block' }}
-      >
+        <Link
+          title={data.slug}
+          href={`/${data.category}/${data.slug}`}
+          className="text-decoration-none"
+          style={{ color: 'inherit', display: 'block' }}
+        >
         {/* Desktop view */}
         <div className="d-none d-lg-block text-center">
           <div
